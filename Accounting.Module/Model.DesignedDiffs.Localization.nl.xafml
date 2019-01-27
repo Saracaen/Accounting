@@ -1,0 +1,686 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application VersionFormat="Versie {0}.{1}.{2}" ProtectedContentText="Beschermde inhoud" AboutInfoString="{0:ProductName}&lt;br&gt;{0:Version}&lt;br&gt;{0:Copyright}&lt;br&gt;{0:Description}">
+  <ActionDesign>
+    <Actions>
+      <Action Id="Cancel" Caption="Annuleren" />
+      <Action Id="ClosePeriod" Caption="Periode afsluiten" />
+      <Action Id="CopyPredefinedReport" Caption="Kopieer ingebouwd rapport" />
+      <Action Id="CorrectInvoice" Caption="Corrigeren" ConfirmationMessage="U staat op het punt deze factuur handmatig te corrigeren. Wilt u doorgaan?" />
+      <Action Id="Delete" Caption="Verwijderen" ConfirmationMessage="U staat op het punt de geselecteerde records te verwijderen. Wilt u doorgaan?" />
+      <Action Id="Delete Item" ConfirmationMessage="U staat op het punt de geselecteerde items te verwijderen. Wilt u doorgaan?" />
+      <Action Id="Diagnostic Info" Caption="Diagnose" />
+      <Action Id="DialogCancel" Caption="Annuleren" />
+      <Action Id="DialogClose" Caption="Sluiten" />
+      <Action Id="FullTextSearch" Caption="Filteren op tekst" NullValuePrompt="Tekst om te zoeken..." ShortCaption="Zoeken" />
+      <Action Id="Link" Caption="Koppelen" />
+      <Action Id="ListViewShowObject" Caption="Openen" />
+      <Action Id="Logoff" Caption="Afmelden" />
+      <Action Id="Logon" Caption="Aanmelden" />
+      <Action Id="NavigateBack" Caption="Vorige" ToolTip="Navigeer naar het vorige scherm" />
+      <Action Id="NavigateForward" Caption="Volgende" ToolTip="Navigeer naar het volgende scherm" />
+      <Action Id="New" Caption="Nieuw">
+        <DisableReasons>
+          <Reason Id="MasterObjectIsNew" Caption="Het gewijzigde object is nieuw." />
+        </DisableReasons>
+      </Action>
+      <Action Id="NewDepreciation" Caption="Nieuw" />
+      <Action Id="NewVatDeclaration" Caption="Nieuw" />
+      <Action Id="NextObject" Caption="Volgend record" />
+      <Action Id="PayInvoice" Caption="Betalen" />
+      <Action Id="PayVatDeclaration" Caption="Betalen" />
+      <Action Id="PostDepreciation" Caption="Boeken" />
+      <Action Id="PostInvoice" Caption="Boeken" />
+      <Action Id="PostVatDeclaration" Caption="Boeken" />
+      <Action Id="PreviewReportV2" Caption="Voorbeeld" />
+      <Action Id="PreviousObject" Caption="Vorig record" />
+      <Action Id="Refresh" Caption="Verversen" />
+      <Action Id="ReportViewerDialogControllerV2_Close" Caption="Sluiten" />
+      <Action Id="ResetViewSettings" Caption="Herstel scherminstellingen" ConfirmationMessage="U staat op het punt alle instellingen voor het &quot;{0}&quot; scherm te herstellen. Wilt u doorgaan?" ToolTip="Herstelt alle instellingen voor het &quot;{0}&quot; scherm." />
+      <Action Id="RestoreInvoice" Caption="Herstellen" />
+      <Action Id="Save" Caption="Opslaan" />
+      <Action Id="SaveAndClose" Caption="Opslaan en sluiten" />
+      <Action Id="SaveAndNew" Caption="Opslaan en nieuw" />
+      <Action Id="SaveAndNewDepreciation" Caption="Opslaan en Nieuw" />
+      <Action Id="SaveAndNewVatDeclaration" Caption="Opslaan en Nieuw" />
+      <Action Id="SetFilter" Caption="Filteren" />
+      <Action Id="ShowAllContexts" Caption="Controleren" />
+      <Action Id="ShowInReportV2" Caption="Toon in rapport" ToolTip="Toon de geselecteerde records in een rapport" />
+      <Action Id="ShowNavigationItem" Caption="Navigatie" />
+      <Action Id="Unlink" Caption="Ontkoppelen" ConfirmationMessage="U staat op het punt de geselecteerde records te ontkoppelen. Wilt u doorgaan?" />
+      <Action Id="UnpostDepreciation" Caption="Boeking terugnemen" ConfirmationMessage="U staat op het punt de gelecteerde afschrijvingen terug te boeken. Wilt u doorgaan?" />
+      <Action Id="UnpostInvoice" Caption="Boeking terugnemen" ConfirmationMessage="U staat op het punt de gelecteerde facturen terug te boeken. Wilt u doorgaan?" />
+      <Action Id="UnpostVatDeclaration" Caption="Boeking terugnemen" ConfirmationMessage="U staat op het punt de gelecteerde BTW-aangifte(s) terug te boeken. Wilt u doorgaan?" />
+    </Actions>
+    <DisableReasons>
+      <Reason Id="Security" Caption="Toegang geweigerd" />
+    </DisableReasons>
+  </ActionDesign>
+  <BOModel>
+    <Class Name="DevExpress.ExpressApp.Editors.CriteriaProvider">
+      <OwnMembers>
+        <Member Name="FilterString" Caption="Filtertekst" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.ReportsV2.NewReportWizardParameters">
+      <OwnMembers>
+        <Member Name="DataType" Caption="Datatype" />
+        <Member Name="DisplayName" Caption="Weergavenaam" />
+        <Member Name="ReportType" Caption="Rapporttype" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.AboutInfo">
+      <OwnMembers>
+        <Member Name="Company" Caption="Bedrijf" />
+        <Member Name="Description" Caption="Omschrijving" />
+        <Member Name="ProductName" Caption="Productnaam" />
+        <Member Name="Version" Caption="Versie" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.DashboardCreationInfo">
+      <OwnMembers>
+        <Member Name="DashboardName" Caption="Naam" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.DashboardName">
+      <OwnMembers>
+        <Member Name="Name" Caption="Naam" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.DashboardOrganizationItem">
+      <OwnMembers>
+        <Member Name="Item" Caption="Boekstuk" />
+        <Member Name="Visibility" Caption="Zichtbaarheid" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.DiagnosticInfoObject">
+      <OwnMembers>
+        <Member Name="AsText" Caption="Als tekst" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.StaticImageDashboardOrganizationItem">
+      <OwnMembers>
+        <Member Name="Preview" Caption="Voorbeeld" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.StaticTextDashboardOrganizationItem" Caption="Statische tekst">
+      <OwnMembers>
+        <Member Name="Text" Caption="Tekst" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.ViewDashboardOrganizationItem" Caption="Scherm">
+      <OwnMembers>
+        <Member Name="ObjectType" Caption="Objecttype" />
+        <Member Name="ViewDescriptor" Caption="Scherm" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.Validation.AllContextsView.ContextValidationResult">
+      <OwnMembers>
+        <Member Name="BrokenRules" Caption="Gebroken regels" />
+        <Member Name="ContextValidationOutcome" Caption="Toestand" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.Validation.AllContextsView.DisplayableValidationResultItem">
+      <OwnMembers>
+        <Member Name="ErrorMessage" Caption="Foutmelding" />
+        <Member Name="Outcome" Caption="Toestand" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.Validation.AllContextsView.ValidationResults" Caption="Validatieresultaat">
+      <OwnMembers>
+        <Member Name="HighlightErrors" Caption="Markeer problemen" />
+        <Member Name="Results" Caption="Resultaten" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.BaseImpl.ReportDataV2" Caption="Rapport">
+      <OwnMembers>
+        <Member Name="DataTypeCaption" Caption="Datatype" />
+        <Member Name="DisplayName" Caption="Weergavenaam" />
+        <Member Name="IsInplaceReport" Caption="Snel beschikbaar rapport" />
+        <Member Name="IsPredefined" Caption="Ingebouwd" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.IRuleBaseProperties">
+      <OwnMembers>
+        <Member Name="Name" Caption="Naam" />
+        <Member Name="ResultType" Caption="Resultaattype" />
+        <Member Name="TargetType" Caption="Doeltype" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.IRuleRangeProperties">
+      <OwnMembers>
+        <Member Name="MaximumValue" Caption="Maximale waarde" />
+        <Member Name="MinimumValue" Caption="Minimale waarde" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.IRuleRegularExpressionProperties">
+      <OwnMembers>
+        <Member Name="Pattern" Caption="Patroon" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.RuleBaseProperties">
+      <OwnMembers>
+        <Member Name="Name" Caption="Naam" />
+        <Member Name="ResultType" Caption="Resultaattype" />
+        <Member Name="TargetType" Caption="Doeltype" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.RuleRangeProperties">
+      <OwnMembers>
+        <Member Name="MaximumValue" Caption="Maximale waarde" />
+        <Member Name="MinimumValue" Caption="Minimale waarde" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.RuleRegularExpressionProperties">
+      <OwnMembers>
+        <Member Name="Pattern" Caption="Patroon" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.RuleSetValidationResultItem">
+      <OwnMembers>
+        <Member Name="ErrorMessage" Caption="Foutmelding" />
+        <Member Name="ValidationOutcome" Caption="Toestand" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.Account" Caption="Grootboekrekening">
+      <OwnMembers>
+        <Member Name="Balance" Caption="Saldo" />
+        <Member Name="Category" Caption="Categorie" />
+        <Member Name="Company" Caption="Bedrijf" />
+        <Member Name="JournalEntryLines" Caption="Boekingsregels" />
+        <Member Name="Name" Caption="Naam" />
+        <Member Name="Type" Caption="Soort" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.AssetAccount" Caption="Activarekening">
+      <OwnMembers>
+        <Member Name="DefaultVatRate" Caption="Standaard BTW-tarief" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.BankAccount" Caption="Bankrekening" />
+    <Class Name="Accounting.Module.BusinessObjects.CashAccount" Caption="Kasrekening" />
+    <Class Name="Accounting.Module.BusinessObjects.Company" Caption="Bedrijf">
+      <OwnMembers>
+        <Member Name="AccountNumber" Caption="Rekeningnummer" />
+        <Member Name="VatDeclarationType" Caption="BTW-aangiftesoort:" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.CreditCardAccount" Caption="Creditcardrekening" />
+    <Class Name="Accounting.Module.BusinessObjects.CustomerAccount" Caption="Klantenrekening" />
+    <Class Name="Accounting.Module.BusinessObjects.Depreciation" Caption="Afschrijving">
+      <OwnMembers>
+        <Member Name="DepreciationTime" Caption="Afschrijftijd" />
+        <Member Name="Description" Caption="Omschrijving" />
+        <Member Name="Lines" Caption="Afschrijvingsregels" />
+        <Member Name="ResidualValue" Caption="Restwaarde" />
+        <Member Name="StartDate" Caption="Startdatum" />
+        <Member Name="Value" Caption="Waarde" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.DepreciationExpenseAccount" Caption="Afschrijvingskostenrekening" />
+    <Class Name="Accounting.Module.BusinessObjects.DepreciationLine" Caption="Afschrijvingsregel">
+      <OwnMembers>
+        <Member Name="Amount" Caption="Bedrag" />
+        <Member Name="Date" Caption="Datum" />
+        <Member Name="Depreciation" Caption="Afschrijving" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.EquityAccount" Caption="Vermogensrekening" />
+    <Class Name="Accounting.Module.BusinessObjects.ExpenseAccount" Caption="Kostenrekening">
+      <OwnMembers>
+        <Member Name="DefaultVatRate" Caption="Standaard BTW-tarief" />
+        <Member Name="PercentageDeductible" Caption="Percentage aftrekbaar" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.Identifier" Caption="Volgnummer">
+      <OwnMembers>
+        <Member Name="Decimals" Caption="Decimalen" />
+        <Member Name="Prefix" Caption="Voorvoegsel" />
+        <Member Name="StartValue" Caption="Startwaarde" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.IncomeAccount" Caption="Opbrengstenrekening">
+      <OwnMembers>
+        <Member Name="DefaultVatRate" Caption="Standaard BTW-tarief" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.InputVatAccount" Caption="Voorbelastingsrekening" />
+    <Class Name="Accounting.Module.BusinessObjects.Invoice" Caption="Factuur">
+      <OwnMembers>
+        <Member Name="Date" Caption="Factuurdatum" />
+        <Member Name="DueAmount" Caption="Openstaand bedrag" />
+        <Member Name="DueDate" Caption="Vervaldatum" />
+        <Member Name="Identifier" Caption="Factuurnummer" />
+        <Member Name="IsVatIncluded" CaptionForTrue="Ja" CaptionForFalse="Nee" Caption="Inclusief BTW" />
+        <Member Name="Lines" Caption="Factuurregels" />
+        <Member Name="PaidDate" Caption="Betaaldatum" />
+        <Member Name="PaymentTerm" Caption="Betalingstermijn" />
+        <Member Name="Reference" Caption="Kenmerk" />
+        <Member Name="SubTotal" Caption="Subtotaal" />
+        <Member Name="Total" Caption="Totaal" />
+        <Member Name="Type" Caption="Soort" />
+        <Member Name="Vat" Caption="BTW" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.InvoiceLine" Caption="Factuurregel">
+      <OwnMembers>
+        <Member Name="Account" Caption="Grootboekrekening" />
+        <Member Name="Description" Caption="Omschrijving" />
+        <Member Name="Quantity" Caption="Aantal" />
+        <Member Name="SubTotal" Caption="Subtotaal" />
+        <Member Name="Total" Caption="Totaal" />
+        <Member Name="UnitPrice" Caption="Stukprijs" />
+        <Member Name="Vat" Caption="BTW" />
+        <Member Name="VatRate" Caption="BTW-tarief" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.JournalEntry" Caption="Boeking">
+      <OwnMembers>
+        <Member Name="Amount" Caption="Bedrag" />
+        <Member Name="Company" Caption="Bedrijf" />
+        <Member Name="Date" Caption="Datum" />
+        <Member Name="Description" Caption="Omschrijving" />
+        <Member Name="Item" Caption="Boekstuk" />
+        <Member Name="Lines" Caption="Boekingsregels" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.JournalEntryItem">
+      <OwnMembers>
+        <Member Name="Company" Caption="Bedrijf" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.JournalEntryLine" Caption="Boekingsregel">
+      <OwnMembers>
+        <Member Name="Account" Caption="Grootboekrekening" />
+        <Member Name="Amount" Caption="Bedrag" />
+        <Member Name="Company" Caption="Bedrijf" />
+        <Member Name="Credit" Caption="Credit" />
+        <Member Name="Debit" Caption="Debet" />
+        <Member Name="JournalEntry" Caption="Boeking" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.LiabilityAccount" Caption="Passivarekening" />
+    <Class Name="Accounting.Module.BusinessObjects.Organization">
+      <OwnMembers>
+        <Member Name="Address" Caption="Adres" />
+        <Member Name="City" Caption="Plaats" />
+        <Member Name="Country" Caption="Land" />
+        <Member Name="Email" Caption="Emailadres" />
+        <Member Name="LegalEntityIdentifier" Caption="KvK-nummer" />
+        <Member Name="Name" Caption="Naam" />
+        <Member Name="Phone" Caption="Telefoonnummer" />
+        <Member Name="PostalCode" Caption="Postcode" />
+        <Member Name="VatIdentifier" Caption="BTW-nummer" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.OutputVatAccount" Caption="Belastingsrekening" />
+    <Class Name="Accounting.Module.BusinessObjects.Parameters.ClosePeriodParameters" Caption="Periode afsluiten">
+      <OwnMembers>
+        <Member Name="ClosureDate" Caption="Afsluitingsdatum" />
+        <Member Name="Description" Caption="Omschrijving" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.Parameters.CorrectInvoiceParameters" Caption="Factuur corrigeren">
+      <OwnMembers>
+        <Member Name="Account" Caption="Grootboekrekening" />
+        <Member Name="Amount" Caption="Bedrag" />
+        <Member Name="Description" Caption="Omschrijving" />
+        <Member Name="Vat" Caption="BTW" />
+        <Member Name="VatRate" Caption="BTW-tarief" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.Parameters.NewDepreciationParameters" Caption="Nieuwe afschrijving">
+      <OwnMembers>
+        <Member Name="DepreciationTime" Caption="Afschrijftijd" />
+        <Member Name="Description" Caption="Omschrijving" />
+        <Member Name="ResidualValue" Caption="Restwaarde" />
+        <Member Name="StartDate" Caption="Startdatum" />
+        <Member Name="Value" Caption="Waarde" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.Parameters.NewVatDeclarationParameters" Caption="Nieuwe BTW-aangifte">
+      <OwnMembers>
+        <Member Name="Period" Caption="Tijdvak" />
+        <Member Name="Year" Caption="Jaar" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.Parameters.PayInvoiceParameters" Caption="Factuur betalen">
+      <OwnMembers>
+        <Member Name="Account" Caption="Grootboekrekening" />
+        <Member Name="Amount" Caption="Bedrag" />
+        <Member Name="Date" Caption="Datum" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.Parameters.PayVatDeclarationParameters" Caption="BTW-aangifte betalen">
+      <OwnMembers>
+        <Member Name="Account" Caption="Grootboekrekening" />
+        <Member Name="Amount" Caption="Bedrag" />
+        <Member Name="Date" Caption="Datum" />
+        <Member Name="Description" Caption="Omschrijving" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.Parameters.PostDepreciationParameters" Caption="Afschrijving boeken">
+      <OwnMembers>
+        <Member Name="AssetAccount" Caption="Activarekening" />
+        <Member Name="DepreciationExpenseAccount" Caption="Afschrijvingskostenrekening" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.Party" Caption="Contact">
+      <OwnMembers>
+        <Member Name="Company" Caption="Bedrijf" />
+        <Member Name="IsVatIncluded" CaptionForTrue="Ja" CaptionForFalse="Nee" Caption="Inclusief BTW" />
+        <Member Name="PaymentTerm" Caption="Betalingstermijn" />
+        <Member Name="PurchaseInvoices" Caption="Inkoopfacturen" />
+        <Member Name="Role" Caption="Rol" />
+        <Member Name="SalesInvoices" Caption="Verkoopfacturen" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.PaymentTerm" Caption="Betalingstermijn">
+      <OwnMembers>
+        <Member Name="Name" Caption="Naam" />
+        <Member Name="Term" Caption="Termijn" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.PrivateAccount" Caption="Privérekening" />
+    <Class Name="Accounting.Module.BusinessObjects.PurchaseInvoice" Caption="Inkoopfactuur">
+      <OwnMembers>
+        <Member Name="Supplier" Caption="Leverancier" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.RoundingDifferencesAccount" Caption="Afrondingsverschillenrekening" />
+    <Class Name="Accounting.Module.BusinessObjects.SalesInvoice" Caption="Verkoopfactuur">
+      <OwnMembers>
+        <Member Name="Customer" Caption="Klant" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.SupplierAccount" Caption="Leveranciersrekening" />
+    <Class Name="Accounting.Module.BusinessObjects.VatDeclaration" Caption="BTW-aangifte">
+      <OwnMembers>
+        <Member Name="InputVat" Caption="Voorbelasting" />
+        <Member Name="Lines" Caption="BTW-aangifteregels" />
+        <Member Name="OutputVat" Caption="Omzetbelasting" />
+        <Member Name="PaidDate" Caption="Betaaldatum" />
+        <Member Name="Period" Caption="Tijdvak" />
+        <Member Name="SmallBusinessScheme" Caption="Kleineondernemersregeling" />
+        <Member Name="SubTotal" Caption="Subtotaal" />
+        <Member Name="Total" Caption="Totaal" />
+        <Member Name="Year" Caption="Jaar" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.VatDeclarationLine" Caption="BTW-aangifteregel">
+      <OwnMembers>
+        <Member Name="Amount" Caption="Bedrag" />
+        <Member Name="Category" Caption="Categorie" />
+        <Member Name="Vat" Caption="Omzetbelasting" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.VatPaymentAccount" Caption="Af te dragen BTW-rekening" />
+    <Class Name="Accounting.Module.BusinessObjects.VatRate" Caption="BTW-tarief">
+      <OwnMembers>
+        <Member Name="Name" Caption="Naam" />
+        <Member Name="PayableAccount" Caption="Te betalen grootboekrekening" />
+        <Member Name="PayableCategory" Caption="Te betalen categorie" />
+        <Member Name="Rate" Caption="Tarief" />
+        <Member Name="ReceivableAccount" Caption="Te ontvangen grootboekrekening" />
+        <Member Name="ReceivableCategory" Caption="Te ontvangen categorie" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.VatToPayAccount" Caption="Te betalen BTW-rekening" />
+    <Class Name="Accounting.Module.Reports.Parameters.ProfitAndLossStatementParameters" Caption="Winst- en verliesrekening">
+      <OwnMembers>
+        <Member Name="EndDate" Caption="Einddatum" />
+        <Member Name="StartDate" Caption="Startdatum" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Localization>
+    <LocalizationGroup Name="Captions">
+      <LocalizationItem Name="View" Value="Scherm" />
+    </LocalizationGroup>
+    <LocalizationGroup Name="DialogButtons">
+      <LocalizationItem Name="Abort" Value="&amp;Afbreken" />
+      <LocalizationItem Name="Add" Value="Toevoegen" />
+      <LocalizationItem Name="Apply" Value="Toepassen" />
+      <LocalizationItem Name="Back" Value="&lt; Terug" />
+      <LocalizationItem Name="Cancel" Value="Annuleren" />
+      <LocalizationItem Name="Clear" Value="Wissen" />
+      <LocalizationItem Name="Close" Value="Sluiten" />
+      <LocalizationItem Name="Delete" Value="Verwijderen" />
+      <LocalizationItem Name="Find" Value="Zoeken" />
+      <LocalizationItem Name="Ignore" Value="Negeren" />
+      <LocalizationItem Name="Next" Value="Volgende &gt;" />
+      <LocalizationItem Name="No" Value="Nee" />
+      <LocalizationItem Name="Remove" Value="Verwijderen" />
+      <LocalizationItem Name="Retry" Value="Opnieuw proberen" />
+      <LocalizationItem Name="Yes" Value="Ja" />
+    </LocalizationGroup>
+    <LocalizationGroup Name="Enums">
+      <LocalizationGroup Name="DevExpress.ExpressApp.Editors.ViewItemVisibility">
+        <LocalizationItem Name="Hide" Value="Verbergen" />
+        <LocalizationItem Name="Show" Value="Tonen" />
+        <LocalizationItem Name="ShowEmptySpace" Value="Toon lege ruimte" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.ExpressApp.ModelDifferenceCopyBehavior">
+        <LocalizationItem Name="Merge" Value="Samenvoegen" />
+        <LocalizationItem Name="Overwrite" Value="Overschrijven" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.ExpressApp.ReportsV2.ReportType" Value="Rapporttype" />
+      <LocalizationGroup Name="DevExpress.ExpressApp.Templates.ActionsToolbarVisibility">
+        <LocalizationItem Name="Hide" Value="Verbergen" />
+        <LocalizationItem Name="Show" Value="Tonen" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.Persistent.Validation.StringComparisonType">
+        <LocalizationItem Name="Contains" Value="Bevat" />
+        <LocalizationItem Name="EndsWith" Value="Eindigt met" />
+        <LocalizationItem Name="Equals" Value="Gelijk aan" />
+        <LocalizationItem Name="NotEquals" Value="Niet gelijk aan" />
+        <LocalizationItem Name="StartsWith" Value="Begint met" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.Persistent.Validation.ValidationOutcome">
+        <LocalizationItem Name="Error" Value="Fout" />
+        <LocalizationItem Name="Information" Value="Informatie" />
+        <LocalizationItem Name="Skipped" Value="Overgeslagen" />
+        <LocalizationItem Name="Valid" Value="Geldig" />
+        <LocalizationItem Name="Warning" Value="Waarschuwing" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.Persistent.Validation.ValidationResultType">
+        <LocalizationItem Name="Error" Value="Fout" />
+        <LocalizationItem Name="Information" Value="Informatie" />
+        <LocalizationItem Name="Warning" Value="Waarschuwing" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.Persistent.Validation.ValueComparisonType">
+        <LocalizationItem Name="Equals" Value="Gelijk aan" />
+        <LocalizationItem Name="GreaterThan" Value="Groter dan" />
+        <LocalizationItem Name="GreaterThanOrEqual" Value="Groter of gelijk aan" />
+        <LocalizationItem Name="LessThan" Value="Kleiner dan" />
+        <LocalizationItem Name="LessThanOrEqual" Value="Kleiner of gelijk aan" />
+        <LocalizationItem Name="NotEquals" Value="Niet gelijk aan" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="Accounting.Module.BusinessObjects.AccountCategory">
+        <LocalizationItem Name="Asset" Value="Activa" />
+        <LocalizationItem Name="Equity" Value="Vermogen" />
+        <LocalizationItem Name="Expense" Value="Kosten" />
+        <LocalizationItem Name="Income" Value="Opbrengsten" />
+        <LocalizationItem Name="Liability" Value="Passiva" />
+        <LocalizationItem Name="Vat" Value="BTW" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="Accounting.Module.BusinessObjects.AccountType">
+        <LocalizationItem Name="Debit" Value="Debet" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="Accounting.Module.BusinessObjects.DepreciationType">
+        <LocalizationItem Name="Annual" Value="Jaarlijks" />
+        <LocalizationItem Name="Monthly" Value="Maandelijks" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="Accounting.Module.BusinessObjects.IdentifierType">
+        <LocalizationItem Name="PurchaseInvoice" Value="Inkoopfactuur" />
+        <LocalizationItem Name="SalesInvoice" Value="Verkoopfactuur" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="Accounting.Module.BusinessObjects.InvoiceType">
+        <LocalizationItem Name="CreditNote" Value="Creditfactuur" />
+        <LocalizationItem Name="Invoice" Value="Factuur" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="Accounting.Module.BusinessObjects.JournalEntryType">
+        <LocalizationItem Name="Closure" Value="Afsluiting" />
+        <LocalizationItem Name="Correction" Value="Correctie" />
+        <LocalizationItem Name="Depreciation" Value="Afschrijving" />
+        <LocalizationItem Name="Entry" Value="Invoer" />
+        <LocalizationItem Name="Payment" Value="Betaling" />
+        <LocalizationItem Name="Posting" Value="Boeking" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="Accounting.Module.BusinessObjects.PartyRole">
+        <LocalizationItem Name="Customer" Value="Klant" />
+        <LocalizationItem Name="None" Value="Geen" />
+        <LocalizationItem Name="Supplier" Value="Leverancier" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="Accounting.Module.BusinessObjects.VatCategory" Value="BTW-categorie">
+        <LocalizationItem Name="DeliveriesOrServicesFromCountriesOutsideTheEuropeanUnion" Value="Leveringen/diensten uit landen buiten de EU" />
+        <LocalizationItem Name="DeliveriesOrServicesFromCountriesWithinTheEuropeanUnion" Value="Leveringen/diensten uit landen binnen de EU" />
+        <LocalizationItem Name="DeliveriesOrServicesReverseCharged" Value="Leveringen/diensten waarbij de omzetbelasting naar u is verlegd" />
+        <LocalizationItem Name="DeliveriesOrServicesTaxedAtHighRate" Value="Leveringen/diensten belast met hoog tarief" />
+        <LocalizationItem Name="DeliveriesOrServicesTaxedAtLowRate" Value="Leveringen/diensten belast met laag tarief" />
+        <LocalizationItem Name="DeliveriesOrServicesTaxedAtOtherRates" Value="Leveringen/diensten belast met overige tarieven, behalve 0%" />
+        <LocalizationItem Name="DeliveriesOrServicesToCountriesWithinTheEuropeanUnion" Value="Leveringen naar of diensten in landen binnen de EU" />
+        <LocalizationItem Name="DeliveriesOrServicesUntaxed" Value="Leveringen/diensten belast met 0% of niet bij u belast" />
+        <LocalizationItem Name="DeliveriesToCountriesOutsideTheEuropeanUnion" Value="Leveringen naar landen buiten de EU (uitvoer)" />
+        <LocalizationItem Name="InputVat" Value="Voorbelasting" />
+        <LocalizationItem Name="InstallationOrDistanceSalesWithinTheEuropeanUnion" Value="Installatie/afstandsverkopen binnen de EU" />
+        <LocalizationItem Name="PrivateUse" Value="Privégebruik" />
+        <LocalizationItem Name="SmallBusinessScheme" Value="Kleineondernemersregeling" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="Accounting.Module.BusinessObjects.VatDeclarationPeriod">
+        <LocalizationItem Name="August" Value="Augustus" />
+        <LocalizationItem Name="February" Value="Februari" />
+        <LocalizationItem Name="FirstQuarter" Value="Eerste kwartaal" />
+        <LocalizationItem Name="FourthQuarter" Value="Vierde kwartaal" />
+        <LocalizationItem Name="January" Value="Januari" />
+        <LocalizationItem Name="July" Value="Juli" />
+        <LocalizationItem Name="June" Value="Juni" />
+        <LocalizationItem Name="March" Value="Maart" />
+        <LocalizationItem Name="May" Value="Mei" />
+        <LocalizationItem Name="None" Value="Geen" />
+        <LocalizationItem Name="SecondQuarter" Value="Tweede kwartaal" />
+        <LocalizationItem Name="ThirdQuarter" Value="Derde kwartaal" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="Accounting.Module.BusinessObjects.VatDeclarationType">
+        <LocalizationItem Name="Annual" Value="Jaarlijks" />
+        <LocalizationItem Name="Monthly" Value="Maandelijks" />
+        <LocalizationItem Name="Quarterly" Value="Per kwartaal" />
+      </LocalizationGroup>
+    </LocalizationGroup>
+    <LocalizationGroup Name="Exceptions">
+      <LocalizationGroup Name="UserVisibleExceptions">
+        <LocalizationItem Name="UnsupportedAccountType" Value="Dit type grootboekrekening wordt niet ondersteunt." />
+        <LocalizationItem Name="UnsupportedDepreciationType" Value="Dit type afschrijving wordt niet ondersteunt." />
+        <LocalizationItem Name="UnsupportedInvoiceClass" Value="Dit type factuur wordt niet ondersteunt." />
+        <LocalizationItem Name="UnsupportedInvoiceType" Value="Deze factuursoort wordt niet ondersteunt." />
+        <LocalizationItem Name="UnsupportedVatCategory" Value="Deze BTW-categorie wordt niet ondersteunt." />
+        <LocalizationItem Name="UnsupportedVatDeclarationPeriod" Value="Dit BTW-aangiftetijdvak wordt niet ondersteunt." />
+        <LocalizationGroup Name="Validation">
+          <LocalizationItem Name="ActionErrorMessageHeaderFormat" Value="Er zijn problemen gedetecteerd bij het valideren van de invoer. Lees alstublieft de onderstaande informatie om te kunnen begrijpen wat de problemen zijn en hoe deze opgelost kunnen worden." />
+          <LocalizationItem Name="AllContextsErrorMessageHeader" Value="Er zijn problemen gedetecteerd bij het valideren van de invoer. Lees alstublieft de onderstaande informatie om te kunnen begrijpen wat de problemen zijn en hoe deze opgelost kunnen worden." />
+          <LocalizationItem Name="DeleteErrorMessageHeader" Value="Er zijn problemen gedetecteerd bij het valideren van de invoer. Lees alstublieft de onderstaande informatie om te kunnen begrijpen wat de problemen zijn en hoe deze opgelost kunnen worden." />
+          <LocalizationItem Name="SaveErrorMessageHeader" Value="Er zijn problemen gedetecteerd bij het valideren van de invoer. Lees alstublieft de onderstaande informatie om te kunnen begrijpen wat de problemen zijn en hoe deze opgelost kunnen worden." />
+          <LocalizationItem Name="ValidationSucceededMessageHeader" Value="Er zijn geen problemen gedetecteerd." />
+        </LocalizationGroup>
+      </LocalizationGroup>
+    </LocalizationGroup>
+    <LocalizationGroup Name="Messages">
+      <LocalizationItem Name="User" Value="Gebruiker: {0}" />
+    </LocalizationGroup>
+    <LocalizationGroup Name="Texts">
+      <LocalizationItem Name="All" Value="Alles" />
+      <LocalizationItem Name="CorrectCreditNote" Value="Correctie voor creditnota '{0}'" />
+      <LocalizationItem Name="CorrectPurchaseInvoice" Value="Correctie voor inkoopfactuur '{0}'" />
+      <LocalizationItem Name="CorrectSalesInvoice" Value="Correctie voor verkoopfactuur '{0}'" />
+      <LocalizationItem Name="Customer" Value="Klant" />
+      <LocalizationItem Name="DatabaseFiles" Value="Databasebestanden (*.db)|*.db" />
+      <LocalizationItem Name="Error" Value="Fout" />
+      <LocalizationItem Name="PayCreditNote" Value="Betaling voor creditnota '{0}'" />
+      <LocalizationItem Name="PayPurchaseInvoice" Value="Betaling voor inkoopfactuur '{0}'" />
+      <LocalizationItem Name="PaySalesInvoice" Value="Betaling voor verkoopfactuur '{0}'" />
+      <LocalizationItem Name="PayVatDeclaration" Value="Betaling voor BTW-aangifte '{0} - {1}'" />
+      <LocalizationItem Name="PostCreditNote" Value="Boeking voor creditnota '{0}'" />
+      <LocalizationItem Name="PostDepreciation" Value="Boeking {0} voor afschrijving '{1}'" />
+      <LocalizationItem Name="PostPurchaseInvoice" Value="Boeking voor inkoopfactuur '{0}'" />
+      <LocalizationItem Name="PostSalesInvoice" Value="Boeking voor verkoopfactuur '{0}'" />
+      <LocalizationItem Name="PostVatDeclaration" Value="Boeking voor BTW-aangifte '{0} - {1}'" />
+      <LocalizationItem Name="Supplier" Value="Leverancier" />
+      <LocalizationItem Name="Warning" Value="Waarschuwing" />
+    </LocalizationGroup>
+  </Localization>
+  <NavigationItems RelatedReportsGroupCaption="Rapporten" />
+  <Validation>
+    <Contexts>
+      <ValidationContext Id="Accept" Caption="Accepteren" />
+      <ValidationContext Id="Save" Caption="Opslaan" />
+    </Contexts>
+    <ErrorMessageTemplates>
+      <RuleRegularExpression MessageTemplateMustMatchPattern="&quot;{TargetPropertyName}&quot; moet overeenkomen met het volgende patroon: &quot;{Pattern}&quot;." />
+      <RuleRequiredField MessageTemplateMustNotBeEmpty="&quot;{TargetPropertyName}&quot; mag niet leeg zijn." />
+      <RuleUniqueValue MessageTemplateMustBeUnique="Er is een object met dezelfde waarde voor &quot;{TargetPropertyName}&quot;. &quot;{TargetPropertyName}&quot; waardes moeten uniek zijn." />
+    </ErrorMessageTemplates>
+    <Rules>
+      <RuleCriteria Id="Account_InvoiceLine_RuleCriteria" CustomMessageTemplate="Grootboekrekeningen die gebruikt worden in factuurregels kunnen niet worden verwijderd. Wijzig eerst de factuurregels, en verwijder dan pas de grootboekrekening." />
+      <RuleCriteria Id="Account_JournalEntryLines_RuleCriteria" CustomMessageTemplate="Grootboekrekeningen die deel uitmaken van boekingen kunnen niet worden verwijderd. Verwijder eerst de boeking, en verwijder dan pas de grootboekrekening." />
+      <RuleCriteria Id="Account_VatRate_RuleCriteria" CustomMessageTemplate="Grootboekrekeningen die gebruikt worden in BTW-tarieven kunnen niet worden verwijderd. Wijzig eerst de BTW-tarieven, en verwijder dan pas de grootboekrekening." />
+      <RuleCriteria Id="Depreciation_Lines_RuleCriteria" CustomMessageTemplate="De som van de bedragen moet gelijk zijn aan het af te schrijven bedrag." />
+      <RuleCriteria Id="Invoice_JournalEntries_RuleCriteria" CustomMessageTemplate="Een ingeboekte factuur kan niet worden verwijderd. Neem de boeking terug om de factuur te kunnen verwijderen." />
+      <RuleCriteria Id="Invoice_Lines_RuleCriteria" CustomMessageTemplate="Een factuur moet ten minste één geldige regel bevatten." />
+      <RuleCriteria Id="JournalEntry_Lines_Count_RuleCriteria" CustomMessageTemplate="Een boeking moet ten minste twee regels bevatten." />
+      <RuleCriteria Id="JournalEntry_Lines_Sum_RuleCriteria" CustomMessageTemplate="De som van alle boekingsregels moet nul zijn." />
+      <RuleCriteria Id="Party_Invoices_RuleCriteria" CustomMessageTemplate="Contacten met facturen kunnen niet worden verwijderd. Verwijder eerst de facturen, en verwijder dan pas het contact." />
+      <RuleCriteria Id="PaymentTerm_Invoice_RuleCriteria" CustomMessageTemplate="Betalingstermijnen die gebruikt worden in facturen kunnen niet worden verwijderd. Wijzig eerst de facturen, en verwijder dan pas de betalingstermijn." />
+      <RuleCriteria Id="PaymentTerm_Party_RuleCriteria" CustomMessageTemplate="Betalingstermijnen die gebruikt worden in contacten kunnen niet worden verwijderd. Wijzig eerst de contacten, en verwijder dan pas de betalingstermijn." />
+      <RuleCriteria Id="ProfitAndLossStatementParameters_StartDateEndDate_RuleCriteria" CustomMessageTemplate="De einddatum moet groter dan of gelijk aan de startdatum zijn." />
+      <RuleCriteria Id="VatDeclaration_JournalEntries_RuleCriteria" CustomMessageTemplate="Een ingeboekte BTW-aangifte kan niet worden verwijderd. Neem de boeking terug om de BTW-aangifte te kunnen verwijderen." />
+      <RuleCriteria Id="VatRate_ExpenseAccount_RuleCriteria" CustomMessageTemplate="BTW-tarieven die gebruikt worden in kostenrekeningen kunnen niet worden verwijderd. Wijzig eerst de kostenrekeningen, en verwijder dan pas het BTW-tarief." />
+      <RuleCriteria Id="VatRate_IncomeAccount_RuleCriteria" CustomMessageTemplate="BTW-tarieven die gebruikt worden in opbrengstenrekeningen kunnen niet worden verwijderd. Wijzig eerst de opbrengstenrekeningen, en verwijder dan pas het BTW-tarief." />
+      <RuleCriteria Id="VatRate_InvoiceLine_RuleCriteria" CustomMessageTemplate="BTW-tarieven die gebruikt worden in factuurregels kunnen niet worden verwijderd. Wijzig eerst de factuurregels, en verwijder dan pas het BTW-tarief." />
+    </Rules>
+  </Validation>
+  <Views>
+    <ListView Id="Account_ListView" Caption="Grootboekrekeningen" />
+    <ListView Id="Depreciation_ListView" Caption="Afschrijvingen" />
+    <ListView Id="Identifier_ListView" Caption="Volgnummers" />
+    <ListView Id="JournalEntry_ListView" Caption="Boekingen" />
+    <DetailView Id="Party_DetailView">
+      <Layout>
+        <LayoutGroup Id="Party">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="PurchaseInvoices" Caption="Inkoopfacturen" />
+            <LayoutGroup Id="SalesInvoices" Caption="Verkoopfacturen" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Party_ListView" Caption="Contacten" />
+    <ListView Id="PaymentTerm_ListView" Caption="Betalingstermijnen" />
+    <ListView Id="PurchaseInvoice_ListView" Caption="Inkoopfacturen" />
+    <DetailView Id="PurchaseInvoice_Supplier_DetailView" Caption="Leverancier" />
+    <ListView Id="ReportDataV2_ListView" Caption="Rapporten" />
+    <DetailView Id="RuleSetValidationResult_ByTarget_Error_DetailView" Caption="Validatiefout">
+      <Items>
+        <StaticText Id="ValidationResultsText" Text="Er zijn problemen gedetecteerd bij het valideren van de invoer. Lees alstublieft de onderstaande informatie om te kunnen begrijpen wat de problemen zijn en hoe deze opgelost kunnen worden." />
+      </Items>
+    </DetailView>
+    <ListView Id="RuleSetValidationResultItem_ByTarget_ListView">
+      <Columns>
+        <ColumnInfo Id="ErrorMessage" Caption="Omschrijving" />
+      </Columns>
+    </ListView>
+    <DetailView Id="SalesInvoice_Customer_DetailView" Caption="Klant" />
+    <ListView Id="SalesInvoice_ListView" Caption="Verkoopfacturen" />
+    <ListView Id="ValidationResults_DisplayableValidationResultItems_ListView">
+      <Columns>
+        <ColumnInfo Id="RuleName" Caption="Regelnaam" />
+        <ColumnInfo Id="Rule" Caption="Regel" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ValidationResults_Error_DetailView">
+      <Items>
+        <StaticText Id="ValidationResultsText" Text="Er zijn problemen gedetecteerd bij het valideren van de invoer. Lees alstublieft de onderstaande informatie om te kunnen begrijpen wat de problemen zijn en hoe deze opgelost kunnen worden." />
+      </Items>
+    </DetailView>
+    <ListView Id="VatDeclaration_ListView" Caption="BTW-aangiftes" />
+    <ListView Id="VatRate_ListView" Caption="Belastingtarieven" />
+  </Views>
+</Application>

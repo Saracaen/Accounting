@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5F15837D-D1E5-44DC-92F0-4F2EBE9C3F8D}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>Accounting.Module</RootNamespace>
+    <AssemblyName>Accounting.Module</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v18.2.Core" />
+    <Reference Include="DevExpress.DataAccess.v18.2" />
+    <Reference Include="DevExpress.DataAccess.v18.2.UI" />
+    <Reference Include="DevExpress.ExpressApp.ConditionalAppearance.v18.2" />
+    <Reference Include="DevExpress.ExpressApp.ReportsV2.v18.2" />
+    <Reference Include="DevExpress.ExpressApp.ReportsV2.Win.v18.2" />
+    <Reference Include="DevExpress.ExpressApp.Validation.v18.2" />
+    <Reference Include="DevExpress.ExpressApp.Validation.Win.v18.2" />
+    <Reference Include="DevExpress.ExpressApp.Win.v18.2" />
+    <Reference Include="DevExpress.ExpressApp.Xpo.v18.2" />
+    <Reference Include="DevExpress.Office.v18.2.Core" />
+    <Reference Include="DevExpress.Pdf.v18.2.Core" />
+    <Reference Include="DevExpress.PivotGrid.v18.2.Core" />
+    <Reference Include="DevExpress.Printing.v18.2.Core" />
+    <Reference Include="DevExpress.Data.v18.2" />
+    <Reference Include="DevExpress.ExpressApp.v18.2" />
+    <Reference Include="DevExpress.Persistent.Base.v18.2" />
+    <Reference Include="DevExpress.Persistent.BaseImpl.v18.2" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Core" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Export" />
+    <Reference Include="DevExpress.Sparkline.v18.2.Core" />
+    <Reference Include="DevExpress.Utils.v18.2" />
+    <Reference Include="DevExpress.Utils.v18.2.UI" />
+    <Reference Include="DevExpress.Xpo.v18.2" />
+    <Reference Include="DevExpress.XtraBars.v18.2" />
+    <Reference Include="DevExpress.XtraCharts.v18.2" />
+    <Reference Include="DevExpress.XtraEditors.v18.2" />
+    <Reference Include="DevExpress.XtraGauges.v18.2.Core" />
+    <Reference Include="DevExpress.XtraGrid.v18.2" />
+    <Reference Include="DevExpress.XtraLayout.v18.2" />
+    <Reference Include="DevExpress.XtraNavBar.v18.2" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2" />
+    <Reference Include="DevExpress.XtraReports.v18.2" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Extensions" />
+    <Reference Include="DevExpress.XtraRichEdit.v18.2" />
+    <Reference Include="DevExpress.XtraTreeList.v18.2" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v18.2" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="BusinessObjects\Account.cs" />
+    <Compile Include="BusinessObjects\AccountCategory.cs" />
+    <Compile Include="BusinessObjects\AccountType.cs" />
+    <Compile Include="BusinessObjects\AssetAccount.cs" />
+    <Compile Include="BusinessObjects\BankAccount.cs" />
+    <Compile Include="BusinessObjects\CashAccount.cs" />
+    <Compile Include="BusinessObjects\Company.cs" />
+    <Compile Include="BusinessObjects\CreditCardAccount.cs" />
+    <Compile Include="BusinessObjects\CustomerAccount.cs" />
+    <Compile Include="BusinessObjects\Depreciation.cs" />
+    <Compile Include="BusinessObjects\DepreciationExpenseAccount.cs" />
+    <Compile Include="BusinessObjects\DepreciationLine.cs" />
+    <Compile Include="BusinessObjects\DepreciationType.cs" />
+    <Compile Include="BusinessObjects\EquityAccount.cs" />
+    <Compile Include="BusinessObjects\ExpenseAccount.cs" />
+    <Compile Include="BusinessObjects\Extensions\JournalEntryExtensions.cs" />
+    <Compile Include="BusinessObjects\Identifier.cs" />
+    <Compile Include="BusinessObjects\IdentifierType.cs" />
+    <Compile Include="BusinessObjects\IncomeAccount.cs" />
+    <Compile Include="BusinessObjects\InputVatAccount.cs" />
+    <Compile Include="BusinessObjects\Invoice.cs" />
+    <Compile Include="BusinessObjects\InvoiceLine.cs" />
+    <Compile Include="BusinessObjects\InvoiceType.cs" />
+    <Compile Include="BusinessObjects\JournalEntry.cs" />
+    <Compile Include="BusinessObjects\JournalEntryItem.cs" />
+    <Compile Include="BusinessObjects\JournalEntryLine.cs" />
+    <Compile Include="BusinessObjects\JournalEntryType.cs" />
+    <Compile Include="BusinessObjects\LiabilityAccount.cs" />
+    <Compile Include="BusinessObjects\Organization.cs" />
+    <Compile Include="BusinessObjects\OutputVatAccount.cs" />
+    <Compile Include="BusinessObjects\Parameters\ClosePeriodParameters.cs" />
+    <Compile Include="BusinessObjects\Parameters\CorrectInvoiceParameters.cs" />
+    <Compile Include="BusinessObjects\Parameters\NewDepreciationParameters.cs" />
+    <Compile Include="BusinessObjects\Parameters\NewVatDeclarationParameters.cs" />
+    <Compile Include="BusinessObjects\Parameters\PayInvoiceParameters.cs" />
+    <Compile Include="BusinessObjects\Parameters\PayVatDeclarationParameters.cs" />
+    <Compile Include="BusinessObjects\Parameters\PostDepreciationParameters.cs" />
+    <Compile Include="BusinessObjects\Party.cs" />
+    <Compile Include="BusinessObjects\PartyRole.cs" />
+    <Compile Include="BusinessObjects\PaymentTerm.cs" />
+    <Compile Include="BusinessObjects\PrivateAccount.cs" />
+    <Compile Include="BusinessObjects\PurchaseInvoice.cs" />
+    <Compile Include="BusinessObjects\RoundingDifferencesAccount.cs" />
+    <Compile Include="BusinessObjects\SalesInvoice.cs" />
+    <Compile Include="BusinessObjects\SupplierAccount.cs" />
+    <Compile Include="BusinessObjects\VatCategory.cs" />
+    <Compile Include="BusinessObjects\VatDeclaration.cs" />
+    <Compile Include="BusinessObjects\VatDeclarationLine.cs" />
+    <Compile Include="BusinessObjects\VatDeclarationPeriod.cs" />
+    <Compile Include="BusinessObjects\VatDeclarationType.cs" />
+    <Compile Include="BusinessObjects\VatPaymentAccount.cs" />
+    <Compile Include="BusinessObjects\VatRate.cs" />
+    <Compile Include="BusinessObjects\VatToPayAccount.cs" />
+    <Compile Include="Controllers\ClosePeriodController.cs" />
+    <Compile Include="Controllers\CorrectInvoiceController.cs" />
+    <Compile Include="Controllers\CustomizeAccountCreationController.cs" />
+    <Compile Include="Controllers\CustomizeWindowCaptionController.cs" />
+    <Compile Include="Controllers\FilterByYearController.cs" />
+    <Compile Include="Controllers\FilterJournalEntriesByYearController.cs" />
+    <Compile Include="Controllers\FilterObjectsController.cs" />
+    <Compile Include="Controllers\FilterPartiesByTypeController.cs" />
+    <Compile Include="Controllers\FilterPurchaseInvoicesByYearController.cs" />
+    <Compile Include="Controllers\FilterSalesInvoicesByYearController.cs" />
+    <Compile Include="Controllers\GenerateIdentifierController.cs" />
+    <Compile Include="Controllers\NewDepreciationController.cs" />
+    <Compile Include="Controllers\NewPartyController.cs" />
+    <Compile Include="Controllers\NewVatDeclarationController.cs" />
+    <Compile Include="Controllers\PayInvoiceController.cs" />
+    <Compile Include="Controllers\PayVatDeclarationController.cs" />
+    <Compile Include="Controllers\PostDepreciationController.cs" />
+    <Compile Include="Controllers\PostInvoiceController.cs" />
+    <Compile Include="Controllers\PostVatDeclarationController.cs" />
+    <Compile Include="Controllers\RestoreListViewSelectionController.cs" />
+    <Compile Include="Controllers\ShowDetailViewController.cs" />
+    <Compile Include="Controllers\UpdateCompanyNameController.cs" />
+    <Compile Include="ISupportDate.cs" />
+    <Compile Include="ISupportDefaultVatRate.cs" />
+    <Compile Include="ISupportIdentifier.cs" />
+    <Compile Include="Model\IModelFilterObjects.cs" />
+    <Compile Include="Model\IModelRestoreListViewSelection.cs" />
+    <Compile Include="Model\IModelShowDetailView.cs" />
+    <Compile Include="Module.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Module.Designer.cs">
+      <DependentUpon>Module.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\Parameters\ProfitAndLossStatementParameters.cs" />
+    <Compile Include="Reports\SalesInvoiceReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SalesInvoiceReport.Designer.cs">
+      <DependentUpon>SalesInvoiceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProfitAndLossStatementReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ProfitAndLossStatementReport.Designer.cs">
+      <DependentUpon>ProfitAndLossStatementReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Updaters\DataUpdater.cs" />
+    <Compile Include="Utils\DeferredDeletionHelper.cs" />
+    <Compile Include="Utils\RuleRangeHelper.cs" />
+    <Compile Include="Utils\VatDeclarationHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Model.DesignedDiffs.xafml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Module.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reports\SalesInvoiceReport.resx">
+      <DependentUpon>SalesInvoiceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProfitAndLossStatementReport.resx">
+      <DependentUpon>ProfitAndLossStatementReport.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Model.DesignedDiffs.Localization.nl.xafml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

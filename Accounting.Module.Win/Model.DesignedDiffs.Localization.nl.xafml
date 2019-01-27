@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <ActionDesign>
+    <Actions>
+      <Action Id="About Info" Caption="Over..." />
+      <Action Id="ChangeDatabase" Caption="Database kiezen..." />
+      <Action Id="CopyCellValue" Caption="Kopieer celinhoud" />
+      <Action Id="ExecuteReportV2" Caption="Rapport uitvoeren" />
+      <Action Id="Export" Caption="Exporteer als" />
+      <Action Id="OpenObject" Caption="Open gerelateerd record" />
+      <Action Id="ShowReportDesignerV2" Caption="Toon rapportontwerper" />
+    </Actions>
+  </ActionDesign>
+  <Localization>
+    <LocalizationGroup Name="Confirmations">
+      <LocalizationItem Name="Save" Value="Wilt u de wijzigingen opslaan?" />
+    </LocalizationGroup>
+  </Localization>
+  <Options UseLowerCaseClassCaptions="True" />
+</Application>
