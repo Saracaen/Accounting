@@ -56,131 +56,6 @@
     </DisableReasons>
   </ActionDesign>
   <BOModel>
-    <Class Name="DevExpress.ExpressApp.Editors.CriteriaProvider">
-      <OwnMembers>
-        <Member Name="FilterString" Caption="Filtertekst" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.ExpressApp.ReportsV2.NewReportWizardParameters">
-      <OwnMembers>
-        <Member Name="DataType" Caption="Datatype" />
-        <Member Name="DisplayName" Caption="Weergavenaam" />
-        <Member Name="ReportType" Caption="Rapporttype" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.ExpressApp.SystemModule.AboutInfo">
-      <OwnMembers>
-        <Member Name="Company" Caption="Bedrijf" />
-        <Member Name="Description" Caption="Omschrijving" />
-        <Member Name="ProductName" Caption="Productnaam" />
-        <Member Name="Version" Caption="Versie" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.ExpressApp.SystemModule.DashboardCreationInfo">
-      <OwnMembers>
-        <Member Name="DashboardName" Caption="Naam" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.ExpressApp.SystemModule.DashboardName">
-      <OwnMembers>
-        <Member Name="Name" Caption="Naam" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.ExpressApp.SystemModule.DashboardOrganizationItem">
-      <OwnMembers>
-        <Member Name="Item" Caption="Boekstuk" />
-        <Member Name="Visibility" Caption="Zichtbaarheid" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.ExpressApp.SystemModule.DiagnosticInfoObject">
-      <OwnMembers>
-        <Member Name="AsText" Caption="Als tekst" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.ExpressApp.SystemModule.StaticImageDashboardOrganizationItem">
-      <OwnMembers>
-        <Member Name="Preview" Caption="Voorbeeld" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.ExpressApp.SystemModule.StaticTextDashboardOrganizationItem" Caption="Statische tekst">
-      <OwnMembers>
-        <Member Name="Text" Caption="Tekst" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.ExpressApp.SystemModule.ViewDashboardOrganizationItem" Caption="Scherm">
-      <OwnMembers>
-        <Member Name="ObjectType" Caption="Objecttype" />
-        <Member Name="ViewDescriptor" Caption="Scherm" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.ExpressApp.Validation.AllContextsView.ContextValidationResult">
-      <OwnMembers>
-        <Member Name="BrokenRules" Caption="Gebroken regels" />
-        <Member Name="ContextValidationOutcome" Caption="Toestand" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.ExpressApp.Validation.AllContextsView.DisplayableValidationResultItem">
-      <OwnMembers>
-        <Member Name="ErrorMessage" Caption="Foutmelding" />
-        <Member Name="Outcome" Caption="Toestand" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.ExpressApp.Validation.AllContextsView.ValidationResults" Caption="Validatieresultaat">
-      <OwnMembers>
-        <Member Name="HighlightErrors" Caption="Markeer problemen" />
-        <Member Name="Results" Caption="Resultaten" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.Persistent.BaseImpl.ReportDataV2" Caption="Rapport">
-      <OwnMembers>
-        <Member Name="DataTypeCaption" Caption="Datatype" />
-        <Member Name="DisplayName" Caption="Weergavenaam" />
-        <Member Name="IsInplaceReport" Caption="Snel beschikbaar rapport" />
-        <Member Name="IsPredefined" Caption="Ingebouwd" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.Persistent.Validation.IRuleBaseProperties">
-      <OwnMembers>
-        <Member Name="Name" Caption="Naam" />
-        <Member Name="ResultType" Caption="Resultaattype" />
-        <Member Name="TargetType" Caption="Doeltype" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.Persistent.Validation.IRuleRangeProperties">
-      <OwnMembers>
-        <Member Name="MaximumValue" Caption="Maximale waarde" />
-        <Member Name="MinimumValue" Caption="Minimale waarde" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.Persistent.Validation.IRuleRegularExpressionProperties">
-      <OwnMembers>
-        <Member Name="Pattern" Caption="Patroon" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.Persistent.Validation.RuleBaseProperties">
-      <OwnMembers>
-        <Member Name="Name" Caption="Naam" />
-        <Member Name="ResultType" Caption="Resultaattype" />
-        <Member Name="TargetType" Caption="Doeltype" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.Persistent.Validation.RuleRangeProperties">
-      <OwnMembers>
-        <Member Name="MaximumValue" Caption="Maximale waarde" />
-        <Member Name="MinimumValue" Caption="Minimale waarde" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.Persistent.Validation.RuleRegularExpressionProperties">
-      <OwnMembers>
-        <Member Name="Pattern" Caption="Patroon" />
-      </OwnMembers>
-    </Class>
-    <Class Name="DevExpress.Persistent.Validation.RuleSetValidationResultItem">
-      <OwnMembers>
-        <Member Name="ErrorMessage" Caption="Foutmelding" />
-        <Member Name="ValidationOutcome" Caption="Toestand" />
-      </OwnMembers>
-    </Class>
     <Class Name="Accounting.Module.BusinessObjects.Account" Caption="Grootboekrekening">
       <OwnMembers>
         <Member Name="Balance" Caption="Saldo" />
@@ -431,6 +306,131 @@
         <Member Name="StartDate" Caption="Startdatum" />
       </OwnMembers>
     </Class>
+    <Class Name="DevExpress.ExpressApp.Editors.CriteriaProvider">
+      <OwnMembers>
+        <Member Name="FilterString" Caption="Filtertekst" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.ReportsV2.NewReportWizardParameters">
+      <OwnMembers>
+        <Member Name="DataType" Caption="Datatype" />
+        <Member Name="DisplayName" Caption="Weergavenaam" />
+        <Member Name="ReportType" Caption="Rapporttype" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.AboutInfo">
+      <OwnMembers>
+        <Member Name="Company" Caption="Bedrijf" />
+        <Member Name="Description" Caption="Omschrijving" />
+        <Member Name="ProductName" Caption="Productnaam" />
+        <Member Name="Version" Caption="Versie" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.DashboardCreationInfo">
+      <OwnMembers>
+        <Member Name="DashboardName" Caption="Naam" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.DashboardName">
+      <OwnMembers>
+        <Member Name="Name" Caption="Naam" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.DashboardOrganizationItem">
+      <OwnMembers>
+        <Member Name="Item" Caption="Boekstuk" />
+        <Member Name="Visibility" Caption="Zichtbaarheid" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.DiagnosticInfoObject">
+      <OwnMembers>
+        <Member Name="AsText" Caption="Als tekst" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.StaticImageDashboardOrganizationItem">
+      <OwnMembers>
+        <Member Name="Preview" Caption="Voorbeeld" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.StaticTextDashboardOrganizationItem" Caption="Statische tekst">
+      <OwnMembers>
+        <Member Name="Text" Caption="Tekst" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.ViewDashboardOrganizationItem" Caption="Scherm">
+      <OwnMembers>
+        <Member Name="ObjectType" Caption="Objecttype" />
+        <Member Name="ViewDescriptor" Caption="Scherm" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.Validation.AllContextsView.ContextValidationResult">
+      <OwnMembers>
+        <Member Name="BrokenRules" Caption="Gebroken regels" />
+        <Member Name="ContextValidationOutcome" Caption="Toestand" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.Validation.AllContextsView.DisplayableValidationResultItem">
+      <OwnMembers>
+        <Member Name="ErrorMessage" Caption="Foutmelding" />
+        <Member Name="Outcome" Caption="Toestand" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.Validation.AllContextsView.ValidationResults" Caption="Validatieresultaat">
+      <OwnMembers>
+        <Member Name="HighlightErrors" Caption="Markeer problemen" />
+        <Member Name="Results" Caption="Resultaten" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.BaseImpl.ReportDataV2" Caption="Rapport">
+      <OwnMembers>
+        <Member Name="DataTypeCaption" Caption="Datatype" />
+        <Member Name="DisplayName" Caption="Weergavenaam" />
+        <Member Name="IsInplaceReport" Caption="Snel beschikbaar rapport" />
+        <Member Name="IsPredefined" Caption="Ingebouwd" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.IRuleBaseProperties">
+      <OwnMembers>
+        <Member Name="Name" Caption="Naam" />
+        <Member Name="ResultType" Caption="Resultaattype" />
+        <Member Name="TargetType" Caption="Doeltype" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.IRuleRangeProperties">
+      <OwnMembers>
+        <Member Name="MaximumValue" Caption="Maximale waarde" />
+        <Member Name="MinimumValue" Caption="Minimale waarde" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.IRuleRegularExpressionProperties">
+      <OwnMembers>
+        <Member Name="Pattern" Caption="Patroon" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.RuleBaseProperties">
+      <OwnMembers>
+        <Member Name="Name" Caption="Naam" />
+        <Member Name="ResultType" Caption="Resultaattype" />
+        <Member Name="TargetType" Caption="Doeltype" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.RuleRangeProperties">
+      <OwnMembers>
+        <Member Name="MaximumValue" Caption="Maximale waarde" />
+        <Member Name="MinimumValue" Caption="Minimale waarde" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.RuleRegularExpressionProperties">
+      <OwnMembers>
+        <Member Name="Pattern" Caption="Patroon" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.RuleSetValidationResultItem">
+      <OwnMembers>
+        <Member Name="ErrorMessage" Caption="Foutmelding" />
+        <Member Name="ValidationOutcome" Caption="Toestand" />
+      </OwnMembers>
+    </Class>
   </BOModel>
   <Localization>
     <LocalizationGroup Name="Captions">
@@ -454,47 +454,6 @@
       <LocalizationItem Name="Yes" Value="Ja" />
     </LocalizationGroup>
     <LocalizationGroup Name="Enums">
-      <LocalizationGroup Name="DevExpress.ExpressApp.Editors.ViewItemVisibility">
-        <LocalizationItem Name="Hide" Value="Verbergen" />
-        <LocalizationItem Name="Show" Value="Tonen" />
-        <LocalizationItem Name="ShowEmptySpace" Value="Toon lege ruimte" />
-      </LocalizationGroup>
-      <LocalizationGroup Name="DevExpress.ExpressApp.ModelDifferenceCopyBehavior">
-        <LocalizationItem Name="Merge" Value="Samenvoegen" />
-        <LocalizationItem Name="Overwrite" Value="Overschrijven" />
-      </LocalizationGroup>
-      <LocalizationGroup Name="DevExpress.ExpressApp.ReportsV2.ReportType" Value="Rapporttype" />
-      <LocalizationGroup Name="DevExpress.ExpressApp.Templates.ActionsToolbarVisibility">
-        <LocalizationItem Name="Hide" Value="Verbergen" />
-        <LocalizationItem Name="Show" Value="Tonen" />
-      </LocalizationGroup>
-      <LocalizationGroup Name="DevExpress.Persistent.Validation.StringComparisonType">
-        <LocalizationItem Name="Contains" Value="Bevat" />
-        <LocalizationItem Name="EndsWith" Value="Eindigt met" />
-        <LocalizationItem Name="Equals" Value="Gelijk aan" />
-        <LocalizationItem Name="NotEquals" Value="Niet gelijk aan" />
-        <LocalizationItem Name="StartsWith" Value="Begint met" />
-      </LocalizationGroup>
-      <LocalizationGroup Name="DevExpress.Persistent.Validation.ValidationOutcome">
-        <LocalizationItem Name="Error" Value="Fout" />
-        <LocalizationItem Name="Information" Value="Informatie" />
-        <LocalizationItem Name="Skipped" Value="Overgeslagen" />
-        <LocalizationItem Name="Valid" Value="Geldig" />
-        <LocalizationItem Name="Warning" Value="Waarschuwing" />
-      </LocalizationGroup>
-      <LocalizationGroup Name="DevExpress.Persistent.Validation.ValidationResultType">
-        <LocalizationItem Name="Error" Value="Fout" />
-        <LocalizationItem Name="Information" Value="Informatie" />
-        <LocalizationItem Name="Warning" Value="Waarschuwing" />
-      </LocalizationGroup>
-      <LocalizationGroup Name="DevExpress.Persistent.Validation.ValueComparisonType">
-        <LocalizationItem Name="Equals" Value="Gelijk aan" />
-        <LocalizationItem Name="GreaterThan" Value="Groter dan" />
-        <LocalizationItem Name="GreaterThanOrEqual" Value="Groter of gelijk aan" />
-        <LocalizationItem Name="LessThan" Value="Kleiner dan" />
-        <LocalizationItem Name="LessThanOrEqual" Value="Kleiner of gelijk aan" />
-        <LocalizationItem Name="NotEquals" Value="Niet gelijk aan" />
-      </LocalizationGroup>
       <LocalizationGroup Name="Accounting.Module.BusinessObjects.AccountCategory">
         <LocalizationItem Name="Asset" Value="Activa" />
         <LocalizationItem Name="Equity" Value="Vermogen" />
@@ -564,6 +523,47 @@
         <LocalizationItem Name="Annual" Value="Jaarlijks" />
         <LocalizationItem Name="Monthly" Value="Maandelijks" />
         <LocalizationItem Name="Quarterly" Value="Per kwartaal" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.ExpressApp.Editors.ViewItemVisibility">
+        <LocalizationItem Name="Hide" Value="Verbergen" />
+        <LocalizationItem Name="Show" Value="Tonen" />
+        <LocalizationItem Name="ShowEmptySpace" Value="Toon lege ruimte" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.ExpressApp.ModelDifferenceCopyBehavior">
+        <LocalizationItem Name="Merge" Value="Samenvoegen" />
+        <LocalizationItem Name="Overwrite" Value="Overschrijven" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.ExpressApp.ReportsV2.ReportType" Value="Rapporttype" />
+      <LocalizationGroup Name="DevExpress.ExpressApp.Templates.ActionsToolbarVisibility">
+        <LocalizationItem Name="Hide" Value="Verbergen" />
+        <LocalizationItem Name="Show" Value="Tonen" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.Persistent.Validation.StringComparisonType">
+        <LocalizationItem Name="Contains" Value="Bevat" />
+        <LocalizationItem Name="EndsWith" Value="Eindigt met" />
+        <LocalizationItem Name="Equals" Value="Gelijk aan" />
+        <LocalizationItem Name="NotEquals" Value="Niet gelijk aan" />
+        <LocalizationItem Name="StartsWith" Value="Begint met" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.Persistent.Validation.ValidationOutcome">
+        <LocalizationItem Name="Error" Value="Fout" />
+        <LocalizationItem Name="Information" Value="Informatie" />
+        <LocalizationItem Name="Skipped" Value="Overgeslagen" />
+        <LocalizationItem Name="Valid" Value="Geldig" />
+        <LocalizationItem Name="Warning" Value="Waarschuwing" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.Persistent.Validation.ValidationResultType">
+        <LocalizationItem Name="Error" Value="Fout" />
+        <LocalizationItem Name="Information" Value="Informatie" />
+        <LocalizationItem Name="Warning" Value="Waarschuwing" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.Persistent.Validation.ValueComparisonType">
+        <LocalizationItem Name="Equals" Value="Gelijk aan" />
+        <LocalizationItem Name="GreaterThan" Value="Groter dan" />
+        <LocalizationItem Name="GreaterThanOrEqual" Value="Groter of gelijk aan" />
+        <LocalizationItem Name="LessThan" Value="Kleiner dan" />
+        <LocalizationItem Name="LessThanOrEqual" Value="Kleiner of gelijk aan" />
+        <LocalizationItem Name="NotEquals" Value="Niet gelijk aan" />
       </LocalizationGroup>
     </LocalizationGroup>
     <LocalizationGroup Name="Exceptions">
