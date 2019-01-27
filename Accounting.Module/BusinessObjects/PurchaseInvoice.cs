@@ -1,11 +1,9 @@
 ﻿using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
-using System.ComponentModel;
 
 namespace Accounting.Module.BusinessObjects
 {
-    [DefaultProperty("Identifier")]
     [ImageName("BO_Contract")]
     [MapInheritance(MapInheritanceType.ParentTable)]
     [VisibleInReports]

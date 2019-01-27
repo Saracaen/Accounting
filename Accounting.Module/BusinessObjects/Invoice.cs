@@ -11,6 +11,7 @@ using System.Linq;
 namespace Accounting.Module.BusinessObjects
 {
     [Appearance("Overdue", "IsPosted And DueAmount <> 0 And DateDiffDay(Now(), DueDate) < 0", TargetItems = "*", Context = "ListView", BackColor = "255, 128, 128")]
+    [DefaultProperty("Identifier")]
     [RuleCriteria("Invoice_Lines_RuleCriteria", DefaultContexts.Save, "Lines[Account Is Not Null].Count() > 0", "An invoice must have at least one valid line.")]
     [RuleCriteria("Invoice_JournalEntries_RuleCriteria", DefaultContexts.Delete, "Not IsPosted", "An invoice must be unposted before it can be deleted.")]
     public abstract class Invoice : JournalEntryItem, ISupportDate, ISupportIdentifier
