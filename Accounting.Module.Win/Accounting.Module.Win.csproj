@@ -81,7 +81,6 @@
     <Compile Include="Controllers\OpenObjectWithCaptionController.cs" />
     <Compile Include="Controllers\UpdateNavigationController.cs" />
     <Compile Include="Editors\FilteringEnumPropertyEditor.cs" />
-    <Compile Include="Editors\PartyRolePropertyEditor.cs" />
     <Compile Include="Editors\RangedDatePropertyEditor.cs" />
     <Compile Include="Editors\RangedDecimalPropertyEditor.cs" />
     <Compile Include="Editors\RangedDoublePropertyEditor.cs" />

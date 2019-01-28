@@ -80,6 +80,11 @@
       </OwnMembers>
     </Class>
     <Class Name="Accounting.Module.BusinessObjects.CreditCardAccount" Caption="Creditcardrekening" />
+    <Class Name="Accounting.Module.BusinessObjects.Customer" Caption="Klant">
+      <OwnMembers>
+        <Member Name="Invoices" Caption="Facturen" />
+      </OwnMembers>
+    </Class>
     <Class Name="Accounting.Module.BusinessObjects.CustomerAccount" Caption="Klantenrekening" />
     <Class Name="Accounting.Module.BusinessObjects.Depreciation" Caption="Afschrijving">
       <OwnMembers>
@@ -239,14 +244,11 @@
         <Member Name="DepreciationExpenseAccount" Caption="Afschrijvingskostenrekening" />
       </OwnMembers>
     </Class>
-    <Class Name="Accounting.Module.BusinessObjects.Party" Caption="Contact">
+    <Class Name="Accounting.Module.BusinessObjects.Party">
       <OwnMembers>
         <Member Name="Company" Caption="Bedrijf" />
         <Member Name="IsVatIncluded" CaptionForTrue="Ja" CaptionForFalse="Nee" Caption="Inclusief BTW" />
         <Member Name="PaymentTerm" Caption="Betalingstermijn" />
-        <Member Name="PurchaseInvoices" Caption="Inkoopfacturen" />
-        <Member Name="Role" Caption="Rol" />
-        <Member Name="SalesInvoices" Caption="Verkoopfacturen" />
       </OwnMembers>
     </Class>
     <Class Name="Accounting.Module.BusinessObjects.PaymentTerm" Caption="Betalingstermijn">
@@ -265,6 +267,11 @@
     <Class Name="Accounting.Module.BusinessObjects.SalesInvoice" Caption="Verkoopfactuur">
       <OwnMembers>
         <Member Name="Customer" Caption="Klant" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.BusinessObjects.Supplier" Caption="Leverancier">
+      <OwnMembers>
+        <Member Name="Invoices" Caption="Facturen" />
       </OwnMembers>
     </Class>
     <Class Name="Accounting.Module.BusinessObjects.SupplierAccount" Caption="Leveranciersrekening" />
@@ -485,11 +492,6 @@
         <LocalizationItem Name="Payment" Value="Betaling" />
         <LocalizationItem Name="Posting" Value="Boeking" />
       </LocalizationGroup>
-      <LocalizationGroup Name="Accounting.Module.BusinessObjects.PartyRole">
-        <LocalizationItem Name="Customer" Value="Klant" />
-        <LocalizationItem Name="None" Value="Geen" />
-        <LocalizationItem Name="Supplier" Value="Leverancier" />
-      </LocalizationGroup>
       <LocalizationGroup Name="Accounting.Module.BusinessObjects.VatCategory" Value="BTW-categorie">
         <LocalizationItem Name="DeliveriesOrServicesFromCountriesOutsideTheEuropeanUnion" Value="Leveringen/diensten uit landen buiten de EU" />
         <LocalizationItem Name="DeliveriesOrServicesFromCountriesWithinTheEuropeanUnion" Value="Leveringen/diensten uit landen binnen de EU" />
@@ -627,15 +629,17 @@
       <RuleCriteria Id="Account_InvoiceLine_RuleCriteria" CustomMessageTemplate="Grootboekrekeningen die gebruikt worden in factuurregels kunnen niet worden verwijderd. Wijzig eerst de factuurregels, en verwijder dan pas de grootboekrekening." />
       <RuleCriteria Id="Account_JournalEntryLines_RuleCriteria" CustomMessageTemplate="Grootboekrekeningen die deel uitmaken van boekingen kunnen niet worden verwijderd. Verwijder eerst de boeking, en verwijder dan pas de grootboekrekening." />
       <RuleCriteria Id="Account_VatRate_RuleCriteria" CustomMessageTemplate="Grootboekrekeningen die gebruikt worden in BTW-tarieven kunnen niet worden verwijderd. Wijzig eerst de BTW-tarieven, en verwijder dan pas de grootboekrekening." />
+      <RuleCriteria Id="Customer_Invoices_RuleCriteria" CustomMessageTemplate="Klanten met facturen kunnen niet worden verwijderd. Verwijder eerst de facturen, en verwijder dan pas de klant." />
       <RuleCriteria Id="Depreciation_Lines_RuleCriteria" CustomMessageTemplate="De som van de bedragen moet gelijk zijn aan het af te schrijven bedrag." />
       <RuleCriteria Id="Invoice_JournalEntries_RuleCriteria" CustomMessageTemplate="Een ingeboekte factuur kan niet worden verwijderd. Neem de boeking terug om de factuur te kunnen verwijderen." />
       <RuleCriteria Id="Invoice_Lines_RuleCriteria" CustomMessageTemplate="Een factuur moet ten minste één geldige regel bevatten." />
       <RuleCriteria Id="JournalEntry_Lines_Count_RuleCriteria" CustomMessageTemplate="Een boeking moet ten minste twee regels bevatten." />
       <RuleCriteria Id="JournalEntry_Lines_Sum_RuleCriteria" CustomMessageTemplate="De som van alle boekingsregels moet nul zijn." />
-      <RuleCriteria Id="Party_Invoices_RuleCriteria" CustomMessageTemplate="Contacten met facturen kunnen niet worden verwijderd. Verwijder eerst de facturen, en verwijder dan pas het contact." />
+      <RuleCriteria Id="PaymentTerm_Customer_RuleCriteria" CustomMessageTemplate="Betalingstermijnen die gebruikt worden door klanten kunnen niet worden verwijderd. Wijzig eerst de klanten, en verwijder dan pas de betalingstermijn." />
       <RuleCriteria Id="PaymentTerm_Invoice_RuleCriteria" CustomMessageTemplate="Betalingstermijnen die gebruikt worden in facturen kunnen niet worden verwijderd. Wijzig eerst de facturen, en verwijder dan pas de betalingstermijn." />
-      <RuleCriteria Id="PaymentTerm_Party_RuleCriteria" CustomMessageTemplate="Betalingstermijnen die gebruikt worden in contacten kunnen niet worden verwijderd. Wijzig eerst de contacten, en verwijder dan pas de betalingstermijn." />
+      <RuleCriteria Id="PaymentTerm_Supplier_RuleCriteria" CustomMessageTemplate="Betalingstermijnen die gebruikt worden door leveranciers kunnen niet worden verwijderd. Wijzig eerst de leveranciers, en verwijder dan pas de betalingstermijn." />
       <RuleCriteria Id="ProfitAndLossStatementParameters_StartDateEndDate_RuleCriteria" CustomMessageTemplate="De einddatum moet groter dan of gelijk aan de startdatum zijn." />
+      <RuleCriteria Id="Supplier_Invoices_RuleCriteria" CustomMessageTemplate="Leveranciers met facturen kunnen niet worden verwijderd. Verwijder eerst de facturen, en verwijder dan pas de leverancier." />
       <RuleCriteria Id="VatDeclaration_JournalEntries_RuleCriteria" CustomMessageTemplate="Een ingeboekte BTW-aangifte kan niet worden verwijderd. Neem de boeking terug om de BTW-aangifte te kunnen verwijderen." />
       <RuleCriteria Id="VatRate_ExpenseAccount_RuleCriteria" CustomMessageTemplate="BTW-tarieven die gebruikt worden in kostenrekeningen kunnen niet worden verwijderd. Wijzig eerst de kostenrekeningen, en verwijder dan pas het BTW-tarief." />
       <RuleCriteria Id="VatRate_IncomeAccount_RuleCriteria" CustomMessageTemplate="BTW-tarieven die gebruikt worden in opbrengstenrekeningen kunnen niet worden verwijderd. Wijzig eerst de opbrengstenrekeningen, en verwijder dan pas het BTW-tarief." />
@@ -644,13 +648,12 @@
   </Validation>
   <Views>
     <ListView Id="Account_ListView" Caption="Grootboekrekeningen" />
+    <ListView Id="Customer_ListView" Caption="Klanten" />
     <ListView Id="Depreciation_ListView" Caption="Afschrijvingen" />
     <ListView Id="Identifier_ListView" Caption="Volgnummers" />
     <ListView Id="JournalEntry_ListView" Caption="Boekingen" />
-    <ListView Id="Party_ListView" Caption="Contacten" />
     <ListView Id="PaymentTerm_ListView" Caption="Betalingstermijnen" />
     <ListView Id="PurchaseInvoice_ListView" Caption="Inkoopfacturen" />
-    <DetailView Id="PurchaseInvoice_Supplier_DetailView" Caption="Leverancier" />
     <ListView Id="ReportDataV2_ListView" Caption="Rapporten" />
     <DetailView Id="RuleSetValidationResult_ByTarget_Error_DetailView" Caption="Validatiefout">
       <Items>
@@ -662,8 +665,8 @@
         <ColumnInfo Id="ErrorMessage" Caption="Omschrijving" />
       </Columns>
     </ListView>
-    <DetailView Id="SalesInvoice_Customer_DetailView" Caption="Klant" />
     <ListView Id="SalesInvoice_ListView" Caption="Verkoopfacturen" />
+    <ListView Id="Supplier_ListView" Caption="Leveranciers" />
     <ListView Id="ValidationResults_DisplayableValidationResultItems_ListView">
       <Columns>
         <ColumnInfo Id="RuleName" Caption="Regelnaam" />

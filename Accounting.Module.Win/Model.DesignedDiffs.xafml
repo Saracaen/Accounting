@@ -9,16 +9,4 @@
     <SchemaModule Name="SystemModule" Version="18.2.5.0" IsNewNode="True" />
     <SchemaModule Name="SystemWindowsFormsModule" Version="18.2.5.0" IsNewNode="True" />
   </SchemaModules>
-  <Views>
-    <DetailView Id="PurchaseInvoice_DetailView">
-      <Items>
-        <PropertyEditor Id="Supplier" View="PurchaseInvoice_Supplier_LookupListView" />
-      </Items>
-    </DetailView>
-    <DetailView Id="SalesInvoice_DetailView">
-      <Items>
-        <PropertyEditor Id="Customer" View="SalesInvoice_Customer_LookupListView" />
-      </Items>
-    </DetailView>
-  </Views>
 </Application>

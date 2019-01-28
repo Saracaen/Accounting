@@ -66,9 +66,10 @@
     <Items IsNewNode="True" Removed="True">
       <Item Id="Home" Index="0" ImageName="BO_Address" IsNewNode="True">
         <Items IsNewNode="True">
-          <Item Id="Parties" ViewId="Party_ListView" IsNewNode="True" />
-          <Item Id="PurchaseInvoices" ViewId="PurchaseInvoice_ListView" IsNewNode="True" />
-          <Item Id="SalesInvoices" ViewId="SalesInvoice_ListView" IsNewNode="True" />
+          <Item Id="Customers" Index="0" ViewId="Customer_ListView" IsNewNode="True" />
+          <Item Id="SalesInvoices" Index="1" ViewId="SalesInvoice_ListView" IsNewNode="True" />
+          <Item Id="Suppliers" Index="2" ViewId="Supplier_ListView" IsNewNode="True" />
+          <Item Id="PurchaseInvoices" Index="3" ViewId="PurchaseInvoice_ListView" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="Accounting" Index="1" ImageName="BO_Sale_v92" IsNewNode="True">
@@ -98,9 +99,10 @@
   </SchemaModules>
   <Validation>
     <Rules>
-      <RuleUniqueValue Id="Party_Name_RuleUniqueValue" TargetType="Accounting.Module.BusinessObjects.Party" TargetPropertyName="Name" TargetContextIDs="Save" IsNewNode="True" />
+      <RuleUniqueValue Id="Customer_Name_RuleUniqueValue" TargetType="Accounting.Module.BusinessObjects.Customer" TargetPropertyName="Name" TargetContextIDs="Save" IsNewNode="True" />
       <RuleUniqueValue Id="PurchaseInvoice_Identifier_RuleUniqueValue" TargetType="Accounting.Module.BusinessObjects.PurchaseInvoice" TargetPropertyName="Identifier" TargetContextIDs="Save" IsNewNode="True" />
       <RuleUniqueValue Id="SalesInvoice_Identifier_RuleUniqueValue" TargetType="Accounting.Module.BusinessObjects.SalesInvoice" TargetPropertyName="Identifier" TargetContextIDs="Save" IsNewNode="True" />
+      <RuleUniqueValue Id="Supplier_Name_RuleUniqueValue" TargetType="Accounting.Module.BusinessObjects.Supplier" TargetPropertyName="Name" TargetContextIDs="Save" IsNewNode="True" />
     </Rules>
   </Validation>
   <Views>
@@ -226,6 +228,41 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <DetailView Id="Customer_DetailView" FreezeLayout="True">
+      <Layout IsNewNode="True" Removed="True">
+        <LayoutGroup Id="Customer" IsNewNode="True">
+          <LayoutGroup Id="Customer" Direction="Horizontal" IsNewNode="True">
+            <LayoutGroup Id="Customer_col1" IsNewNode="True">
+              <LayoutItem Id="Name" Index="0" IsNewNode="True" />
+              <LayoutItem Id="Contact" Index="1" IsNewNode="True" />
+              <LayoutItem Id="Address" Index="2" IsNewNode="True" />
+              <LayoutItem Id="PostalCode" Index="3" IsNewNode="True" />
+              <LayoutItem Id="City" Index="4" IsNewNode="True" />
+              <LayoutItem Id="Country" Index="5" IsNewNode="True" />
+              <LayoutItem Id="Phone" Index="6" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Customer_col2" IsNewNode="True">
+              <LayoutItem Id="Email" Index="0" IsNewNode="True" />
+              <LayoutItem Id="Website" Index="1" IsNewNode="True" />
+              <LayoutItem Id="LegalEntityIdentifier" Index="2" IsNewNode="True" />
+              <LayoutItem Id="VatIdentifier" Index="3" IsNewNode="True" />
+              <LayoutItem Id="IsVatIncluded" Index="4" IsNewNode="True" />
+              <LayoutItem Id="PaymentTerm" Index="5" IsNewNode="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Customer_ListView" Caption="Customers" FreezeColumnIndices="True">
+      <Columns>
+        <ColumnInfo Id="PaymentTerm" Removed="True" />
+        <ColumnInfo Id="Name" Index="0" Width="100" />
+        <ColumnInfo Id="Address" Index="1" />
+        <ColumnInfo Id="City" Index="2" />
+        <ColumnInfo Id="PostalCode" Index="3" />
+        <ColumnInfo Id="Country" Index="4" />
+      </Columns>
+    </ListView>
     <DetailView Id="CustomerAccount_DetailView" FreezeLayout="True">
       <Layout IsNewNode="True" Removed="True">
         <LayoutGroup Id="CustomerAccount" IsNewNode="True">
@@ -500,43 +537,6 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <DetailView Id="Party_DetailView" FreezeLayout="True">
-      <Layout IsNewNode="True" Removed="True">
-        <LayoutGroup Id="Party" IsNewNode="True">
-          <LayoutGroup Id="Party" Direction="Horizontal" IsNewNode="True">
-            <LayoutGroup Id="Party_col1" IsNewNode="True">
-              <LayoutItem Id="Name" Index="0" IsNewNode="True" />
-              <LayoutItem Id="Role" Index="1" IsNewNode="True" />
-              <LayoutItem Id="Address" Index="2" IsNewNode="True" />
-              <LayoutItem Id="PostalCode" Index="3" IsNewNode="True" />
-              <LayoutItem Id="City" Index="4" IsNewNode="True" />
-              <LayoutItem Id="Country" Index="5" IsNewNode="True" />
-              <LayoutItem Id="Phone" Index="6" IsNewNode="True" />
-            </LayoutGroup>
-            <LayoutGroup Id="Party_col2" IsNewNode="True">
-              <LayoutItem Id="Contact" Index="0" IsNewNode="True" />
-              <LayoutItem Id="Email" Index="1" IsNewNode="True" />
-              <LayoutItem Id="Website" Index="2" IsNewNode="True" />
-              <LayoutItem Id="LegalEntityIdentifier" Index="3" IsNewNode="True" />
-              <LayoutItem Id="VatIdentifier" Index="4" IsNewNode="True" />
-              <LayoutItem Id="IsVatIncluded" Index="5" IsNewNode="True" />
-              <LayoutItem Id="PaymentTerm" Index="6" IsNewNode="True" />
-            </LayoutGroup>
-          </LayoutGroup>
-        </LayoutGroup>
-      </Layout>
-    </DetailView>
-    <ListView Id="Party_ListView" Caption="Parties" FreezeColumnIndices="True">
-      <Columns>
-        <ColumnInfo Id="PaymentTerm" Removed="True" />
-        <ColumnInfo Id="Name" Index="0" Width="100" />
-        <ColumnInfo Id="Role" Index="1" />
-        <ColumnInfo Id="Address" Index="2" />
-        <ColumnInfo Id="City" Index="3" />
-        <ColumnInfo Id="PostalCode" Index="4" />
-        <ColumnInfo Id="Country" Index="5" />
-      </Columns>
-    </ListView>
     <DetailView Id="PayInvoiceParameters_DetailView" FreezeLayout="True">
       <Layout IsNewNode="True" Removed="True">
         <LayoutGroup Id="PayInvoiceParameters" IsNewNode="True">
@@ -655,51 +655,6 @@
         <ColumnInfo Id="Total" Index="6" />
       </Columns>
     </ListView>
-    <DetailView Id="PurchaseInvoice_Supplier_DetailView" ClassName="Accounting.Module.BusinessObjects.Party" FreezeLayout="True" Caption="Supplier" IsNewNode="True">
-      <Items IsNewNode="True">
-        <PropertyEditor Id="Address" PropertyName="Address" IsNewNode="True" />
-        <PropertyEditor Id="City" PropertyName="City" IsNewNode="True" />
-        <PropertyEditor Id="Contact" PropertyName="Contact" IsNewNode="True" />
-        <PropertyEditor Id="Country" PropertyName="Country" IsNewNode="True" />
-        <PropertyEditor Id="Email" PropertyName="Email" IsNewNode="True" />
-        <PropertyEditor Id="IsVatIncluded" PropertyName="IsVatIncluded" IsNewNode="True" />
-        <PropertyEditor Id="LegalEntityIdentifier" PropertyName="LegalEntityIdentifier" IsNewNode="True" />
-        <PropertyEditor Id="Name" PropertyName="Name" IsNewNode="True" />
-        <PropertyEditor Id="PaymentTerm" PropertyName="PaymentTerm" IsNewNode="True" />
-        <PropertyEditor Id="Phone" PropertyName="Phone" IsNewNode="True" />
-        <PropertyEditor Id="PostalCode" PropertyName="PostalCode" IsNewNode="True" />
-        <PropertyEditor Id="SupplierRole" PropertyName="Role" IsNewNode="True" />
-        <PropertyEditor Id="VatIdentifier" PropertyName="VatIdentifier" IsNewNode="True" />
-        <PropertyEditor Id="Website" PropertyName="Website" IsNewNode="True" />
-      </Items>
-      <Layout IsNewNode="True">
-        <LayoutGroup Id="Party" Direction="Horizontal" IsNewNode="True">
-          <LayoutGroup Id="Party_col1" IsNewNode="True">
-            <LayoutItem Id="Name" Index="0" IsNewNode="True" />
-            <LayoutItem Id="SupplierRole" Index="1" IsNewNode="True" />
-            <LayoutItem Id="Address" Index="2" IsNewNode="True" />
-            <LayoutItem Id="PostalCode" Index="3" IsNewNode="True" />
-            <LayoutItem Id="City" Index="4" IsNewNode="True" />
-            <LayoutItem Id="Country" Index="5" IsNewNode="True" />
-            <LayoutItem Id="Phone" Index="6" IsNewNode="True" />
-          </LayoutGroup>
-          <LayoutGroup Id="Party_col2" IsNewNode="True">
-            <LayoutItem Id="Contact" Index="0" IsNewNode="True" />
-            <LayoutItem Id="Email" Index="1" IsNewNode="True" />
-            <LayoutItem Id="Website" Index="2" IsNewNode="True" />
-            <LayoutItem Id="LegalEntityIdentifier" Index="3" IsNewNode="True" />
-            <LayoutItem Id="VatIdentifier" Index="4" IsNewNode="True" />
-            <LayoutItem Id="IsVatIncluded" Index="5" IsNewNode="True" />
-            <LayoutItem Id="PaymentTerm" Index="6" IsNewNode="True" />
-          </LayoutGroup>
-        </LayoutGroup>
-      </Layout>
-    </DetailView>
-    <ListView Id="PurchaseInvoice_Supplier_LookupListView" ClassName="Accounting.Module.BusinessObjects.Party" DetailViewID="PurchaseInvoice_Supplier_DetailView" IsNewNode="True">
-      <Columns IsNewNode="True">
-        <ColumnInfo Id="Name" PropertyName="Name" SortIndex="0" SortOrder="Ascending" IsNewNode="True" />
-      </Columns>
-    </ListView>
     <ListView Id="ReportDataV2_ListView" Caption="Reports" />
     <DetailView Id="RoundingDifferencesAccount_DetailView" FreezeLayout="True">
       <Layout IsNewNode="True" Removed="True">
@@ -714,51 +669,6 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <DetailView Id="SalesInvoice_Customer_DetailView" ClassName="Accounting.Module.BusinessObjects.Party" FreezeLayout="True" Caption="Customer" IsNewNode="True">
-      <Items IsNewNode="True">
-        <PropertyEditor Id="Address" PropertyName="Address" IsNewNode="True" />
-        <PropertyEditor Id="City" PropertyName="City" IsNewNode="True" />
-        <PropertyEditor Id="Contact" PropertyName="Contact" IsNewNode="True" />
-        <PropertyEditor Id="Country" PropertyName="Country" IsNewNode="True" />
-        <PropertyEditor Id="CustomerRole" PropertyName="Role" IsNewNode="True" />
-        <PropertyEditor Id="Email" PropertyName="Email" IsNewNode="True" />
-        <PropertyEditor Id="IsVatIncluded" PropertyName="IsVatIncluded" IsNewNode="True" />
-        <PropertyEditor Id="LegalEntityIdentifier" PropertyName="LegalEntityIdentifier" IsNewNode="True" />
-        <PropertyEditor Id="Name" PropertyName="Name" IsNewNode="True" />
-        <PropertyEditor Id="PaymentTerm" PropertyName="PaymentTerm" IsNewNode="True" />
-        <PropertyEditor Id="Phone" PropertyName="Phone" IsNewNode="True" />
-        <PropertyEditor Id="PostalCode" PropertyName="PostalCode" IsNewNode="True" />
-        <PropertyEditor Id="VatIdentifier" PropertyName="VatIdentifier" IsNewNode="True" />
-        <PropertyEditor Id="Website" PropertyName="Website" IsNewNode="True" />
-      </Items>
-      <Layout IsNewNode="True">
-        <LayoutGroup Id="Party" Direction="Horizontal" IsNewNode="True">
-          <LayoutGroup Id="Party_col1" IsNewNode="True">
-            <LayoutItem Id="Name" Index="0" IsNewNode="True" />
-            <LayoutItem Id="CustomerRole" Index="1" IsNewNode="True" />
-            <LayoutItem Id="Address" Index="2" IsNewNode="True" />
-            <LayoutItem Id="PostalCode" Index="3" IsNewNode="True" />
-            <LayoutItem Id="City" Index="4" IsNewNode="True" />
-            <LayoutItem Id="Country" Index="5" IsNewNode="True" />
-            <LayoutItem Id="Phone" Index="6" IsNewNode="True" />
-          </LayoutGroup>
-          <LayoutGroup Id="Party_col2" IsNewNode="True">
-            <LayoutItem Id="Contact" Index="0" IsNewNode="True" />
-            <LayoutItem Id="Email" Index="1" IsNewNode="True" />
-            <LayoutItem Id="Website" Index="2" IsNewNode="True" />
-            <LayoutItem Id="LegalEntityIdentifier" Index="3" IsNewNode="True" />
-            <LayoutItem Id="VatIdentifier" Index="4" IsNewNode="True" />
-            <LayoutItem Id="IsVatIncluded" Index="5" IsNewNode="True" />
-            <LayoutItem Id="PaymentTerm" Index="6" IsNewNode="True" />
-          </LayoutGroup>
-        </LayoutGroup>
-      </Layout>
-    </DetailView>
-    <ListView Id="SalesInvoice_Customer_LookupListView" ClassName="Accounting.Module.BusinessObjects.Party" DetailViewID="SalesInvoice_Customer_DetailView" IsNewNode="True">
-      <Columns IsNewNode="True">
-        <ColumnInfo Id="Name" PropertyName="Name" SortIndex="0" SortOrder="Ascending" IsNewNode="True" />
-      </Columns>
-    </ListView>
     <DetailView Id="SalesInvoice_DetailView" FreezeLayout="True">
       <Layout IsNewNode="True" Removed="True">
         <LayoutGroup Id="SalesInvoice" IsNewNode="True">
@@ -802,6 +712,41 @@
         <ColumnInfo Id="DueDate" Index="4" />
         <ColumnInfo Id="PaidDate" Index="5" />
         <ColumnInfo Id="Total" Index="6" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Supplier_DetailView" FreezeLayout="True">
+      <Layout IsNewNode="True" Removed="True">
+        <LayoutGroup Id="Supplier" IsNewNode="True">
+          <LayoutGroup Id="Supplier" Direction="Horizontal" IsNewNode="True">
+            <LayoutGroup Id="Supplier_col1" IsNewNode="True">
+              <LayoutItem Id="Name" Index="0" IsNewNode="True" />
+              <LayoutItem Id="Contact" Index="1" IsNewNode="True" />
+              <LayoutItem Id="Address" Index="2" IsNewNode="True" />
+              <LayoutItem Id="PostalCode" Index="3" IsNewNode="True" />
+              <LayoutItem Id="City" Index="4" IsNewNode="True" />
+              <LayoutItem Id="Country" Index="5" IsNewNode="True" />
+              <LayoutItem Id="Phone" Index="6" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Supplier_col2" IsNewNode="True">
+              <LayoutItem Id="Email" Index="0" IsNewNode="True" />
+              <LayoutItem Id="Website" Index="1" IsNewNode="True" />
+              <LayoutItem Id="LegalEntityIdentifier" Index="2" IsNewNode="True" />
+              <LayoutItem Id="VatIdentifier" Index="3" IsNewNode="True" />
+              <LayoutItem Id="IsVatIncluded" Index="4" IsNewNode="True" />
+              <LayoutItem Id="PaymentTerm" Index="5" IsNewNode="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Supplier_ListView" Caption="Suppliers" FreezeColumnIndices="True">
+      <Columns>
+        <ColumnInfo Id="PaymentTerm" Removed="True" />
+        <ColumnInfo Id="Name" Index="0" Width="100" />
+        <ColumnInfo Id="Address" Index="1" />
+        <ColumnInfo Id="City" Index="2" />
+        <ColumnInfo Id="PostalCode" Index="3" />
+        <ColumnInfo Id="Country" Index="4" />
       </Columns>
     </ListView>
     <DetailView Id="SupplierAccount_DetailView" FreezeLayout="True">

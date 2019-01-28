@@ -1,5 +1,4 @@
-﻿using Accounting.Module.BusinessObjects;
-using Accounting.Module.Win.Controllers;
+﻿using Accounting.Module.Win.Controllers;
 using Accounting.Module.Win.Editors;
 using Accounting.Module.Win.Model;
 using DevExpress.ExpressApp;
@@ -67,7 +66,6 @@ namespace Accounting.Module.Win
             editorDescriptorsFactory.RegisterPropertyEditor(typeof(float), typeof(RangedFloatPropertyEditor), true);
             editorDescriptorsFactory.RegisterPropertyEditor(typeof(int), typeof(RangedIntegerPropertyEditor), true);
             editorDescriptorsFactory.RegisterPropertyEditor(typeof(long), typeof(RangedLongPropertyEditor), true);
-            editorDescriptorsFactory.RegisterPropertyEditor(typeof(PartyRole), typeof(PartyRolePropertyEditor), true);
             editorDescriptorsFactory.RegisterPropertyEditor(typeof(short), typeof(RangedIntegerPropertyEditor), true);
             editorDescriptorsFactory.RegisterPropertyEditor(typeof(uint), typeof(RangedIntegerPropertyEditor), true);
             editorDescriptorsFactory.RegisterPropertyEditor(typeof(ulong), typeof(RangedIntegerPropertyEditor), true);

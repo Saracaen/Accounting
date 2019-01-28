@@ -14,12 +14,11 @@ namespace Accounting.Module.BusinessObjects
         }
 
         [Association]
-        [DataSourceCriteria("Role In ('None', 'Customer')")]
         [Persistent("Party")]
         [RuleRequiredField("SalesInvoice_Customer_RuleRequiredField", DefaultContexts.Save)]
-        public Party Customer
+        public Customer Customer
         {
-            get => GetPropertyValue<Party>(nameof(Customer));
+            get => GetPropertyValue<Customer>(nameof(Customer));
             set => SetPropertyValue(nameof(Customer), value);
         }
 

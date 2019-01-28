@@ -10,8 +10,9 @@ namespace Accounting.Module.BusinessObjects
     [Appearance("New", "Not IsNewObject(This)", TargetItems = "*;Name", Enabled = false)]
     [DefaultProperty("Name")]
     [ImageName("BO_Task")]
+    [RuleCriteria("PaymentTerm_Customer_RuleCriteria", DefaultContexts.Delete, "[<Customer>][PaymentTerm = ^.Oid].Count() = 0", "Payment terms that are referenced by customers cannot be deleted. Update the customer first, and then delete the payment term.")]
     [RuleCriteria("PaymentTerm_Invoice_RuleCriteria", DefaultContexts.Delete, "[<Invoice>][PaymentTerm = ^.Oid].Count() = 0", "Payment terms that are referenced by invoices cannot be deleted. Update the invoices first, and then delete the payment term.")]
-    [RuleCriteria("PaymentTerm_Party_RuleCriteria", DefaultContexts.Delete, "[<Party>][PaymentTerm = ^.Oid].Count() = 0", "Payment terms that are referenced by parties cannot be deleted. Update the parties first, and then delete the payment term.")]
+    [RuleCriteria("PaymentTerm_Supplier_RuleCriteria", DefaultContexts.Delete, "[<Supplier>][PaymentTerm = ^.Oid].Count() = 0", "Payment terms that are referenced by suppliers cannot be deleted. Update the suppliers first, and then delete the payment term.")]
     public class PaymentTerm : BaseObject
     {
         public PaymentTerm(Session session) : base(session)

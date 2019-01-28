@@ -14,12 +14,11 @@ namespace Accounting.Module.BusinessObjects
         }
 
         [Association]
-        [DataSourceCriteria("Role In ('None', 'Supplier')")]
         [Persistent("Party")]
         [RuleRequiredField("PurchaseInvoice_Supplier_RuleRequiredField", DefaultContexts.Save)]
-        public Party Supplier
+        public Supplier Supplier
         {
-            get => GetPropertyValue<Party>(nameof(Supplier));
+            get => GetPropertyValue<Supplier>(nameof(Supplier));
             set => SetPropertyValue(nameof(Supplier), value);
         }
 
