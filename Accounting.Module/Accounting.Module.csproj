@@ -159,6 +159,7 @@
     <Compile Include="Controllers\PostVatDeclarationController.cs" />
     <Compile Include="Controllers\RestoreListViewSelectionController.cs" />
     <Compile Include="Controllers\ShowDetailViewController.cs" />
+    <Compile Include="Controllers\ShowStartupNavigationItemController.cs" />
     <Compile Include="Controllers\UpdateCompanyNameController.cs" />
     <Compile Include="ISupportDate.cs" />
     <Compile Include="ISupportDefaultVatRate.cs" />

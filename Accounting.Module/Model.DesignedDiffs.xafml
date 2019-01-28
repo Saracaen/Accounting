@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="Karibou Accounting" PreferredLanguage="nl" Company="Karibou IT Solutions">
   <ActionDesign>
     <Actions>
@@ -200,24 +200,6 @@
             <LayoutItem Id="AccountNumber" Index="5" IsNewNode="True" />
           </LayoutGroup>
         </LayoutGroup>
-      </Layout>
-    </DetailView>
-    <DetailView Id="Company_Popup_DetailView" ClassName="Accounting.Module.BusinessObjects.Company" AllowNew="False" AllowDelete="False" FreezeLayout="True" IsNewNode="True">
-      <Items IsNewNode="True">
-        <PropertyEditor Id="Address" PropertyName="Address" IsNewNode="True" />
-        <PropertyEditor Id="City" PropertyName="City" IsNewNode="True" />
-        <PropertyEditor Id="Country" PropertyName="Country" IsNewNode="True" />
-        <PropertyEditor Id="LogoData" PropertyName="LogoData" IsNewNode="True" />
-        <PropertyEditor Id="Name" PropertyName="Name" IsNewNode="True" />
-        <PropertyEditor Id="PostalCode" PropertyName="PostalCode" IsNewNode="True" />
-      </Items>
-      <Layout IsNewNode="True">
-        <LayoutItem Id="Name" Index="0" IsNewNode="True" />
-        <LayoutItem Id="Address" Index="1" IsNewNode="True" />
-        <LayoutItem Id="PostalCode" Index="2" IsNewNode="True" />
-        <LayoutItem Id="City" Index="3" IsNewNode="True" />
-        <LayoutItem Id="Country" Index="4" IsNewNode="True" />
-        <LayoutItem Id="LogoData" Index="5" IsNewNode="True" />
       </Layout>
     </DetailView>
     <DetailView Id="CorrectInvoiceParameters_DetailView" FreezeLayout="True">

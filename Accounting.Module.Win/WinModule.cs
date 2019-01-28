@@ -40,9 +40,9 @@ namespace Accounting.Module.Win
                 typeof(CalculateRunningBalanceController),
                 typeof(ChangeDatabaseController),
                 typeof(DisableControllersController),
-                typeof(ExpandAccordionController),
                 typeof(HideNavigationActionsController),
-                typeof(OpenObjectWithCaptionController)
+                typeof(OpenObjectWithCaptionController),
+                typeof(UpdateNavigationController)
             };
         }
 

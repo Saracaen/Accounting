@@ -7,13 +7,10 @@ using Accounting.Module.Reports.Parameters;
 using Accounting.Module.Updaters;
 using Accounting.Module.Utils;
 using DevExpress.ExpressApp;
-using DevExpress.ExpressApp.Actions;
 using DevExpress.ExpressApp.DC;
-using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Model;
 using DevExpress.ExpressApp.ReportsV2;
 using DevExpress.ExpressApp.Updating;
-using DevExpress.ExpressApp.Validation;
 using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.BaseImpl;
 using System;
@@ -54,34 +51,6 @@ namespace Accounting.Module
             return new ModuleUpdater[] { dataUpdater, predefinedReportsUpdater };
         }
 
-        public override IList<PopupWindowShowAction> GetStartupActions()
-        {
-            var startupActions = base.GetStartupActions();
-            using (var objectSpace = Application.CreateObjectSpace(typeof(Company)))
-            {
-                var company = objectSpace.FindObject<Company>(null);
-                if (company != null)
-                {
-                    Application.Title = company.Name;
-                }
-                else
-                {
-                    var createCompanyAction = new PopupWindowShowAction();
-                    createCompanyAction.CustomizePopupWindowParams += CreateCompanyAction_CustomizePopupWindowParams;
-
-                    startupActions.Add(createCompanyAction);
-                }
-            }
-
-            return startupActions;
-        }
-
-        public override void Setup(XafApplication application)
-        {
-            base.Setup(application);
-            application.SetupComplete += Application_SetupComplete;
-        }
-
         protected override IEnumerable<Type> GetDeclaredControllerTypes()
         {
             return new[]
@@ -105,6 +74,7 @@ namespace Accounting.Module
                 typeof(PostVatDeclarationController),
                 typeof(RestoreListViewSelectionController),
                 typeof(ShowDetailViewController),
+                typeof(ShowStartupNavigationItemController),
                 typeof(UpdateCompanyNameController)
             };
         }
@@ -156,32 +126,6 @@ namespace Accounting.Module
         protected override IEnumerable<Type> GetRegularTypes()
         {
             return Type.EmptyTypes;
-        }
-
-        private void Application_SetupComplete(object sender, EventArgs e)
-        {
-            var validationModule = ((XafApplication)sender).Modules.FindModule<ValidationModule>();
-            validationModule?.InitializeRuleSet();
-        }
-
-        private void CreateCompanyAction_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e)
-        {
-            var objectSpace = Application.CreateObjectSpace(typeof(Company));
-            var company = objectSpace.CreateObject<Company>();
-            var detailView = Application.CreateDetailView(objectSpace, "Company_Popup_DetailView", true, company);
-
-            objectSpace.Committed += delegate { detailView.Closing -= DetailView_Closing; };
-
-            detailView.Closing += DetailView_Closing;
-            detailView.ViewEditMode = ViewEditMode.Edit;
-
-            e.DialogController.CancelAction.Active[Name] = false;
-            e.View = detailView;
-        }
-
-        private void DetailView_Closing(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

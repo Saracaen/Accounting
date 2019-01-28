@@ -77,9 +77,9 @@
     <Compile Include="Controllers\CalculateRunningBalanceController.cs" />
     <Compile Include="Controllers\ChangeDatabaseController.cs" />
     <Compile Include="Controllers\DisableControllersController.cs" />
-    <Compile Include="Controllers\ExpandAccordionController.cs" />
     <Compile Include="Controllers\HideNavigationActionsController.cs" />
     <Compile Include="Controllers\OpenObjectWithCaptionController.cs" />
+    <Compile Include="Controllers\UpdateNavigationController.cs" />
     <Compile Include="Editors\FilteringEnumPropertyEditor.cs" />
     <Compile Include="Editors\PartyRolePropertyEditor.cs" />
     <Compile Include="Editors\RangedDatePropertyEditor.cs" />
