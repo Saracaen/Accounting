@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Application Title="Karibou Accounting" PreferredLanguage="nl" Company="Karibou IT Solutions">
   <ActionDesign>
     <Actions>
@@ -541,14 +541,6 @@
               <LayoutItem Id="PaymentTerm" Index="6" IsNewNode="True" />
             </LayoutGroup>
           </LayoutGroup>
-          <TabbedGroup Id="Tabs" IsNewNode="True">
-            <LayoutGroup Id="PurchaseInvoices" Caption="Purchase Invoices" IsNewNode="True">
-              <LayoutItem Id="PurchaseInvoices" IsNewNode="True" />
-            </LayoutGroup>
-            <LayoutGroup Id="SalesInvoices" Caption="Sales Invoices" IsNewNode="True">
-              <LayoutItem Id="SalesInvoices" IsNewNode="True" />
-            </LayoutGroup>
-          </TabbedGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
@@ -561,122 +553,6 @@
         <ColumnInfo Id="City" Index="3" />
         <ColumnInfo Id="PostalCode" Index="4" />
         <ColumnInfo Id="Country" Index="5" />
-      </Columns>
-    </ListView>
-    <DetailView Id="Party_PurchaseInvoice_DetailView" ClassName="Accounting.Module.BusinessObjects.PurchaseInvoice" FreezeLayout="True" IsNewNode="True">
-      <Items IsNewNode="True">
-        <PropertyEditor Id="Date" PropertyName="Date" IsNewNode="True" />
-        <PropertyEditor Id="DueAmount" PropertyName="DueAmount" IsNewNode="True" />
-        <PropertyEditor Id="DueDate" PropertyName="DueDate" IsNewNode="True" />
-        <PropertyEditor Id="Identifier" PropertyName="Identifier" IsNewNode="True" />
-        <PropertyEditor Id="IsVatIncluded" PropertyName="IsVatIncluded" IsNewNode="True" />
-        <PropertyEditor Id="Lines" PropertyName="Lines" View="Invoice_Lines_ListView" IsNewNode="True" />
-        <PropertyEditor Id="PaidDate" PropertyName="PaidDate" IsNewNode="True" />
-        <PropertyEditor Id="PaymentTerm" PropertyName="PaymentTerm" IsNewNode="True" />
-        <PropertyEditor Id="Reference" PropertyName="Reference" IsNewNode="True" />
-        <PropertyEditor Id="SubTotal" PropertyName="SubTotal" IsNewNode="True" />
-        <PropertyEditor Id="Total" PropertyName="Total" IsNewNode="True" />
-        <PropertyEditor Id="Type" PropertyName="Type" IsNewNode="True" />
-        <PropertyEditor Id="Vat" PropertyName="Vat" IsNewNode="True" />
-      </Items>
-      <Layout IsNewNode="True">
-        <LayoutGroup Id="PurchaseInvoice" IsNewNode="True">
-          <LayoutGroup Id="PurchaseInvoice" Direction="Horizontal" Index="0" IsNewNode="True">
-            <LayoutGroup Id="PurchaseInvoice_col1" IsNewNode="True">
-              <LayoutItem Id="Identifier" Index="0" IsNewNode="True" />
-              <LayoutItem Id="Date" Index="1" IsNewNode="True" />
-              <LayoutItem Id="Reference" Index="2" IsNewNode="True" />
-            </LayoutGroup>
-            <LayoutGroup Id="PurchaseInvoice_col2" IsNewNode="True">
-              <LayoutItem Id="PaymentTerm" Index="0" IsNewNode="True" />
-              <LayoutItem Id="DueDate" Index="1" IsNewNode="True" />
-              <LayoutItem Id="Type" Index="2" IsNewNode="True" />
-              <LayoutItem Id="IsVatIncluded" Index="3" IsNewNode="True" />
-            </LayoutGroup>
-          </LayoutGroup>
-          <LayoutGroup Id="Lines" Index="1" IsNewNode="True">
-            <LayoutItem Id="Lines" IsNewNode="True" />
-          </LayoutGroup>
-          <LayoutGroup Id="Summary" Direction="Horizontal" Index="2" IsNewNode="True">
-            <LayoutGroup Id="Summary_col1" IsNewNode="True">
-              <LayoutItem Id="PaidDate" Index="0" IsNewNode="True" />
-              <LayoutItem Id="DueAmount" Index="1" IsNewNode="True" />
-            </LayoutGroup>
-            <LayoutGroup Id="Summary_col2" IsNewNode="True">
-              <LayoutItem Id="SubTotal" Index="0" IsNewNode="True" />
-              <LayoutItem Id="Vat" Index="1" IsNewNode="True" />
-              <LayoutItem Id="Total" Index="2" IsNewNode="True" />
-            </LayoutGroup>
-          </LayoutGroup>
-        </LayoutGroup>
-      </Layout>
-    </DetailView>
-    <ListView Id="Party_PurchaseInvoices_ListView" FreezeColumnIndices="True" AllowUnlink="False" AllowLink="False" DetailViewID="Party_PurchaseInvoice_DetailView">
-      <Columns>
-        <ColumnInfo Id="Identifier" Index="0" Width="50" />
-        <ColumnInfo Id="Reference" Index="1" />
-        <ColumnInfo Id="Date" Index="2" />
-        <ColumnInfo Id="DueDate" Index="3" />
-        <ColumnInfo Id="PaidDate" Index="4" />
-        <ColumnInfo Id="Total" Index="5" />
-      </Columns>
-    </ListView>
-    <DetailView Id="Party_SalesInvoice_DetailView" ClassName="Accounting.Module.BusinessObjects.SalesInvoice" FreezeLayout="True" IsNewNode="True">
-      <Items IsNewNode="True">
-        <PropertyEditor Id="Date" PropertyName="Date" IsNewNode="True" />
-        <PropertyEditor Id="DueAmount" PropertyName="DueAmount" IsNewNode="True" />
-        <PropertyEditor Id="DueDate" PropertyName="DueDate" IsNewNode="True" />
-        <PropertyEditor Id="Identifier" PropertyName="Identifier" IsNewNode="True" />
-        <PropertyEditor Id="IsVatIncluded" PropertyName="IsVatIncluded" IsNewNode="True" />
-        <PropertyEditor Id="Lines" PropertyName="Lines" View="Invoice_Lines_ListView" IsNewNode="True" />
-        <PropertyEditor Id="PaidDate" PropertyName="PaidDate" IsNewNode="True" />
-        <PropertyEditor Id="PaymentTerm" PropertyName="PaymentTerm" IsNewNode="True" />
-        <PropertyEditor Id="Reference" PropertyName="Reference" IsNewNode="True" />
-        <PropertyEditor Id="SubTotal" PropertyName="SubTotal" IsNewNode="True" />
-        <PropertyEditor Id="Total" PropertyName="Total" IsNewNode="True" />
-        <PropertyEditor Id="Type" PropertyName="Type" IsNewNode="True" />
-        <PropertyEditor Id="Vat" PropertyName="Vat" IsNewNode="True" />
-      </Items>
-      <Layout IsNewNode="True">
-        <LayoutGroup Id="SalesInvoice" IsNewNode="True">
-          <LayoutGroup Id="SalesInvoice" Direction="Horizontal" Index="0" IsNewNode="True">
-            <LayoutGroup Id="SalesInvoice_col1" IsNewNode="True">
-              <LayoutItem Id="Identifier" Index="0" IsNewNode="True" />
-              <LayoutItem Id="Date" Index="1" IsNewNode="True" />
-              <LayoutItem Id="Reference" Index="2" IsNewNode="True" />
-            </LayoutGroup>
-            <LayoutGroup Id="SalesInvoice_col2" IsNewNode="True">
-              <LayoutItem Id="PaymentTerm" Index="0" IsNewNode="True" />
-              <LayoutItem Id="DueDate" Index="1" IsNewNode="True" />
-              <LayoutItem Id="Type" Index="2" IsNewNode="True" />
-              <LayoutItem Id="IsVatIncluded" Index="3" IsNewNode="True" />
-            </LayoutGroup>
-          </LayoutGroup>
-          <LayoutGroup Id="Lines" Index="1" IsNewNode="True">
-            <LayoutItem Id="Lines" IsNewNode="True" />
-          </LayoutGroup>
-          <LayoutGroup Id="Summary" Direction="Horizontal" Index="2" IsNewNode="True">
-            <LayoutGroup Id="Summary_col1" IsNewNode="True">
-              <LayoutItem Id="PaidDate" Index="0" IsNewNode="True" />
-              <LayoutItem Id="DueAmount" Index="1" IsNewNode="True" />
-            </LayoutGroup>
-            <LayoutGroup Id="Summary_col2" IsNewNode="True">
-              <LayoutItem Id="SubTotal" Index="0" IsNewNode="True" />
-              <LayoutItem Id="Vat" Index="1" IsNewNode="True" />
-              <LayoutItem Id="Total" Index="2" IsNewNode="True" />
-            </LayoutGroup>
-          </LayoutGroup>
-        </LayoutGroup>
-      </Layout>
-    </DetailView>
-    <ListView Id="Party_SalesInvoices_ListView" FreezeColumnIndices="True" AllowLink="False" AllowUnlink="False" DetailViewID="Party_SalesInvoice_DetailView">
-      <Columns>
-        <ColumnInfo Id="Identifier" Index="0" Width="50" />
-        <ColumnInfo Id="Reference" Index="1" />
-        <ColumnInfo Id="Date" Index="2" />
-        <ColumnInfo Id="DueDate" Index="3" />
-        <ColumnInfo Id="PaidDate" Index="4" />
-        <ColumnInfo Id="Total" Index="5" />
       </Columns>
     </ListView>
     <DetailView Id="PayInvoiceParameters_DetailView" FreezeLayout="True">

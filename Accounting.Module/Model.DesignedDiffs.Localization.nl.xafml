@@ -647,16 +647,6 @@
     <ListView Id="Depreciation_ListView" Caption="Afschrijvingen" />
     <ListView Id="Identifier_ListView" Caption="Volgnummers" />
     <ListView Id="JournalEntry_ListView" Caption="Boekingen" />
-    <DetailView Id="Party_DetailView">
-      <Layout>
-        <LayoutGroup Id="Party">
-          <TabbedGroup Id="Tabs">
-            <LayoutGroup Id="PurchaseInvoices" Caption="Inkoopfacturen" />
-            <LayoutGroup Id="SalesInvoices" Caption="Verkoopfacturen" />
-          </TabbedGroup>
-        </LayoutGroup>
-      </Layout>
-    </DetailView>
     <ListView Id="Party_ListView" Caption="Contacten" />
     <ListView Id="PaymentTerm_ListView" Caption="Betalingstermijnen" />
     <ListView Id="PurchaseInvoice_ListView" Caption="Inkoopfacturen" />
