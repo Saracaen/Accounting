@@ -607,7 +607,12 @@
       <LocalizationItem Name="Warning" Value="Waarschuwing" />
     </LocalizationGroup>
   </Localization>
-  <NavigationItems RelatedReportsGroupCaption="Rapporten" />
+  <NavigationItems RelatedReportsGroupCaption="Rapporten">
+    <Items>
+      <Item Id="Accounting" Caption="Boekhouding" />
+      <Item Id="Settings" Caption="Instellingen" />
+    </Items>
+  </NavigationItems>
   <Validation>
     <Contexts>
       <ValidationContext Id="Accept" Caption="Accepteren" />

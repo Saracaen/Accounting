@@ -71,7 +71,7 @@
           <Item Id="SalesInvoices" ViewId="SalesInvoice_ListView" IsNewNode="True" />
         </Items>
       </Item>
-      <Item Id="Boekhouding" Index="1" ImageName="BO_Sale_v92" IsNewNode="True">
+      <Item Id="Accounting" Index="1" ImageName="BO_Sale_v92" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="Depreciations" Index="0" ViewId="Depreciation_ListView" IsNewNode="True" />
           <Item Id="JournalEntries" Index="1" ViewId="JournalEntry_ListView" IsNewNode="True" />
@@ -79,7 +79,7 @@
           <Item Id="Accounts" Index="3" ViewId="Account_ListView" IsNewNode="True" />
         </Items>
       </Item>
-      <Item Id="Instellingen" Index="2" ImageName="ModelEditor_Settings" IsNewNode="True">
+      <Item Id="Settings" Index="2" ImageName="ModelEditor_Settings" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="Company" ViewId="Company_DetailView" Index="0" IsNewNode="True" />
           <Item Id="VatRates" ViewId="VatRate_ListView" Index="1" IsNewNode="True" />
