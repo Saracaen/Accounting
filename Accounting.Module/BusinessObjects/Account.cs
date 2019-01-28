@@ -20,7 +20,7 @@ namespace Accounting.Module.BusinessObjects
     [VisibleInReports]
     public abstract class Account : BaseObject
     {
-        private decimal _balance = decimal.MinValue;
+        private decimal balance = decimal.MinValue;
 
         protected Account(Session session) : base(session)
         {
@@ -31,15 +31,15 @@ namespace Accounting.Module.BusinessObjects
         {
             get
             {
-                if (_balance == decimal.MinValue)
+                if (this.balance == decimal.MinValue)
                 {
                     var criteria = new BinaryOperator("Oid", Oid);
                     var expression = CriteriaOperator.Parse("Iif(Type = 'Credit', -JournalEntryLines.Sum(Amount), JournalEntryLines.Sum(Amount))");
 
-                    _balance = Convert.ToDecimal(Session.Evaluate<Account>(expression, criteria));
+                    this.balance = Convert.ToDecimal(Session.Evaluate<Account>(expression, criteria));
                 }
 
-                return _balance;
+                return this.balance;
             }
         }
 
