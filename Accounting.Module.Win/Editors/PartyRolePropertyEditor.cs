@@ -17,17 +17,19 @@ namespace Accounting.Module.Win.Editors
         {
             base.OnCustomSetupRepositoryItem(args);
 
-            var party = CurrentObject as Party;
-            var repositoryItemEnumEdit = (RepositoryItemEnumEdit)args.Item;
-
-            if (party?.SalesInvoices.Count > 0 || Id == "CustomerRole")
+            if (CurrentObject is Party party)
             {
-                repositoryItemEnumEdit.Items.Remove(repositoryItemEnumEdit.Items.Cast<ComboBoxItem>().First(x => (PartyRole)x.Value == PartyRole.Supplier));
-            }
+                var repositoryItemEnumEdit = (RepositoryItemEnumEdit)args.Item;
 
-            if (party?.PurchaseInvoices.Count > 0 || Id == "SupplierRole")
-            {
-                repositoryItemEnumEdit.Items.Remove(repositoryItemEnumEdit.Items.Cast<ComboBoxItem>().First(x => (PartyRole)x.Value == PartyRole.Customer));
+                if (party.SalesInvoices.Count > 0 || Id == "CustomerRole")
+                {
+                    repositoryItemEnumEdit.Items.Remove(repositoryItemEnumEdit.Items.Cast<ComboBoxItem>().First(x => (PartyRole)x.Value == PartyRole.Supplier));
+                }
+
+                if (party.PurchaseInvoices.Count > 0 || Id == "SupplierRole")
+                {
+                    repositoryItemEnumEdit.Items.Remove(repositoryItemEnumEdit.Items.Cast<ComboBoxItem>().First(x => (PartyRole)x.Value == PartyRole.Customer));
+                }
             }
         }
     }
