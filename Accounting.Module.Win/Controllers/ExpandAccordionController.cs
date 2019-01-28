@@ -23,7 +23,6 @@ namespace Accounting.Module.Win.Controllers
             {
                 showNavigationItemController.ShowNavigationItemAction.CustomizeControl += ShowNavigationItemAction_CustomizeControl;
             }
-            Frame.GetController<ShowNavigationItemController>().ShowNavigationItemAction.CustomizeControl += ShowNavigationItemAction_CustomizeControl;
         }
 
         protected override void OnDeactivated()
