@@ -58,6 +58,12 @@ namespace Accounting.Module.Controllers
             showNavigationItemAction.Enabled[Name] = true;
 
             objectSpace.Committed -= ObjectSpace_Committed;
+            objectSpace.Disposed -= ObjectSpace_Disposed;
+        }
+
+        private void ObjectSpace_Disposed(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void ShowNavigationItemController_CustomShowNavigationItem(object sender, CustomShowNavigationItemEventArgs e)
@@ -70,7 +76,9 @@ namespace Accounting.Module.Controllers
             var detailView = Application.CreateDetailView(objectSpace, company, true);
 
             detailView.ViewEditMode = ViewEditMode.Edit;
+
             objectSpace.Committed += ObjectSpace_Committed;
+            objectSpace.Disposed += ObjectSpace_Disposed;
 
             e.ActionArguments.ShowViewParameters.CreatedView = detailView;
             e.Handled = true;
