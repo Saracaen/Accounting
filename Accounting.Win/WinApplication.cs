@@ -62,7 +62,6 @@ namespace Accounting.Win
         private void InitializeDefaults()
         {
             EnableModelCache = true;
-            LinkNewObjectToParentImmediately = false;
             OptimizedControllersCreation = true;
             UseLightStyle = true;
         }

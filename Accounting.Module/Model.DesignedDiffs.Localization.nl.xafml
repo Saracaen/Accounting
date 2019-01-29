@@ -648,6 +648,15 @@
   </Validation>
   <Views>
     <ListView Id="Account_ListView" Caption="Grootboekrekeningen" />
+    <DetailView Id="Customer_DetailView">
+      <Layout>
+        <LayoutGroup Id="Customer">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="Invoices" Caption="Facturen" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <ListView Id="Customer_ListView" Caption="Klanten" />
     <ListView Id="Depreciation_ListView" Caption="Afschrijvingen" />
     <ListView Id="Identifier_ListView" Caption="Volgnummers" />
@@ -666,6 +675,15 @@
       </Columns>
     </ListView>
     <ListView Id="SalesInvoice_ListView" Caption="Verkoopfacturen" />
+    <DetailView Id="Supplier_DetailView">
+      <Layout>
+        <LayoutGroup Id="Supplier">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="Invoices" Caption="Facturen" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <ListView Id="Supplier_ListView" Caption="Leveranciers" />
     <ListView Id="ValidationResults_DisplayableValidationResultItems_ListView">
       <Columns>
