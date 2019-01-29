@@ -38,10 +38,10 @@ namespace Accounting.Module.Win
                 typeof(CalculateResidualValueController),
                 typeof(CalculateRunningBalanceController),
                 typeof(ChangeDatabaseController),
+                typeof(CustomizeNavigationController),
                 typeof(DisableControllersController),
                 typeof(HideNavigationActionsController),
-                typeof(OpenObjectWithCaptionController),
-                typeof(UpdateNavigationController)
+                typeof(OpenObjectWithCaptionController)
             };
         }
 

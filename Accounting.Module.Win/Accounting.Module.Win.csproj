@@ -76,10 +76,10 @@
     <Compile Include="Controllers\CalculateResidualValueController.cs" />
     <Compile Include="Controllers\CalculateRunningBalanceController.cs" />
     <Compile Include="Controllers\ChangeDatabaseController.cs" />
+    <Compile Include="Controllers\CustomizeNavigationController.cs" />
     <Compile Include="Controllers\DisableControllersController.cs" />
     <Compile Include="Controllers\HideNavigationActionsController.cs" />
     <Compile Include="Controllers\OpenObjectWithCaptionController.cs" />
-    <Compile Include="Controllers\UpdateNavigationController.cs" />
     <Compile Include="Editors\FilteringEnumPropertyEditor.cs" />
     <Compile Include="Editors\RangedDatePropertyEditor.cs" />
     <Compile Include="Editors\RangedDecimalPropertyEditor.cs" />

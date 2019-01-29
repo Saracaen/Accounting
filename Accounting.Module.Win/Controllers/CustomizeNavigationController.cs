@@ -8,12 +8,12 @@ using System.Windows.Forms;
 namespace Accounting.Module.Win.Controllers
 {
     [DesignerCategory("Code")]
-    public class UpdateNavigationController : WindowController
+    public class CustomizeNavigationController : WindowController
     {
         private Control control;
         private SingleChoiceAction showNavigationItemAction;
 
-        public UpdateNavigationController()
+        public CustomizeNavigationController()
         {
             TargetWindowType = WindowType.Main;
         }
@@ -47,9 +47,13 @@ namespace Accounting.Module.Win.Controllers
         {
             if (this.control != null)
             {
-                if (e.ChangedPropertyType == ActionChangedType.Active || e.ChangedPropertyType == ActionChangedType.Enabled)
+                if (e.ChangedPropertyType == ActionChangedType.Active)
                 {
-                    this.control.Enabled = this.showNavigationItemAction.Active && this.showNavigationItemAction.Enabled;
+                    this.control.Visible = this.showNavigationItemAction.Active;
+                }
+                else if (e.ChangedPropertyType == ActionChangedType.Enabled)
+                {
+                    this.control.Enabled = this.showNavigationItemAction.Enabled;
                 }
             }
         }
@@ -62,6 +66,12 @@ namespace Accounting.Module.Win.Controllers
             {
                 if (this.control is AccordionControl accordionControl)
                 {
+                    accordionControl.ExpandGroupOnHeaderClick = false;
+                    accordionControl.GroupHeight = 40;
+                    accordionControl.ItemHeight = 40;
+                    accordionControl.ShowFilterControl = ShowFilterControl.Never;
+                    accordionControl.ShowGroupExpandButtons = false;
+
                     accordionControl.ExpandAll();
                 }
             }
