@@ -90,7 +90,7 @@ namespace Accounting.Module.Updaters
                 outputVatAccount.Name = "BTW Leveringen/diensten belast met 21%";
 
                 outputVatAccount = ObjectSpace.CreateObject<OutputVatAccount>();
-                outputVatAccount.Name = "BTW Leveringen/diensten belast met 6%";
+                outputVatAccount.Name = "BTW Leveringen/diensten belast met 9%";
 
                 outputVatAccount = ObjectSpace.CreateObject<OutputVatAccount>();
                 outputVatAccount.Name = "BTW Leveringen/diensten belast met overige tarieven behalve 0%";
@@ -176,14 +176,14 @@ namespace Accounting.Module.Updaters
                 vatRate.ReceivableCategory = VatCategory.InputVat;
 
                 vatRate = ObjectSpace.CreateObject<VatRate>();
-                vatRate.Name = "Laag 6% (af te dragen)";
-                vatRate.PayableAccount = ObjectSpace.FindObject<OutputVatAccount>(new BinaryOperator("Name", "BTW Leveringen/diensten belast met 6%"));
-                vatRate.PayableCategory = VatCategory.DeliveriesOrServicesTaxedAtHighRate;
-                vatRate.Rate = 6;
+                vatRate.Name = "Laag 9% (af te dragen)";
+                vatRate.PayableAccount = ObjectSpace.FindObject<OutputVatAccount>(new BinaryOperator("Name", "BTW Leveringen/diensten belast met 9%"));
+                vatRate.PayableCategory = VatCategory.DeliveriesOrServicesTaxedAtLowRate;
+                vatRate.Rate = 9;
 
                 vatRate = ObjectSpace.CreateObject<VatRate>();
-                vatRate.Name = "Laag 6% (te vorderen)";
-                vatRate.Rate = 6;
+                vatRate.Name = "Laag 9% (te vorderen)";
+                vatRate.Rate = 9;
                 vatRate.ReceivableAccount = ObjectSpace.FindObject<InputVatAccount>(new BinaryOperator("Name", "BTW Voorbelasting"));
                 vatRate.ReceivableCategory = VatCategory.InputVat;
 
@@ -201,10 +201,10 @@ namespace Accounting.Module.Updaters
                 vatRate.ReceivableCategory = VatCategory.InputVat;
 
                 vatRate = ObjectSpace.CreateObject<VatRate>();
-                vatRate.Name = "Verwerving binnen de EU (6%)";
+                vatRate.Name = "Verwerving binnen de EU (9%)";
                 vatRate.PayableAccount = ObjectSpace.FindObject<OutputVatAccount>(new BinaryOperator("Name", "BTW Leveringen/diensten uit landen binnen de EU"));
                 vatRate.PayableCategory = VatCategory.DeliveriesOrServicesFromCountriesWithinTheEuropeanUnion;
-                vatRate.Rate = 6;
+                vatRate.Rate = 9;
                 vatRate.ReceivableAccount = ObjectSpace.FindObject<InputVatAccount>(new BinaryOperator("Name", "BTW Voorbelasting"));
                 vatRate.ReceivableCategory = VatCategory.InputVat;
 
@@ -229,10 +229,10 @@ namespace Accounting.Module.Updaters
                 vatRate.ReceivableCategory = VatCategory.InputVat;
 
                 vatRate = ObjectSpace.CreateObject<VatRate>();
-                vatRate.Name = "Verwerving buiten de EU (6%)";
+                vatRate.Name = "Verwerving buiten de EU (9%)";
                 vatRate.PayableAccount = ObjectSpace.FindObject<OutputVatAccount>(new BinaryOperator("Name", "BTW Leveringen/diensten uit landen buiten de EU"));
                 vatRate.PayableCategory = VatCategory.DeliveriesOrServicesFromCountriesOutsideTheEuropeanUnion;
-                vatRate.Rate = 6;
+                vatRate.Rate = 9;
                 vatRate.ReceivableAccount = ObjectSpace.FindObject<InputVatAccount>(new BinaryOperator("Name", "BTW Voorbelasting"));
                 vatRate.ReceivableCategory = VatCategory.InputVat;
 
@@ -290,7 +290,7 @@ namespace Accounting.Module.Updaters
                 expenseAccount.Name = "Contributies en abonnementen";
 
                 expenseAccount = ObjectSpace.CreateObject<ExpenseAccount>();
-                expenseAccount.DefaultVatRate = ObjectSpace.FindObject<VatRate>(new BinaryOperator("Name", "Laag 6% (te vorderen)"));
+                expenseAccount.DefaultVatRate = ObjectSpace.FindObject<VatRate>(new BinaryOperator("Name", "Laag 9% (te vorderen)"));
                 expenseAccount.Name = "Eten & Drinken (op kantoor)";
                 expenseAccount.PercentageDeductible = 80;
 
@@ -347,7 +347,7 @@ namespace Accounting.Module.Updaters
                 expenseAccount.Name = "Telefoon, fax en internet";
 
                 expenseAccount = ObjectSpace.CreateObject<ExpenseAccount>();
-                expenseAccount.DefaultVatRate = ObjectSpace.FindObject<VatRate>(new BinaryOperator("Name", "Laag 6% (te vorderen)"));
+                expenseAccount.DefaultVatRate = ObjectSpace.FindObject<VatRate>(new BinaryOperator("Name", "Laag 9% (te vorderen)"));
                 expenseAccount.Name = "Vakliteratuur";
 
                 expenseAccount = ObjectSpace.CreateObject<ExpenseAccount>();
