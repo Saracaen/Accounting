@@ -63,7 +63,7 @@ namespace Accounting.Module.Controllers
 
         private void ObjectSpace_Disposed(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application?.Exit();
         }
 
         private void ShowNavigationItemController_CustomShowNavigationItem(object sender, CustomShowNavigationItemEventArgs e)
