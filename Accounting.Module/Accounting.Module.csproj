@@ -139,6 +139,13 @@
     <Compile Include="BusinessObjects\VatPaymentAccount.cs" />
     <Compile Include="BusinessObjects\VatRate.cs" />
     <Compile Include="BusinessObjects\VatToPayAccount.cs" />
+    <Compile Include="Configuration\DefaultAccount.cs" />
+    <Compile Include="Configuration\DefaultAccountConfiguration.cs" />
+    <Compile Include="Configuration\DefaultConfiguration.cs" />
+    <Compile Include="Configuration\DefaultExpenseAccount.cs" />
+    <Compile Include="Configuration\DefaultIncomeAccount.cs" />
+    <Compile Include="Configuration\DefaultPaymentTerm.cs" />
+    <Compile Include="Configuration\DefaultVatRate.cs" />
     <Compile Include="Controllers\ClosePeriodController.cs" />
     <Compile Include="Controllers\CorrectInvoiceController.cs" />
     <Compile Include="Controllers\CustomizeAccountCreationController.cs" />
@@ -211,6 +218,11 @@
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DefaultConfiguration.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
