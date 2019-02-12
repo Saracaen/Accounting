@@ -16,7 +16,7 @@ namespace Accounting.Module.Configuration
 
         public static DefaultConfiguration Load(string fileName)
         {
-            using (var stream = new FileStream(fileName, FileMode.Open))
+            using (var stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 var serializer = new XmlSerializer(typeof(DefaultConfiguration));
                 return (DefaultConfiguration)serializer.Deserialize(stream);
