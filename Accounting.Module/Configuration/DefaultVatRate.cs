@@ -5,22 +5,22 @@ namespace Accounting.Module.Configuration
 {
     public class DefaultVatRate
     {
-        [XmlAttribute]
+        [XmlAttribute("name")]
         public string Name { get; set; }
 
-        [XmlAttribute]
+        [XmlAttribute("payableAccount")]
         public string PayableAccount { get; set; }
 
-        [XmlAttribute]
+        [XmlAttribute("payableCategory")]
         public VatCategory PayableCategory { get; set; }
 
-        [XmlAttribute]
+        [XmlAttribute("rate")]
         public float Rate { get; set; }
 
-        [XmlAttribute]
+        [XmlAttribute("receivableAccount")]
         public string ReceivableAccount { get; set; }
 
-        [XmlAttribute]
+        [XmlAttribute("receivableCategory")]
         public VatCategory ReceivableCategory { get; set; }
     }
 }

@@ -4,14 +4,18 @@ using System.Xml.Serialization;
 
 namespace Accounting.Module.Configuration
 {
+    [XmlRoot("configuration")]
     public class DefaultConfiguration
     {
+        [XmlElement("accounts")]
         public DefaultAccountConfiguration Accounts { get; set; } = new DefaultAccountConfiguration();
 
-        [XmlArrayItem("PaymentTerm")]
+        [XmlArray("paymentTerms")]
+        [XmlArrayItem("paymentTerm")]
         public List<DefaultPaymentTerm> PaymentTerms { get; set; } = new List<DefaultPaymentTerm>();
 
-        [XmlArrayItem("VatRate")]
+        [XmlArray("vatRates")]
+        [XmlArrayItem("vatRate")]
         public List<DefaultVatRate> VatRates { get; set; } = new List<DefaultVatRate>();
 
         public static DefaultConfiguration Load(string fileName)

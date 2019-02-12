@@ -4,7 +4,7 @@ namespace Accounting.Module.Configuration
 {
     public class DefaultIncomeAccount : DefaultAccount
     {
-        [XmlAttribute]
+        [XmlAttribute("defaultVatRate")]
         public string DefaultVatRate { get; set; }
     }
 }

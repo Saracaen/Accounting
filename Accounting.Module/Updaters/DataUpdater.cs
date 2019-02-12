@@ -19,7 +19,7 @@ namespace Accounting.Module.Updaters
 
             if (ObjectSpace.GetObjectsCount(typeof(Company), null) == 0 && ObjectSpace.GetObjectsCount(typeof(Account), null) == 0)
             {
-                var defaultConfiguration = DefaultConfiguration.Load("DefaultConfiguration.xml");
+                var defaultConfiguration = DefaultConfiguration.Load("Accounting.Defaults.config");
 
                 foreach (var defaultBankAccount in defaultConfiguration.Accounts.BankAccounts)
                 {

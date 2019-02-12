@@ -4,10 +4,10 @@ namespace Accounting.Module.Configuration
 {
     public class DefaultExpenseAccount : DefaultAccount
     {
-        [XmlAttribute]
+        [XmlAttribute("defaultVatRate")]
         public string DefaultVatRate { get; set; }
 
-        [XmlAttribute]
+        [XmlAttribute("percentageDeductible")]
         public float PercentageDeductible { get; set; } = 100;
     }
 }

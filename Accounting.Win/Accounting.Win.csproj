@@ -135,6 +135,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="../Defaults.config">
+      <Link>Accounting.Defaults.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Accounting.Module.Win\Accounting.Module.Win.csproj">
       <Project>{7964F87D-BC5D-4C4E-8B2F-71E89739AA97}</Project>
       <Name>Accounting.Module.Win</Name>

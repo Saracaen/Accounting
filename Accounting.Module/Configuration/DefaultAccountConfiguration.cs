@@ -5,49 +5,64 @@ namespace Accounting.Module.Configuration
 {
     public class DefaultAccountConfiguration
     {
-        [XmlArrayItem("BankAccount")]
+        [XmlArray("bankAccounts")]
+        [XmlArrayItem("bankAccount")]
         public List<DefaultAccount> BankAccounts { get; set; } = new List<DefaultAccount>();
 
-        [XmlArrayItem("CashAccount")]
+        [XmlArray("cashAccounts")]
+        [XmlArrayItem("cashAccount")]
         public List<DefaultAccount> CashAccounts { get; set; } = new List<DefaultAccount>();
 
-        [XmlArrayItem("CreditCardAccount")]
+        [XmlArray("creditCardAccounts")]
+        [XmlArrayItem("creditCardAccount")]
         public List<DefaultAccount> CreditCardAccounts { get; set; } = new List<DefaultAccount>();
 
-        [XmlArrayItem("CustomerAccount")]
+        [XmlArray("customerAccounts")]
+        [XmlArrayItem("customerAccount")]
         public List<DefaultAccount> CustomerAccounts { get; set; } = new List<DefaultAccount>();
 
-        [XmlArrayItem("DepreciationExpenseAccount")]
+        [XmlArray("depreciationExpenseAccounts")]
+        [XmlArrayItem("depreciationExpenseAccount")]
         public List<DefaultAccount> DepreciationExpenseAccounts { get; set; } = new List<DefaultAccount>();
 
-        [XmlArrayItem("EquityAccount")]
+        [XmlArray("equityAccounts")]
+        [XmlArrayItem("equityAccount")]
         public List<DefaultAccount> EquityAccounts { get; set; } = new List<DefaultAccount>();
 
-        [XmlArrayItem("ExpenseAccount")]
+        [XmlArray("expenseAccounts")]
+        [XmlArrayItem("expenseAccount")]
         public List<DefaultExpenseAccount> ExpenseAccounts { get; set; } = new List<DefaultExpenseAccount>();
 
-        [XmlArrayItem("CustomerAccount")]
+        [XmlArray("incomeAccounts")]
+        [XmlArrayItem("incomeAccount")]
         public List<DefaultIncomeAccount> IncomeAccounts { get; set; } = new List<DefaultIncomeAccount>();
 
-        [XmlArrayItem("InputVatAccount")]
+        [XmlArray("inputVatAccounts")]
+        [XmlArrayItem("inputVatAccount")]
         public List<DefaultAccount> InputVatAccounts { get; set; } = new List<DefaultAccount>();
 
-        [XmlArrayItem("OutputVatAccount")]
+        [XmlArray("outputVatAccounts")]
+        [XmlArrayItem("outputVatAccount")]
         public List<DefaultAccount> OutputVatAccounts { get; set; } = new List<DefaultAccount>();
 
-        [XmlArrayItem("PrivateAccount")]
+        [XmlArray("privateAccounts")]
+        [XmlArrayItem("privateAccount")]
         public List<DefaultAccount> PrivateAccounts { get; set; } = new List<DefaultAccount>();
 
-        [XmlArrayItem("RoundingDifferencesAccount")]
+        [XmlArray("roundingDifferencesAccounts")]
+        [XmlArrayItem("roundingDifferencesAccount")]
         public List<DefaultAccount> RoundingDifferencesAccounts { get; set; } = new List<DefaultAccount>();
 
-        [XmlArrayItem("SupplierAccount")]
+        [XmlArray("supplierAccounts")]
+        [XmlArrayItem("supplierAccount")]
         public List<DefaultAccount> SupplierAccounts { get; set; } = new List<DefaultAccount>();
 
-        [XmlArrayItem("VatPaymentAccount")]
+        [XmlArray("vatPaymentAccounts")]
+        [XmlArrayItem("vatPaymentAccount")]
         public List<DefaultAccount> VatPaymentAccounts { get; set; } = new List<DefaultAccount>();
 
-        [XmlArrayItem("VatToPayAccount")]
+        [XmlArray("vatToPayAccounts")]
+        [XmlArrayItem("vatToPayAccount")]
         public List<DefaultAccount> VatToPayAccounts { get; set; } = new List<DefaultAccount>();
     }
 }
