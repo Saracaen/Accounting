@@ -31,6 +31,7 @@ namespace Accounting.Module.BusinessObjects
 
             if (propertyName == nameof(Supplier) && Supplier != null)
             {
+                IsVatIncluded = Supplier.IsVatIncluded;
                 PaymentTerm = Supplier.PaymentTerm;
             }
         }
