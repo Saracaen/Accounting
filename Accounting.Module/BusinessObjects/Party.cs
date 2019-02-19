@@ -9,7 +9,7 @@ namespace Accounting.Module.BusinessObjects
     [ModelDefault("DefaultLookupEditorMode", "AllItems")]
     public abstract class Party : Organization
     {
-        public Party(Session session) : base(session)
+        protected Party(Session session) : base(session)
         {
         }
 
