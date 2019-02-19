@@ -14,6 +14,7 @@ namespace Accounting.Module.BusinessObjects
         }
 
         [Association]
+        [ImmediatePostData]
         [Persistent("Party")]
         [RuleRequiredField("PurchaseInvoice_Supplier_RuleRequiredField", DefaultContexts.Save)]
         public Supplier Supplier

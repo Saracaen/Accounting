@@ -14,6 +14,7 @@ namespace Accounting.Module.BusinessObjects
         }
 
         [Association]
+        [ImmediatePostData]
         [Persistent("Party")]
         [RuleRequiredField("SalesInvoice_Customer_RuleRequiredField", DefaultContexts.Save)]
         public Customer Customer
