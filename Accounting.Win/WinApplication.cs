@@ -61,6 +61,7 @@ namespace Accounting.Win
 
         private void InitializeDefaults()
         {
+            LinkNewObjectToParentImmediately = false;
             OptimizedControllersCreation = true;
             UseLightStyle = true;
         }

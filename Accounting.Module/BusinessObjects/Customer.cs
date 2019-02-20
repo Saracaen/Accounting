@@ -1,4 +1,6 @@
-﻿using DevExpress.Persistent.Base;
+﻿using DevExpress.ExpressApp.ConditionalAppearance;
+using DevExpress.ExpressApp.Editors;
+using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 
@@ -14,6 +16,7 @@ namespace Accounting.Module.BusinessObjects
         {
         }
 
+        [Appearance("Invoices", "IsNewObject(This)", Visibility = ViewItemVisibility.Hide)]
         [Association]
         public XPCollection<SalesInvoice> Invoices
         {
