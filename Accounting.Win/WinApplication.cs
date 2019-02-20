@@ -61,7 +61,6 @@ namespace Accounting.Win
 
         private void InitializeDefaults()
         {
-            EnableModelCache = true;
             OptimizedControllersCreation = true;
             UseLightStyle = true;
         }
