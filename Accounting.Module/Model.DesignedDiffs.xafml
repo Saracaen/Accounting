@@ -4,6 +4,20 @@
     <Actions>
       <Action Id="PreviewReportV2" ValidationContexts="PreviewReport" />
     </Actions>
+    <ActionToContainerMapping>
+      <ActionContainer Id="RecordEdit">
+        <ActionLink ActionId="PostDepreciation" Index="0" />
+        <ActionLink ActionId="PostInvoice" Index="0" />
+        <ActionLink ActionId="PostVatDeclaration" Index="0" />
+        <ActionLink ActionId="UnpostDepreciation" Index="1" />
+        <ActionLink ActionId="UnpostInvoice" Index="1" />
+        <ActionLink ActionId="UnpostVatDeclaration" Index="1" />
+        <ActionLink ActionId="CorrectInvoice" Index="2" />
+        <ActionLink ActionId="PayVatDeclaration" Index="2" />
+        <ActionLink ActionId="RestoreInvoice" Index="3" />
+        <ActionLink ActionId="PayInvoice" Index="4" />
+      </ActionContainer>
+    </ActionToContainerMapping>
   </ActionDesign>
   <BOModel>
     <Class Name="Accounting.Module.BusinessObjects.Account">

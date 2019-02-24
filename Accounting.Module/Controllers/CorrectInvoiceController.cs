@@ -18,7 +18,7 @@ namespace Accounting.Module.Controllers
     {
         public CorrectInvoiceController()
         {
-            CorrectInvoiceAction = new PopupWindowShowAction(this, "CorrectInvoice", PredefinedCategory.Export);
+            CorrectInvoiceAction = new PopupWindowShowAction(this, "CorrectInvoice", PredefinedCategory.RecordEdit);
             CorrectInvoiceAction.Caption = "Correct";
             CorrectInvoiceAction.ConfirmationMessage = "You are about to manually correct this invoice. Do you want to proceed?";
             CorrectInvoiceAction.CustomizePopupWindowParams += CorrectInvoiceAction_CustomizePopupWindowParams;
@@ -27,7 +27,7 @@ namespace Accounting.Module.Controllers
             CorrectInvoiceAction.SelectionDependencyType = SelectionDependencyType.RequireSingleObject;
             CorrectInvoiceAction.TargetObjectsCriteria = "IsPosted And DueAmount = Total";
 
-            RestoreInvoiceAction = new SimpleAction(this, "RestoreInvoice", PredefinedCategory.Export);
+            RestoreInvoiceAction = new SimpleAction(this, "RestoreInvoice", PredefinedCategory.RecordEdit);
             RestoreInvoiceAction.Caption = "Restore";
             RestoreInvoiceAction.Execute += RestoreInvoiceAction_Execute;
             RestoreInvoiceAction.ImageName = "Action_Reload";
