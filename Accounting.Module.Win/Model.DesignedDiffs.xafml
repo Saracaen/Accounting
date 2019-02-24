@@ -5,6 +5,11 @@
       <LocalizationItem Name="OpenObjectWithCaption" Value="Open {0}" IsNewNode="True" />
     </LocalizationGroup>
   </Localization>
+  <NavigationItems NavigationStyle="Accordion" />
+  <Options Skin="The Bezier" UIType="SingleWindowSDI" FormStyle="Ribbon" Palette="VS Light">
+    <LayoutManagerOptions CustomizationEnabled="False" />
+    <RibbonOptions RibbonControlStyle="Office2019" />
+  </Options>
   <SchemaModules>
     <SchemaModule Name="SystemModule" Version="18.2.6.0" IsNewNode="True" />
     <SchemaModule Name="SystemWindowsFormsModule" Version="18.2.6.0" IsNewNode="True" />
