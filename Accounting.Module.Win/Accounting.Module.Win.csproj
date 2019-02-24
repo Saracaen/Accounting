@@ -78,6 +78,7 @@
     <Compile Include="Controllers\ChangeDatabaseController.cs" />
     <Compile Include="Controllers\CustomizeNavigationController.cs" />
     <Compile Include="Controllers\DisableControllersController.cs" />
+    <Compile Include="Controllers\DisableResetViewSettingsController.cs" />
     <Compile Include="Controllers\HideNavigationActionsController.cs" />
     <Compile Include="Controllers\OpenObjectWithCaptionController.cs" />
     <Compile Include="Editors\FilteringEnumPropertyEditor.cs" />
