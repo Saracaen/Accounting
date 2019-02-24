@@ -40,7 +40,6 @@ namespace Accounting.Module.Win
                 typeof(ChangeDatabaseController),
                 typeof(CustomizeNavigationController),
                 typeof(DisableControllersController),
-                typeof(DisableResetViewSettingsController),
                 typeof(HideNavigationActionsController),
                 typeof(OpenObjectWithCaptionController)
             };
