@@ -746,6 +746,12 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <ListView Id="RuleSetValidationResultItem_ByTarget_ListView">
+      <Columns>
+        <ColumnInfo Id="TargetCaption" Index="-1" />
+        <ColumnInfo Id="ErrorMessage" Index="0" />
+      </Columns>
+    </ListView>
     <DetailView Id="SalesInvoice_DetailView" FreezeLayout="True">
       <Layout IsNewNode="True" Removed="True">
         <LayoutGroup Id="SalesInvoice" IsNewNode="True">
