@@ -89,14 +89,7 @@ namespace Accounting.Module.Controllers
 
             ClosePeriod(journalEntry, equityAccount, privateAccount, criteria);
 
-            try
-            {
-                ObjectSpace.CommitChanges();
-            }
-            catch
-            {
-                ObjectSpace.Rollback();
-            }
+            ObjectSpace.CommitChanges();
             ObjectSpace.Refresh();
         }
     }

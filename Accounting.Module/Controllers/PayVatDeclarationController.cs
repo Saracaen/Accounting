@@ -61,14 +61,7 @@ namespace Accounting.Module.Controllers
 
             if (View is ListView)
             {
-                try
-                {
-                    ObjectSpace.CommitChanges();
-                }
-                catch
-                {
-                    ObjectSpace.Rollback();
-                }
+                ObjectSpace.CommitChanges();
             }
         }
     }
