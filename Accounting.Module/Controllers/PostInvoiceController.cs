@@ -37,6 +37,21 @@ namespace Accounting.Module.Controllers
 
         public SimpleAction UnpostInvoiceAction { get; set; }
 
+        private string GetJournalEntryDescription()
+        {
+            switch (ViewCurrentObject.Type)
+            {
+                case InvoiceType.CreditNote:
+                    return string.Format(CaptionHelper.GetLocalizedText("Texts", "PostCreditNote"), ViewCurrentObject.Identifier);
+
+                case InvoiceType.Invoice:
+                    return string.Format(CaptionHelper.GetLocalizedText("Texts", $"Post{ViewCurrentObject.GetType().Name}"), ViewCurrentObject.Identifier);
+
+                default:
+                    throw new InvalidOperationException(CaptionHelper.GetLocalizedText(@"Exceptions\UserVisibleExceptions", "UnsupportedInvoiceType"));
+            }
+        }
+
         private void PostInvoice(JournalEntry journalEntry, Account account)
         {
             foreach (var invoiceLineGroup in ViewCurrentObject.Lines.Where(x => x.Account != null).GroupBy(x => x.Account))
@@ -80,44 +95,17 @@ namespace Accounting.Module.Controllers
         {
             var journalEntry = ObjectSpace.CreateObject<JournalEntry>();
             journalEntry.Date = ViewCurrentObject.Date;
+            journalEntry.Description = GetJournalEntryDescription();
             journalEntry.Item = ViewCurrentObject;
             journalEntry.Type = JournalEntryType.Posting;
 
             switch (ViewCurrentObject)
             {
-                case PurchaseInvoice purchaseInvoice:
-                    switch (purchaseInvoice.Type)
-                    {
-                        case InvoiceType.Invoice:
-                            journalEntry.Description = string.Format(CaptionHelper.GetLocalizedText("Texts", "PostPurchaseInvoice"), purchaseInvoice.Identifier);
-                            break;
-
-                        case InvoiceType.CreditNote:
-                            journalEntry.Description = string.Format(CaptionHelper.GetLocalizedText("Texts", "PostCreditNote"), purchaseInvoice.Identifier);
-                            break;
-
-                        default:
-                            throw new InvalidOperationException(CaptionHelper.GetLocalizedText(@"Exceptions\UserVisibleExceptions", "UnsupportedInvoiceType"));
-                    }
-
+                case PurchaseInvoice _:
                     PostInvoice(journalEntry, ObjectSpace.FindObject<SupplierAccount>(null));
                     break;
 
-                case SalesInvoice salesInvoice:
-                    switch (salesInvoice.Type)
-                    {
-                        case InvoiceType.Invoice:
-                            journalEntry.Description = string.Format(CaptionHelper.GetLocalizedText("Texts", "PostSalesInvoice"), salesInvoice.Identifier);
-                            break;
-
-                        case InvoiceType.CreditNote:
-                            journalEntry.Description = string.Format(CaptionHelper.GetLocalizedText("Texts", "PostCreditNote"), salesInvoice.Identifier);
-                            break;
-
-                        default:
-                            throw new InvalidOperationException(CaptionHelper.GetLocalizedText(@"Exceptions\UserVisibleExceptions", "UnsupportedInvoiceType"));
-                    }
-
+                case SalesInvoice _:
                     PostInvoice(journalEntry, ObjectSpace.FindObject<CustomerAccount>(null));
                     break;
 

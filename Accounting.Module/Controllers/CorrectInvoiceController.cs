@@ -68,45 +68,8 @@ namespace Accounting.Module.Controllers
             var parameters = new CorrectInvoiceParameters();
             var detailView = Application.CreateDetailView(objectSpace, parameters);
 
+            parameters.Description = GetJournalEntryDescription();
             parameters.Invoice = ViewCurrentObject;
-
-            switch (ViewCurrentObject)
-            {
-                case PurchaseInvoice purchaseInvoice:
-                    switch (purchaseInvoice.Type)
-                    {
-                        case InvoiceType.Invoice:
-                            parameters.Description = string.Format(CaptionHelper.GetLocalizedText("Texts", "CorrectPurchaseInvoice"), purchaseInvoice.Identifier);
-                            break;
-
-                        case InvoiceType.CreditNote:
-                            parameters.Description = string.Format(CaptionHelper.GetLocalizedText("Texts", "CorrectCreditNote"), purchaseInvoice.Identifier);
-                            break;
-
-                        default:
-                            throw new InvalidOperationException(CaptionHelper.GetLocalizedText(@"Exceptions\UserVisibleExceptions", "UnsupportedInvoiceType"));
-                    }
-                    break;
-
-                case SalesInvoice salesInvoice:
-                    switch (salesInvoice.Type)
-                    {
-                        case InvoiceType.Invoice:
-                            parameters.Description = string.Format(CaptionHelper.GetLocalizedText("Texts", "CorrectSalesInvoice"), salesInvoice.Identifier);
-                            break;
-
-                        case InvoiceType.CreditNote:
-                            parameters.Description = string.Format(CaptionHelper.GetLocalizedText("Texts", "CorrectCreditNote"), salesInvoice.Identifier);
-                            break;
-
-                        default:
-                            throw new InvalidOperationException(CaptionHelper.GetLocalizedText(@"Exceptions\UserVisibleExceptions", "UnsupportedInvoiceType"));
-                    }
-                    break;
-
-                default:
-                    throw new InvalidOperationException(CaptionHelper.GetLocalizedText(@"Exceptions\UserVisibleExceptions", "UnsupportedInvoiceClass"));
-            }
 
             detailView.ViewEditMode = ViewEditMode.Edit;
             e.View = detailView;
@@ -146,6 +109,21 @@ namespace Accounting.Module.Controllers
             else
             {
                 ObjectSpace.Delete(journalEntry);
+            }
+        }
+
+        private string GetJournalEntryDescription()
+        {
+            switch (ViewCurrentObject.Type)
+            {
+                case InvoiceType.CreditNote:
+                    return string.Format(CaptionHelper.GetLocalizedText("Texts", "CorrectCreditNote"), ViewCurrentObject.Identifier);
+
+                case InvoiceType.Invoice:
+                    return string.Format(CaptionHelper.GetLocalizedText("Texts", $"Correct{ViewCurrentObject.GetType().Name}"), ViewCurrentObject.Identifier);
+
+                default:
+                    throw new InvalidOperationException(CaptionHelper.GetLocalizedText(@"Exceptions\UserVisibleExceptions", "UnsupportedInvoiceType"));
             }
         }
 

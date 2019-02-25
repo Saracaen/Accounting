@@ -30,6 +30,21 @@ namespace Accounting.Module.Controllers
 
         public PopupWindowShowAction PayInvoiceAction { get; }
 
+        private string GetJournalEntryDescription()
+        {
+            switch (ViewCurrentObject.Type)
+            {
+                case InvoiceType.CreditNote:
+                    return string.Format(CaptionHelper.GetLocalizedText("Texts", "PayCreditNote"), ViewCurrentObject.Identifier);
+
+                case InvoiceType.Invoice:
+                    return string.Format(CaptionHelper.GetLocalizedText("Texts", $"Pay{ViewCurrentObject.GetType().Name}"), ViewCurrentObject.Identifier);
+
+                default:
+                    throw new InvalidOperationException(CaptionHelper.GetLocalizedText(@"Exceptions\UserVisibleExceptions", "UnsupportedInvoiceType"));
+            }
+        }
+
         private void PayInvoiceAction_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e)
         {
             var objectSpace = Application.CreateObjectSpace();
@@ -38,46 +53,8 @@ namespace Accounting.Module.Controllers
 
             parameters.Account = objectSpace.FindObject<BankAccount>(null);
             parameters.Amount = ViewCurrentObject.DueAmount;
+            parameters.Description = GetJournalEntryDescription();
             parameters.Invoice = ViewCurrentObject;
-
-            switch (ViewCurrentObject)
-            {
-                case PurchaseInvoice purchaseInvoice:
-                    switch (purchaseInvoice.Type)
-                    {
-                        case InvoiceType.Invoice:
-                            parameters.Description = string.Format(CaptionHelper.GetLocalizedText("Texts", "PayPurchaseInvoice"), purchaseInvoice.Identifier);
-                            parameters.Date = purchaseInvoice.Date;
-                            break;
-
-                        case InvoiceType.CreditNote:
-                            parameters.Description = string.Format(CaptionHelper.GetLocalizedText("Texts", "PayCreditNote"), purchaseInvoice.Identifier);
-                            break;
-
-                        default:
-                            throw new InvalidOperationException(CaptionHelper.GetLocalizedText(@"Exceptions\UserVisibleExceptions", "UnsupportedInvoiceType"));
-                    }
-                    break;
-
-                case SalesInvoice salesInvoice:
-                    switch (salesInvoice.Type)
-                    {
-                        case InvoiceType.Invoice:
-                            parameters.Description = string.Format(CaptionHelper.GetLocalizedText("Texts", "PaySalesInvoice"), salesInvoice.Identifier);
-                            break;
-
-                        case InvoiceType.CreditNote:
-                            parameters.Description = string.Format(CaptionHelper.GetLocalizedText("Texts", "PayCreditNote"), salesInvoice.Identifier);
-                            break;
-
-                        default:
-                            throw new InvalidOperationException(CaptionHelper.GetLocalizedText(@"Exceptions\UserVisibleExceptions", "UnsupportedInvoiceType"));
-                    }
-                    break;
-
-                default:
-                    throw new InvalidOperationException(CaptionHelper.GetLocalizedText(@"Exceptions\UserVisibleExceptions", "UnsupportedInvoiceClass"));
-            }
 
             detailView.ViewEditMode = ViewEditMode.Edit;
             e.View = detailView;
