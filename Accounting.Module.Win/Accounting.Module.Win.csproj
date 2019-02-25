@@ -88,7 +88,6 @@
     <Compile Include="Editors\RangedIntegerPropertyEditor.cs" />
     <Compile Include="Editors\RangedLongPropertyEditor.cs" />
     <Compile Include="Model\IModelOpenObjectWithCaptionOptions.cs" />
-    <Compile Include="Model\ModelTemplateOfficeNavigationBarCustomizationLogic.cs" />
     <Compile Include="Utils\RepositoryItemSpinEditHelper.cs" />
     <Compile Include="WinModule.cs">
       <SubType>Component</SubType>

@@ -1,11 +1,8 @@
 ﻿using Accounting.Module.Win.Controllers;
 using Accounting.Module.Win.Editors;
-using Accounting.Module.Win.Model;
 using DevExpress.ExpressApp;
-using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Updating;
-using DevExpress.ExpressApp.Win.SystemModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,12 +15,6 @@ namespace Accounting.Module.Win
         public AccountingWindowsFormsModule()
         {
             InitializeComponent();
-        }
-
-        public override void CustomizeLogics(CustomLogics customLogics)
-        {
-            base.CustomizeLogics(customLogics);
-            customLogics.RegisterLogic(typeof(IModelTemplateOfficeNavigationBarCustomization), typeof(ModelTemplateOfficeNavigationBarCustomizationLogic));
         }
 
         public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB)
