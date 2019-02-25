@@ -101,7 +101,7 @@
     <Compile Include="BusinessObjects\DepreciationType.cs" />
     <Compile Include="BusinessObjects\EquityAccount.cs" />
     <Compile Include="BusinessObjects\ExpenseAccount.cs" />
-    <Compile Include="BusinessObjects\Extensions\JournalEntryExtensions.cs" />
+    <Compile Include="BusinessObjects\JournalEntryExtensions.cs" />
     <Compile Include="BusinessObjects\Identifier.cs" />
     <Compile Include="BusinessObjects\IdentifierType.cs" />
     <Compile Include="BusinessObjects\IncomeAccount.cs" />

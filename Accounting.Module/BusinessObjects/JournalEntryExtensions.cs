@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace Accounting.Module.Extensions
+namespace Accounting.Module.BusinessObjects
 {
     public static class JournalEntryExtensions
     {

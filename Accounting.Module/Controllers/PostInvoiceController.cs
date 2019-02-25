@@ -1,5 +1,4 @@
 ﻿using Accounting.Module.BusinessObjects;
-using Accounting.Module.Extensions;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.ExpressApp.Utils;
