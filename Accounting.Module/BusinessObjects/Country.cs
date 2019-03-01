@@ -11,12 +11,14 @@ namespace Accounting.Module.BusinessObjects
         {
         }
 
+        [ModelDefault("AllowEdit", "False")]
         public string Code
         {
             get => GetPropertyValue<string>(nameof(Code));
             set => SetPropertyValue(nameof(Code), value);
         }
 
+        [ModelDefault("AllowEdit", "False")]
         public string Name
         {
             get => GetPropertyValue<string>(nameof(Name));
