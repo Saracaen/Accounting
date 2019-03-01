@@ -46,7 +46,6 @@ namespace Accounting.Module.BusinessObjects
         [ModelDefault("DisplayFormat", "{0:N0}%")]
         [ModelDefault("EditMask", "P0")]
         [RuleRange("VatRate_Rate_RuleRange", DefaultContexts.Save, 0, 100)]
-        [VisibleInLookupListView(true)]
         public float Rate
         {
             get => GetPropertyValue<float>(nameof(Rate));

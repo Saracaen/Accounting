@@ -649,8 +649,7 @@
     </ListView>
     <ListView Id="PaymentTerm_LookupListView" FreezeColumnIndices="True" AllowNew="False">
       <Columns>
-        <ColumnInfo Id="Name" SortIndex="-1" SortOrder="None" Index="0" Width="100" />
-        <ColumnInfo Id="Term" SortIndex="0" SortOrder="Ascending" Index="1" />
+        <ColumnInfo Id="Name" SortIndex="-1" SortOrder="None" Index="0" />
       </Columns>
     </ListView>
     <DetailView Id="PayVatDeclarationParameters_DetailView" FreezeLayout="True">
@@ -1007,8 +1006,7 @@
     </ListView>
     <ListView Id="VatRate_LookupListView" FreezeColumnIndices="True" AllowNew="False">
       <Columns>
-        <ColumnInfo Id="Name" Index="0" Width="100" />
-        <ColumnInfo Id="Rate" Index="1" />
+        <ColumnInfo Id="Name" Index="0" />
       </Columns>
     </ListView>
     <DetailView Id="VatToPayAccount_DetailView" FreezeLayout="True">

@@ -27,7 +27,6 @@ namespace Accounting.Module.BusinessObjects
             set => SetPropertyValue(nameof(Name), value);
         }
 
-        [VisibleInLookupListView(true)]
         public int Term
         {
             get => GetPropertyValue<int>(nameof(Term));
