@@ -41,7 +41,6 @@
             this.tableCell18 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableRow10 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tableCell20 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.table6 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow14 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tableCell41 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -109,6 +108,7 @@
             this.tableCell25 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell26 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell27 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.collectionDataSource1 = new DevExpress.Persistent.Base.ReportsV2.CollectionDataSource();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.label2 = new DevExpress.XtraReports.UI.XRLabel();
             this.table5 = new DevExpress.XtraReports.UI.XRTable();
@@ -124,14 +124,14 @@
             this.tableRow26 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tableCell54 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell55 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.collectionDataSource1 = new DevExpress.Persistent.Base.ReportsV2.CollectionDataSource();
+            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.table4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.table5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.collectionDataSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.table5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // topMarginBand1
@@ -231,20 +231,6 @@
             this.tableCell20.Name = "tableCell20";
             this.tableCell20.Text = "tableCell20";
             this.tableCell20.Weight = 1D;
-            // 
-            // xrPictureBox1
-            // 
-            this.xrPictureBox1.EditOptions.EditorName = "Image";
-            this.xrPictureBox1.EditOptions.Enabled = true;
-            this.xrPictureBox1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "ImageSource", "[Company].[Logo]")});
-            this.xrPictureBox1.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.TopLeft;
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(300F, 96F);
-            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
-            this.xrPictureBox1.StylePriority.UseBorders = false;
-            this.xrPictureBox1.StylePriority.UsePadding = false;
             // 
             // table6
             // 
@@ -865,12 +851,18 @@
             this.tableCell27.TextFormatString = "{0:c}";
             this.tableCell27.Weight = 0.14911241700663369D;
             // 
+            // collectionDataSource1
+            // 
+            this.collectionDataSource1.Name = "collectionDataSource1";
+            this.collectionDataSource1.ObjectTypeName = "Accounting.Module.BusinessObjects.SalesInvoice";
+            this.collectionDataSource1.TopReturnedRecords = 1;
+            // 
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrPictureBox1,
             this.table6,
             this.table4,
-            this.xrPictureBox1,
             this.label2,
             this.table5});
             this.ReportHeader.HeightF = 456F;
@@ -1022,11 +1014,13 @@
             this.tableCell55.Text = "tableCell55";
             this.tableCell55.Weight = 1.9999999999999998D;
             // 
-            // collectionDataSource1
+            // xrPictureBox1
             // 
-            this.collectionDataSource1.Name = "collectionDataSource1";
-            this.collectionDataSource1.ObjectTypeName = "Accounting.Module.BusinessObjects.SalesInvoice";
-            this.collectionDataSource1.TopReturnedRecords = 1;
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrPictureBox1.Name = "xrPictureBox1";
+            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(300F, 96F);
+            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
             // 
             // SalesInvoiceReport
             // 
@@ -1057,8 +1051,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.table2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.table3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.table5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.collectionDataSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.table5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -1077,7 +1071,6 @@
         private DevExpress.XtraReports.UI.XRTableCell tableCell18;
         private DevExpress.XtraReports.UI.XRTableRow tableRow10;
         private DevExpress.XtraReports.UI.XRTableCell tableCell20;
-        private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox1;
         private DevExpress.XtraReports.UI.XRTable table6;
         private DevExpress.XtraReports.UI.XRTableRow tableRow14;
         private DevExpress.XtraReports.UI.XRTableCell tableCell41;
@@ -1161,5 +1154,6 @@
         private DevExpress.XtraReports.UI.XRTableRow tableRow26;
         private DevExpress.XtraReports.UI.XRTableCell tableCell54;
         private DevExpress.XtraReports.UI.XRTableCell tableCell55;
+        private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox1;
     }
 }

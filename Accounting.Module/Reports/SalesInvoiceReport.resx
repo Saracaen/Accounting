@@ -123,6 +123,9 @@
   <metadata name="collectionDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="xrPictureBox1.ImageSource" xml:space="preserve">
+    <value>iVBORw0KGgoAAAANSUhEUgAAASwAAABgBAMAAABVvlLlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAbUExURczMzJaWlpycnKOjo7e3t7GxscXFxb6+vqqqqhURaSYAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAJwSURBVGje7ZaxcptAEIZ/4ACVukMglcKxlZQwkZ1WyC+A8gTgKiUkk0xKkSJ57ewesYwLRU1OTfYrdpi71fBr92fvIAiCIAiCIAiCIAiCIAiCIAiCIDgiP7dxe+GH8RoOOSdLrfFoftLDPun+BEtYkt64vAPu4JBzsvxa6RvdQel8OYaRwegdeqOP+AiHnJNVdf4GhwLeMjZjsMRJ87RG3gVLtDt3qs7K+oG+hj9HVWNobLDLJEct4hTxFkHhXNZjQn89zI8GqtzyQrTC9w7eGkNHymyoCvRHEhqtZhmnhJlrWaHOF0BpUoMDe4eatWBtQ40SaI82UKHyhoRiFWTlPaWkrmW1m1g3bBsTmabnKoRk8Uiv7H5b2BAnKuW2Ron/RpPlqaCOZQ07HGqqRmhmC4RcBe5TpHUNsrpX2IByv4FN8sy3imQb17Jsk7gQJpiPVQi4ZFG1mMpqqb3KdFXikTZKunEty76WbBMZ9k5CK6SRUMmkiZhxeUpt3tlO/uWA+KeyfFI0lfWVymUmlkegG/5cH9JgTHIua/zSXjVxjkPDNXkZEKjyIyfHy9mY5LyJ1vIzmpQny5O3KnJSOh2n+VPGM3Q2V0vecW95OyBoNrwaEO0G9OhlfPhwUClZLUhppoIyM8cDQmtdjOP0YJLpOKVF/vROR7Wfoexi/d40Y5Lbccqy6PChi4sqHxIKH3iZS7E3vzC52Bxq9AW+5HTbUfntOHGvw6Qvw8XkwOk98ET4dnT7SH/x2uLVuAYqaT6/XAqC46X8qsFVyPkAfiaeX0q/x3X4lE/ftL2QHbm8bgmCIAiCIAiCIAiCIAj/LcBvR9dd71KPCL8AAAAASUVORK5CYII=</value>
+  </data>
   <data name="$this.ScriptsSource" xml:space="preserve">
     <value>using Accounting.Module.BusinessObjects;
 using System.Linq;

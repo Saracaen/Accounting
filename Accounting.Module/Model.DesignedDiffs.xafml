@@ -204,8 +204,6 @@
             <LayoutItem Id="City" Index="3" IsNewNode="True" />
             <LayoutItem Id="Country" Index="4" IsNewNode="True" />
             <LayoutItem Id="Phone" Index="5" IsNewNode="True" />
-            <LayoutItem Id="LogoData" Index="6" IsNewNode="True" />
-            <LayoutItem Id="EmptySpaceItem" Index="7" IsNewNode="True" />
           </LayoutGroup>
           <LayoutGroup Id="Company_col2" IsNewNode="True">
             <LayoutItem Id="Email" Index="0" IsNewNode="True" />

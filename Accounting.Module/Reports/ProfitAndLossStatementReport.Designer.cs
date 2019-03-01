@@ -58,7 +58,6 @@
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.label2 = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupHeader2 = new DevExpress.XtraReports.UI.GroupHeaderBand();
-            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.collectionDataSource1 = new DevExpress.Persistent.Base.ReportsV2.CollectionDataSource();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
@@ -69,7 +68,7 @@
             // 
             // topMarginBand1
             // 
-            this.topMarginBand1.HeightF = 28F;
+            this.topMarginBand1.HeightF = 75F;
             this.topMarginBand1.Name = "topMarginBand1";
             // 
             // detailBand1
@@ -317,11 +316,10 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrPictureBox1,
             this.xrLabel2,
             this.xrLabel1,
             this.label2});
-            this.ReportHeader.HeightF = 202F;
+            this.ReportHeader.HeightF = 130F;
             this.ReportHeader.Name = "ReportHeader";
             // 
             // xrLabel2
@@ -330,7 +328,7 @@
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "\'BEDRIJF: \' + [Company].[Name]")});
             this.xrLabel2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.xrLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(86)))), ((int)(((byte)(85)))));
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(1.589457E-05F, 120F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 50F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 5, 0, 100F);
             this.xrLabel2.SizeF = new System.Drawing.SizeF(450F, 32F);
@@ -345,7 +343,7 @@
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "\'PERIODE: \' + [Parameters.XafReportParametersObject]")});
             this.xrLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.xrLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(86)))), ((int)(((byte)(85)))));
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 152F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 82F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 5, 0, 100F);
             this.xrLabel1.SizeF = new System.Drawing.SizeF(450F, 32F);
@@ -358,7 +356,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(86)))), ((int)(((byte)(85)))));
-            this.label2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 70F);
+            this.label2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.label2.Name = "label2";
             this.label2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.label2.SizeF = new System.Drawing.SizeF(450F, 50F);
@@ -375,15 +373,6 @@
             new DevExpress.XtraReports.UI.GroupField("Account.Name", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.GroupHeader2.HeightF = 35F;
             this.GroupHeader2.Name = "GroupHeader2";
-            // 
-            // xrPictureBox1
-            // 
-            this.xrPictureBox1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "ImageSource", "[Company].[Logo]")});
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(100F, 32F);
-            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.AutoSize;
             // 
             // collectionDataSource1
             // 
@@ -409,7 +398,7 @@
             this.Extensions.Add("DataSerializationExtension", "XtraReport");
             this.Extensions.Add("DataEditorExtension", "XtraReport");
             this.Extensions.Add("ParameterEditorExtension", "XtraReport");
-            this.Margins = new System.Drawing.Printing.Margins(80, 80, 28, 40);
+            this.Margins = new System.Drawing.Printing.Margins(80, 80, 75, 40);
             this.PageHeight = 1169;
             this.PageWidth = 827;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;
@@ -454,6 +443,5 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraReports.UI.XRLabel label3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
-        private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox1;
     }
 }

@@ -1,9 +1,7 @@
 ﻿using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
-using DevExpress.Utils.Design;
 using DevExpress.Xpo;
 using System.ComponentModel;
-using System.Drawing;
 
 namespace Accounting.Module.BusinessObjects
 {
@@ -22,22 +20,6 @@ namespace Accounting.Module.BusinessObjects
             set => SetPropertyValue(nameof(AccountNumber), value);
         }
 
-        public object Logo
-        {
-            get => GetLogo(LogoData);
-        }
-
-        [Delayed]
-        [ImageEditor]
-        [ModelDefault("Caption", "Logo")]
-        [Persistent("Logo")]
-        [VisibleInReports(false)]
-        public byte[] LogoData
-        {
-            get => GetDelayedPropertyValue<byte[]>(nameof(LogoData));
-            set => SetDelayedPropertyValue(nameof(LogoData), value);
-        }
-
         [ModelDefault("Caption", "VAT Declaration Type")]
         public VatDeclarationType VatDeclarationType
         {
@@ -49,21 +31,6 @@ namespace Accounting.Module.BusinessObjects
         {
             base.AfterConstruction();
             VatDeclarationType = VatDeclarationType.Quarterly;
-        }
-
-        private object GetLogo(byte[] bytes)
-        {
-            if (bytes == null)
-                return null;
-
-            try
-            {
-                return new BinaryTypeConverter().ConvertFrom(LogoData);
-            }
-            catch
-            {
-                return new ImageConverter().ConvertFrom(LogoData);
-            }
         }
     }
 }
