@@ -8,6 +8,6 @@ namespace Accounting.Module.Configuration
         public string DefaultVatRate { get; set; }
 
         [XmlAttribute("percentageDeductible")]
-        public float PercentageDeductible { get; set; } = 100;
+        public float PercentageDeductible { get; set; }
     }
 }

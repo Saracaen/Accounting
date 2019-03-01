@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace Accounting.Module.Configuration
 {
     public class DefaultCountryConfiguration
     {
         [XmlElement("country")]
-        public List<DefaultCountry> Countries { get; set; } = new List<DefaultCountry>();
+        public DefaultCountry[] Countries { get; set; }
 
         [XmlAttribute("default")]
         public string Default { get; set; }
