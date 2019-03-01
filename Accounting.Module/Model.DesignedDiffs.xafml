@@ -229,6 +229,11 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <ListView Id="Country_LookupListView" AllowNew="False" FreezeColumnIndices="True">
+      <Columns>
+        <ColumnInfo Id="Name" Index="0" />
+      </Columns>
+    </ListView>
     <DetailView Id="CreditCardAccount_DetailView" FreezeLayout="True">
       <Layout IsNewNode="True" Removed="True">
         <LayoutGroup Id="CreditCardAccount" IsNewNode="True">

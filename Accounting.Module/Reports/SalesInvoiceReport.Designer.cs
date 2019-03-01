@@ -227,7 +227,7 @@
             // tableCell20
             // 
             this.tableCell20.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Customer].[Country]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Customer].[Country].[Name]")});
             this.tableCell20.Name = "tableCell20";
             this.tableCell20.Text = "tableCell20";
             this.tableCell20.Weight = 1D;
@@ -360,7 +360,7 @@
             // tableCell33
             // 
             this.tableCell33.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Company].[Country]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Company].[Country].[Name]")});
             this.tableCell33.Name = "tableCell33";
             this.tableCell33.Text = "tableCell33";
             this.tableCell33.Weight = 0.77205699592308852D;

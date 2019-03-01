@@ -79,6 +79,11 @@
         <Member Name="VatDeclarationType" Caption="BTW-aangiftesoort:" />
       </OwnMembers>
     </Class>
+    <Class Name="Accounting.Module.BusinessObjects.Country" Caption="Land">
+      <OwnMembers>
+        <Member Name="Name" Caption="Naam" />
+      </OwnMembers>
+    </Class>
     <Class Name="Accounting.Module.BusinessObjects.CreditCardAccount" Caption="Creditcardrekening" />
     <Class Name="Accounting.Module.BusinessObjects.Customer" Caption="Klant">
       <OwnMembers>

@@ -1,4 +1,5 @@
-﻿using DevExpress.Persistent.Base;
+﻿using DevExpress.ExpressApp.Model;
+using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
@@ -30,9 +31,11 @@ namespace Accounting.Module.BusinessObjects
             set => SetPropertyValue(nameof(Contact), value);
         }
 
-        public string Country
+        [ModelDefault("AllowClear", "False")]
+        [RuleRequiredField("Organization_Country_RuleRequiredField", DefaultContexts.Save)]
+        public Country Country
         {
-            get => GetPropertyValue<string>(nameof(Country));
+            get => GetPropertyValue<Country>(nameof(Country));
             set => SetPropertyValue(nameof(Country), value);
         }
 

@@ -32,6 +32,8 @@ namespace Accounting.Module.BusinessObjects
         public override void AfterConstruction()
         {
             base.AfterConstruction();
+
+            Country = Session.FindObject<Company>(null).Country;
             PaymentTerm = Session.FindObject<PaymentTerm>(new BinaryOperator("Term", 30));
         }
     }

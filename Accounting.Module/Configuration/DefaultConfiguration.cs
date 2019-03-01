@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -7,8 +8,18 @@ namespace Accounting.Module.Configuration
     [XmlRoot("configuration")]
     public class DefaultConfiguration
     {
+        private static readonly Lazy<DefaultConfiguration> Lazy = new Lazy<DefaultConfiguration>(() => Load("Accounting.Defaults.config"));
+
+        public static DefaultConfiguration Instance
+        {
+            get => Lazy.Value;
+        }
+
         [XmlElement("accounts")]
         public DefaultAccountConfiguration Accounts { get; set; } = new DefaultAccountConfiguration();
+
+        [XmlElement("countries")]
+        public DefaultCountryConfiguration Countries { get; set; } = new DefaultCountryConfiguration();
 
         [XmlArray("paymentTerms")]
         [XmlArrayItem("paymentTerm")]

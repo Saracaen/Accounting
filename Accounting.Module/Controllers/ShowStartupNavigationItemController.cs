@@ -1,4 +1,6 @@
 ﻿using Accounting.Module.BusinessObjects;
+using Accounting.Module.Configuration;
+using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.SystemModule;
@@ -71,10 +73,11 @@ namespace Accounting.Module.Controllers
             this.showNavigationItemController.CustomShowNavigationItem -= ShowNavigationItemController_CustomShowNavigationItem;
             this.showNavigationItemController.ShowNavigationItemAction.Enabled[Name] = false;
 
-            var objectSpace = Application.CreateObjectSpace(typeof(Company));
+            var objectSpace = Application.CreateObjectSpace();
             var company = objectSpace.CreateObject<Company>();
             var detailView = Application.CreateDetailView(objectSpace, company, true);
 
+            company.Country = objectSpace.FindObject<Country>(new BinaryOperator("Code", DefaultConfiguration.Instance.Countries.Default));
             detailView.ViewEditMode = ViewEditMode.Edit;
 
             objectSpace.Committed += ObjectSpace_Committed;

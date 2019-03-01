@@ -92,6 +92,7 @@
     <Compile Include="BusinessObjects\BankAccount.cs" />
     <Compile Include="BusinessObjects\CashAccount.cs" />
     <Compile Include="BusinessObjects\Company.cs" />
+    <Compile Include="BusinessObjects\Country.cs" />
     <Compile Include="BusinessObjects\CreditCardAccount.cs" />
     <Compile Include="BusinessObjects\Customer.cs" />
     <Compile Include="BusinessObjects\CustomerAccount.cs" />
@@ -142,6 +143,8 @@
     <Compile Include="Configuration\DefaultAccount.cs" />
     <Compile Include="Configuration\DefaultAccountConfiguration.cs" />
     <Compile Include="Configuration\DefaultConfiguration.cs" />
+    <Compile Include="Configuration\DefaultCountry.cs" />
+    <Compile Include="Configuration\DefaultCountryConfiguration.cs" />
     <Compile Include="Configuration\DefaultExpenseAccount.cs" />
     <Compile Include="Configuration\DefaultIncomeAccount.cs" />
     <Compile Include="Configuration\DefaultPaymentTerm.cs" />
@@ -222,6 +225,7 @@
   <ItemGroup>
     <None Include="Accounting.Defaults.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
