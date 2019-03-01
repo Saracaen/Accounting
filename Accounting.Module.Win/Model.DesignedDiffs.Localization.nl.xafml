@@ -7,7 +7,7 @@
       <Action Id="CopyCellValue" Caption="Kopieer celinhoud" />
       <Action Id="ExecuteReportV2" Caption="Rapport uitvoeren" />
       <Action Id="Export" Caption="Exporteer als" />
-      <Action Id="OpenObject" Caption="Open gerelateerd record" />
+      <Action Id="OpenObject" Caption="Open gerelateerd record" ToolTip="Open het record dat hoort bij de geselecteerde editor (SHIFT+CTRL+linkermuisknop)" />
       <Action Id="ShowReportDesignerV2" Caption="Toon rapportontwerper" />
     </Actions>
   </ActionDesign>

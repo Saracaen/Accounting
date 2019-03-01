@@ -43,7 +43,7 @@
       <Action Id="SaveAndNewDepreciation" Caption="Opslaan en Nieuw" />
       <Action Id="SaveAndNewVatDeclaration" Caption="Opslaan en Nieuw" />
       <Action Id="SetFilter" Caption="Filteren" />
-      <Action Id="ShowAllContexts" Caption="Controleren" />
+      <Action Id="ShowAllContexts" Caption="Controleren" ToolTip="Controleer de geselecteerde objecten in alle gepresenteerde contexten" />
       <Action Id="ShowInReportV2" Caption="Toon in rapport" ToolTip="Toon de geselecteerde records in een rapport" />
       <Action Id="ShowNavigationItem" Caption="Navigatie" />
       <Action Id="Unlink" Caption="Ontkoppelen" ConfirmationMessage="U staat op het punt de geselecteerde records te ontkoppelen. Wilt u doorgaan?" />
