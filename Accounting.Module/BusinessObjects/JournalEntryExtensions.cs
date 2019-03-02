@@ -1,5 +1,4 @@
-﻿using Accounting.Module.BusinessObjects;
-using System;
+﻿using System;
 using System.Linq;
 
 namespace Accounting.Module.BusinessObjects
