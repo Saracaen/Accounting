@@ -22,5 +22,13 @@ namespace Accounting.Module.BusinessObjects
         {
             get => GetCollection<SalesInvoice>(nameof(Invoices));
         }
+
+        public override void AfterConstruction()
+        {
+            base.AfterConstruction();
+
+            Country = Session.FindObject<Company>(null).Country;
+            PaymentTerm = Session.FindObject<Company>(null).PaymentTerm;
+        }
     }
 }

@@ -75,7 +75,6 @@
     <Class Name="Accounting.Module.BusinessObjects.CashAccount" Caption="Kasrekening" />
     <Class Name="Accounting.Module.BusinessObjects.Company" Caption="Bedrijf">
       <OwnMembers>
-        <Member Name="AccountNumber" Caption="Rekeningnummer" />
         <Member Name="VatDeclarationType" Caption="BTW-aangiftesoort:" />
       </OwnMembers>
     </Class>
@@ -87,6 +86,7 @@
     <Class Name="Accounting.Module.BusinessObjects.CreditCardAccount" Caption="Creditcardrekening" />
     <Class Name="Accounting.Module.BusinessObjects.Customer" Caption="Klant">
       <OwnMembers>
+        <Member Name="Company" Caption="Bedrijf" />
         <Member Name="Invoices" Caption="Facturen" />
       </OwnMembers>
     </Class>
@@ -184,19 +184,6 @@
       </OwnMembers>
     </Class>
     <Class Name="Accounting.Module.BusinessObjects.LiabilityAccount" Caption="Passivarekening" />
-    <Class Name="Accounting.Module.BusinessObjects.Organization">
-      <OwnMembers>
-        <Member Name="Address" Caption="Adres" />
-        <Member Name="City" Caption="Plaats" />
-        <Member Name="Country" Caption="Land" />
-        <Member Name="Email" Caption="Emailadres" />
-        <Member Name="LegalEntityIdentifier" Caption="KvK-nummer" />
-        <Member Name="Name" Caption="Naam" />
-        <Member Name="Phone" Caption="Telefoonnummer" />
-        <Member Name="PostalCode" Caption="Postcode" />
-        <Member Name="VatIdentifier" Caption="BTW-nummer" />
-      </OwnMembers>
-    </Class>
     <Class Name="Accounting.Module.BusinessObjects.OutputVatAccount" Caption="Belastingsrekening" />
     <Class Name="Accounting.Module.BusinessObjects.Parameters.ClosePeriodParameters" Caption="Periode afsluiten">
       <OwnMembers>
@@ -251,9 +238,18 @@
     </Class>
     <Class Name="Accounting.Module.BusinessObjects.Party">
       <OwnMembers>
-        <Member Name="Company" Caption="Bedrijf" />
+        <Member Name="AccountNumber" Caption="Rekeningnummer" />
+        <Member Name="Address" Caption="Adres" />
+        <Member Name="City" Caption="Plaats" />
+        <Member Name="Country" Caption="Land" />
+        <Member Name="Email" Caption="Emailadres" />
         <Member Name="IsVatIncluded" CaptionForTrue="Ja" CaptionForFalse="Nee" Caption="Inclusief BTW" />
+        <Member Name="LegalEntityIdentifier" Caption="KvK-nummer" />
+        <Member Name="Name" Caption="Naam" />
         <Member Name="PaymentTerm" Caption="Betalingstermijn" />
+        <Member Name="Phone" Caption="Telefoonnummer" />
+        <Member Name="PostalCode" Caption="Postcode" />
+        <Member Name="VatIdentifier" Caption="BTW-nummer" />
       </OwnMembers>
     </Class>
     <Class Name="Accounting.Module.BusinessObjects.PaymentTerm" Caption="Betalingstermijn">
@@ -276,6 +272,7 @@
     </Class>
     <Class Name="Accounting.Module.BusinessObjects.Supplier" Caption="Leverancier">
       <OwnMembers>
+        <Member Name="Company" Caption="Bedrijf" />
         <Member Name="Invoices" Caption="Facturen" />
       </OwnMembers>
     </Class>

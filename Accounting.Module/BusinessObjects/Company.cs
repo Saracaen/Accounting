@@ -1,4 +1,6 @@
-﻿using DevExpress.ExpressApp.Model;
+﻿using Accounting.Module.Configuration;
+using DevExpress.Data.Filtering;
+using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 using System.ComponentModel;
@@ -7,17 +9,12 @@ namespace Accounting.Module.BusinessObjects
 {
     [DefaultProperty("Name")]
     [ImageName("BO_Organization")]
+    [MapInheritance(MapInheritanceType.ParentTable)]
     [ModelDefault("ObjectCaptionFormat", "")]
-    public class Company : Organization
+    public class Company : Party
     {
         public Company(Session session) : base(session)
         {
-        }
-
-        public string AccountNumber
-        {
-            get => GetPropertyValue<string>(nameof(AccountNumber));
-            set => SetPropertyValue(nameof(AccountNumber), value);
         }
 
         [ModelDefault("Caption", "VAT Declaration Type")]
@@ -30,6 +27,9 @@ namespace Accounting.Module.BusinessObjects
         public override void AfterConstruction()
         {
             base.AfterConstruction();
+
+            Country = Session.FindObject<Country>(new BinaryOperator("Code", DefaultConfiguration.Instance.Countries.Default));
+            PaymentTerm = Session.FindObject<PaymentTerm>(new BinaryOperator("Term", 30));
             VatDeclarationType = VatDeclarationType.Quarterly;
         }
     }

@@ -25,6 +25,11 @@
         <Member Name="Company" IsCustom="True" IsCalculated="True" Caption="Company" Type="Accounting.Module.BusinessObjects.Company" Expression="[&lt;Company&gt;][].Single([This])" IsNewNode="True" />
       </OwnMembers>
     </Class>
+    <Class Name="Accounting.Module.BusinessObjects.Customer">
+      <OwnMembers>
+        <Member Name="Company" IsCustom="True" IsCalculated="True" Caption="Company" Type="Accounting.Module.BusinessObjects.Company" Expression="[&lt;Company&gt;][].Single([This])" IsNewNode="True" />
+      </OwnMembers>
+    </Class>
     <Class Name="Accounting.Module.BusinessObjects.JournalEntry">
       <OwnMembers>
         <Member Name="Company" IsCustom="True" IsCalculated="True" Caption="Company" Type="Accounting.Module.BusinessObjects.Company" Expression="[&lt;Company&gt;][].Single([This])" IsNewNode="True" />
@@ -40,7 +45,7 @@
         <Member Name="Company" IsCustom="True" IsCalculated="True" Caption="Company" Type="Accounting.Module.BusinessObjects.Company" Expression="[&lt;Company&gt;][].Single([This])" IsNewNode="True" />
       </OwnMembers>
     </Class>
-    <Class Name="Accounting.Module.BusinessObjects.Party">
+    <Class Name="Accounting.Module.BusinessObjects.Supplier">
       <OwnMembers>
         <Member Name="Company" IsCustom="True" IsCalculated="True" Caption="Company" Type="Accounting.Module.BusinessObjects.Company" Expression="[&lt;Company&gt;][].Single([This])" IsNewNode="True" />
       </OwnMembers>
@@ -199,11 +204,12 @@
         <LayoutGroup Id="Company" Direction="Horizontal" IsNewNode="True">
           <LayoutGroup Id="Company_col1" IsNewNode="True">
             <LayoutItem Id="Name" Index="0" IsNewNode="True" />
-            <LayoutItem Id="Address" Index="1" IsNewNode="True" />
-            <LayoutItem Id="PostalCode" Index="2" IsNewNode="True" />
-            <LayoutItem Id="City" Index="3" IsNewNode="True" />
-            <LayoutItem Id="Country" Index="4" IsNewNode="True" />
-            <LayoutItem Id="Phone" Index="5" IsNewNode="True" />
+            <LayoutItem Id="Contact" Index="1" IsNewNode="True" />
+            <LayoutItem Id="Address" Index="2" IsNewNode="True" />
+            <LayoutItem Id="PostalCode" Index="3" IsNewNode="True" />
+            <LayoutItem Id="City" Index="4" IsNewNode="True" />
+            <LayoutItem Id="Country" Index="5" IsNewNode="True" />
+            <LayoutItem Id="Phone" Index="6" IsNewNode="True" />
           </LayoutGroup>
           <LayoutGroup Id="Company_col2" IsNewNode="True">
             <LayoutItem Id="Email" Index="0" IsNewNode="True" />
@@ -211,7 +217,9 @@
             <LayoutItem Id="LegalEntityIdentifier" Index="2" IsNewNode="True" />
             <LayoutItem Id="VatIdentifier" Index="3" IsNewNode="True" />
             <LayoutItem Id="VatDeclarationType" Index="4" IsNewNode="True" />
-            <LayoutItem Id="AccountNumber" Index="5" IsNewNode="True" />
+            <LayoutItem Id="PaymentTerm" Index="5" IsNewNode="True" />
+            <LayoutItem Id="IsVatIncluded" Index="6" IsNewNode="True" />
+            <LayoutItem Id="AccountNumber" Index="7" IsNewNode="True" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>
@@ -265,6 +273,7 @@
               <LayoutItem Id="VatIdentifier" Index="3" IsNewNode="True" />
               <LayoutItem Id="IsVatIncluded" Index="4" IsNewNode="True" />
               <LayoutItem Id="PaymentTerm" Index="5" IsNewNode="True" />
+              <LayoutItem Id="AccountNumber" Index="6" IsNewNode="True" />
             </LayoutGroup>
           </LayoutGroup>
           <TabbedGroup Id="Tabs" IsNewNode="True">
@@ -819,6 +828,7 @@
               <LayoutItem Id="VatIdentifier" Index="3" IsNewNode="True" />
               <LayoutItem Id="IsVatIncluded" Index="4" IsNewNode="True" />
               <LayoutItem Id="PaymentTerm" Index="5" IsNewNode="True" />
+              <LayoutItem Id="AccountNumber" Index="6" IsNewNode="True" />
             </LayoutGroup>
           </LayoutGroup>
           <TabbedGroup Id="Tabs" Index="1" IsNewNode="True">

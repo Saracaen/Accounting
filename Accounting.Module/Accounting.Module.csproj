@@ -115,7 +115,6 @@
     <Compile Include="BusinessObjects\JournalEntryLine.cs" />
     <Compile Include="BusinessObjects\JournalEntryType.cs" />
     <Compile Include="BusinessObjects\LiabilityAccount.cs" />
-    <Compile Include="BusinessObjects\Organization.cs" />
     <Compile Include="BusinessObjects\OutputVatAccount.cs" />
     <Compile Include="BusinessObjects\Parameters\ClosePeriodParameters.cs" />
     <Compile Include="BusinessObjects\Parameters\CorrectInvoiceParameters.cs" />
