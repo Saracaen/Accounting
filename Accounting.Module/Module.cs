@@ -72,8 +72,7 @@ namespace Accounting.Module
                 typeof(PostVatDeclarationController),
                 typeof(RestoreListViewSelectionController),
                 typeof(ShowDetailViewController),
-                typeof(ShowStartupNavigationItemController),
-                typeof(UpdateCompanyNameController)
+                typeof(ShowStartupNavigationItemController)
             };
         }
 

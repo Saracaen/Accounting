@@ -25,18 +25,13 @@ namespace Accounting.Module.Controllers
 
             using (var objectSpace = Application.CreateObjectSpace(typeof(Company)))
             {
-                var company = objectSpace.FindObject<Company>(null);
-                if (company == null)
+                if (objectSpace.GetObjectsCount(typeof(Company), null) == 0)
                 {
                     this.showNavigationItemController = Frame.GetController<ShowNavigationItemController>();
                     if (this.showNavigationItemController != null)
                     {
                         this.showNavigationItemController.CustomShowNavigationItem += ShowNavigationItemController_CustomShowNavigationItem;
                     }
-                }
-                else
-                {
-                    Application.Title = company.Name;
                 }
             }
         }

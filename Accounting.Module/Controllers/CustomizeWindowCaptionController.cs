@@ -35,26 +35,19 @@ namespace Accounting.Module.Controllers
             {
                 if (Frame.View.CurrentObject is AboutInfo aboutInfo)
                 {
-                    e.WindowCaption.FirstPart = e.WindowCaption.SecondPart;
-                    e.WindowCaption.SecondPart = aboutInfo.ProductName;
-                    e.WindowCaption.Separator = " ";
+                    e.WindowCaption.Text = $"{e.WindowCaption.SecondPart} {aboutInfo.ProductName}";
+                }
+                else if (e.WindowCaption.FirstPart == Frame.View.Caption)
+                {
+                    e.WindowCaption.Text = $"{Frame.View.Caption}{e.WindowCaption.Separator}{Application.Title}";
+                }
+                else if (string.IsNullOrEmpty(e.WindowCaption.FirstPart))
+                {
+                    e.WindowCaption.Text = Frame.View.Caption;
                 }
                 else
                 {
-                    if (e.WindowCaption.FirstPart != Frame.View.Caption)
-                    {
-                        e.WindowCaption.FirstPart = string.IsNullOrEmpty(e.WindowCaption.FirstPart) ? Frame.View.Caption : $"{Frame.View.Caption}{e.WindowCaption.Separator}{e.WindowCaption.FirstPart}";
-                    }
-
-                    if (string.Equals(e.WindowCaption.SecondPart, Frame.View.Caption))
-                    {
-                        e.WindowCaption.SecondPart = Application.Title;
-                    }
-
-                    if (string.Equals(e.WindowCaption.FirstPart, e.WindowCaption.SecondPart))
-                    {
-                        e.WindowCaption.SecondPart = null;
-                    }
+                    e.WindowCaption.Text = $"{Frame.View.Caption}{e.WindowCaption.Separator}{e.WindowCaption.FirstPart}{e.WindowCaption.Separator}{Application.Title}";
                 }
             }
         }

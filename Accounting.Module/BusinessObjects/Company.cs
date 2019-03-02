@@ -13,7 +13,6 @@ namespace Accounting.Module.BusinessObjects
     [DefaultProperty("Name")]
     [ImageName("BO_Organization")]
     [MapInheritance(MapInheritanceType.ParentTable)]
-    [ModelDefault("ObjectCaptionFormat", "")]
     public class Company : Party
     {
         public Company(Session session) : base(session)
