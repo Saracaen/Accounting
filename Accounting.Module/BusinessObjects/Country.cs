@@ -1,9 +1,12 @@
-﻿using DevExpress.ExpressApp.Model;
+﻿using DevExpress.ExpressApp.ConditionalAppearance;
+using DevExpress.ExpressApp.Editors;
+using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
 
 namespace Accounting.Module.BusinessObjects
 {
+    [Appearance("Actions", AppearanceItemType.Action, "True", TargetItems = "Delete;New;Save;SaveAndClose;SaveAndNew", Visibility = ViewItemVisibility.Hide)]
     [ModelDefault("DefaultLookupEditorMode", "AllItems")]
     public class Country : BaseObject
     {
