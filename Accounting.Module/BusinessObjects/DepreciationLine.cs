@@ -1,10 +1,13 @@
-﻿using DevExpress.Persistent.BaseImpl;
+﻿using DevExpress.ExpressApp.ConditionalAppearance;
+using DevExpress.ExpressApp.Editors;
+using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 using System;
 
 namespace Accounting.Module.BusinessObjects
 {
+    [Appearance("Actions", AppearanceItemType.Action, "True", TargetItems = "Delete;New;SaveAndNew", Visibility = ViewItemVisibility.Hide)]
     public class DepreciationLine : BaseObject
     {
         public DepreciationLine(Session session) : base(session)

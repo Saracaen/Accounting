@@ -1,4 +1,5 @@
 ﻿using DevExpress.ExpressApp.ConditionalAppearance;
+using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
@@ -6,6 +7,7 @@ using DevExpress.Xpo;
 
 namespace Accounting.Module.BusinessObjects
 {
+    [Appearance("Actions", AppearanceItemType.Action, "True", TargetItems = "Delete;New;SaveAndNew", Visibility = ViewItemVisibility.Hide)]
     public class VatDeclarationLine : BaseObject
     {
         public VatDeclarationLine(Session session) : base(session)

@@ -199,7 +199,7 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <DetailView Id="Company_DetailView" AllowNew="False" AllowDelete="False" FreezeLayout="True">
+    <DetailView Id="Company_DetailView" FreezeLayout="True">
       <Layout IsNewNode="True" Removed="True">
         <LayoutGroup Id="Company" Direction="Horizontal" IsNewNode="True">
           <LayoutGroup Id="Company_col1" IsNewNode="True">
@@ -235,7 +235,7 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="Country_LookupListView" AllowNew="False" FreezeColumnIndices="True">
+    <ListView Id="Country_LookupListView" FreezeColumnIndices="True">
       <Columns>
         <ColumnInfo Id="Name" Index="0" />
       </Columns>
@@ -386,7 +386,7 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="Depreciation_Lines_ListView" FreezeColumnIndices="True" AllowEdit="True" AllowNew="False" AllowDelete="False">
+    <ListView Id="Depreciation_Lines_ListView" FreezeColumnIndices="True" AllowEdit="True">
       <Columns>
         <ColumnInfo Id="Date" Index="0" SortIndex="0" SortOrder="Ascending" />
         <ColumnInfo Id="Amount" Index="1" />
@@ -413,7 +413,7 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <DetailView Id="DepreciationLine_DetailView" FreezeLayout="True" AllowNew="False" AllowDelete="False">
+    <DetailView Id="DepreciationLine_DetailView" FreezeLayout="True">
       <Layout IsNewNode="True" Removed="True">
         <LayoutGroup Id="DepreciationLine" Direction="Horizontal" IsNewNode="True">
           <LayoutGroup Id="DepreciationLine_col1" IsNewNode="True">
@@ -607,7 +607,7 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="NewVatDeclarationParameters_ListView" FreezeColumnIndices="True" AllowDelete="False" AllowNew="False">
+    <ListView Id="NewVatDeclarationParameters_ListView" FreezeColumnIndices="True">
       <Columns>
         <ColumnInfo Id="Year" Index="0" />
         <ColumnInfo Id="Period" Index="1" />
@@ -949,7 +949,7 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="VatDeclaration_Lines_ListView" AllowEdit="True" AllowNew="False" AllowDelete="False" FreezeColumnIndices="True">
+    <ListView Id="VatDeclaration_Lines_ListView" AllowEdit="True" FreezeColumnIndices="True">
       <Columns>
         <ColumnInfo Id="Category" Index="0" />
         <ColumnInfo Id="Amount" Index="1" />
@@ -968,7 +968,7 @@
         <ColumnInfo Id="Total" Index="7" />
       </Columns>
     </ListView>
-    <DetailView Id="VatDeclarationLine_DetailView" AllowNew="False" AllowDelete="False">
+    <DetailView Id="VatDeclarationLine_DetailView">
       <Layout IsNewNode="True" Removed="True">
         <LayoutGroup Id="VatDeclarationLine" IsNewNode="True">
           <LayoutItem Id="Category" Index="0" IsNewNode="True" />
