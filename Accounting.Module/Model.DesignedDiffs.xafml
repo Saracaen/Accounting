@@ -461,7 +461,7 @@
       <Layout IsNewNode="True" Removed="True">
         <LayoutGroup Id="Identifier" Direction="Horizontal" IsNewNode="True">
           <LayoutGroup Id="Identifier_col1" IsNewNode="True">
-            <LayoutItem Id="Type" Index="0" IsNewNode="True" />
+            <LayoutItem Id="Name" Index="0" IsNewNode="True" />
             <LayoutItem Id="Prefix" Index="1" IsNewNode="True" />
           </LayoutGroup>
           <LayoutGroup Id="Identifier_col2" IsNewNode="True">
@@ -473,7 +473,7 @@
     </DetailView>
     <ListView Id="Identifier_ListView" Caption="Identifiers">
       <Columns>
-        <ColumnInfo Id="Type" Index="0" />
+        <ColumnInfo Id="Name" Index="0" Width="100" />
         <ColumnInfo Id="Prefix" Index="1" />
         <ColumnInfo Id="Decimals" Index="2" />
         <ColumnInfo Id="StartValue" Index="3" />

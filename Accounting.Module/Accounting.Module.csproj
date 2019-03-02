@@ -104,7 +104,6 @@
     <Compile Include="BusinessObjects\ExpenseAccount.cs" />
     <Compile Include="BusinessObjects\JournalEntryExtensions.cs" />
     <Compile Include="BusinessObjects\Identifier.cs" />
-    <Compile Include="BusinessObjects\IdentifierType.cs" />
     <Compile Include="BusinessObjects\IncomeAccount.cs" />
     <Compile Include="BusinessObjects\InputVatAccount.cs" />
     <Compile Include="BusinessObjects\Invoice.cs" />

@@ -141,11 +141,9 @@ namespace Accounting.Module.Updaters
             {
                 var identifier = ObjectSpace.CreateObject<Identifier>();
                 identifier.TargetType = typeof(PurchaseInvoice).FullName;
-                identifier.Type = IdentifierType.PurchaseInvoice;
 
                 identifier = ObjectSpace.CreateObject<Identifier>();
                 identifier.TargetType = typeof(SalesInvoice).FullName;
-                identifier.Type = IdentifierType.SalesInvoice;
             }
 
             if (ObjectSpace.GetObjectsCount(typeof(PaymentTerm), null) == 0)

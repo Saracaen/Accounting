@@ -1,6 +1,6 @@
 ﻿using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp.Editors;
-using DevExpress.ExpressApp.Model;
+using DevExpress.ExpressApp.Utils;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
@@ -24,6 +24,11 @@ namespace Accounting.Module.BusinessObjects
             set => SetPropertyValue(nameof(Decimals), value);
         }
 
+        public string Name
+        {
+            get => CaptionHelper.GetClassCaption(TargetType);
+        }
+
         public string Prefix
         {
             get => GetPropertyValue<string>(nameof(Prefix));
@@ -43,13 +48,6 @@ namespace Accounting.Module.BusinessObjects
         {
             get => GetPropertyValue<string>(nameof(TargetType));
             set => SetPropertyValue(nameof(TargetType), value);
-        }
-
-        [ModelDefault("AllowEdit", "False")]
-        public IdentifierType Type
-        {
-            get => GetPropertyValue<IdentifierType>(nameof(Type));
-            set => SetPropertyValue(nameof(Type), value);
         }
 
         public override void AfterConstruction()

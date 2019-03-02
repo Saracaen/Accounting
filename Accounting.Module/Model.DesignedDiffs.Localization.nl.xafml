@@ -119,6 +119,7 @@
     <Class Name="Accounting.Module.BusinessObjects.Identifier" Caption="Volgnummer">
       <OwnMembers>
         <Member Name="Decimals" Caption="Decimalen" />
+        <Member Name="Name" Caption="Naam" />
         <Member Name="Prefix" Caption="Voorvoegsel" />
         <Member Name="StartValue" Caption="Startwaarde" />
       </OwnMembers>
@@ -477,10 +478,6 @@
       <LocalizationGroup Name="Accounting.Module.BusinessObjects.DepreciationType">
         <LocalizationItem Name="Annual" Value="Jaarlijks" />
         <LocalizationItem Name="Monthly" Value="Maandelijks" />
-      </LocalizationGroup>
-      <LocalizationGroup Name="Accounting.Module.BusinessObjects.IdentifierType">
-        <LocalizationItem Name="PurchaseInvoice" Value="Inkoopfactuur" />
-        <LocalizationItem Name="SalesInvoice" Value="Verkoopfactuur" />
       </LocalizationGroup>
       <LocalizationGroup Name="Accounting.Module.BusinessObjects.InvoiceType">
         <LocalizationItem Name="CreditNote" Value="Creditfactuur" />
