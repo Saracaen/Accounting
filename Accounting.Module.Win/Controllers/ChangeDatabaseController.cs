@@ -17,37 +17,22 @@ namespace Accounting.Module.Win.Controllers
         {
             TargetWindowType = WindowType.Main;
 
-            ChangeDatabaseAction = new SimpleAction(this, "ChangeDatabase", "About");
-            ChangeDatabaseAction.Caption = "Change Database...";
-            ChangeDatabaseAction.Execute += ChangeDatabaseAction_Execute;
-            ChangeDatabaseAction.ImageName = "Action_Security_ChangePassword";
+            NewDatabaseAction = new SimpleAction(this, "NewDatabase", "File");
+            NewDatabaseAction.Caption = "New Database...";
+            NewDatabaseAction.Execute += NewDatabaseAction_Execute;
+            NewDatabaseAction.ImageName = "NewDataSource";
 
-            RegisterActions(ChangeDatabaseAction);
+            OpenDatabaseAction = new SimpleAction(this, "OpenDatabase", "File");
+            OpenDatabaseAction.Caption = "Open Database...";
+            OpenDatabaseAction.Execute += OpenDatabaseAction_Execute;
+            OpenDatabaseAction.ImageName = "SelectDataSource";
+
+            RegisterActions(NewDatabaseAction, OpenDatabaseAction);
         }
 
-        public SimpleAction ChangeDatabaseAction { get; }
+        public SimpleAction NewDatabaseAction { get; }
 
-        private void ChangeDatabaseAction_Execute(object sender, SimpleActionExecuteEventArgs e)
-        {
-            using (var dialog = new SaveFileDialog { DefaultExt = "db", Filter = CaptionHelper.GetLocalizedText("Texts", "DatabaseFiles"), OverwritePrompt = false })
-            {
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    var configurationMap = new ExeConfigurationFileMap { ExeConfigFilename = Path.ChangeExtension(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile, ".config") };
-                    var configuration = ConfigurationManager.OpenMappedExeConfiguration(configurationMap, ConfigurationUserLevel.None);
-                    var connectionString = configuration.ConnectionStrings.ConnectionStrings["ConnectionString"];
-
-                    if (connectionString != null)
-                    {
-                        connectionString.ConnectionString = $"XpoProvider=SQLite;Data Source={GetRelativeFileName(dialog.FileName)};DateTimeKind=Utc";
-                        configuration.Save(ConfigurationSaveMode.Modified);
-                        ConfigurationManager.RefreshSection("connectionStrings");
-                    }
-
-                    Application.LogOff();
-                }
-            }
-        }
+        public SimpleAction OpenDatabaseAction { get; }
 
         private string GetRelativeFileName(string fileName)
         {
@@ -55,6 +40,44 @@ namespace Accounting.Module.Win.Controllers
             var fileUri = new Uri(fileName);
 
             return Uri.UnescapeDataString(applicationUri.MakeRelativeUri(fileUri).ToString());
+        }
+
+        private void NewDatabaseAction_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            using (var dialog = new SaveFileDialog { DefaultExt = "db", Filter = CaptionHelper.GetLocalizedText("Texts", "DatabaseFiles") })
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    UpdateConnectionString(dialog.FileName);
+                }
+            }
+        }
+
+        private void OpenDatabaseAction_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            using (var dialog = new OpenFileDialog { DefaultExt = "db", Filter = CaptionHelper.GetLocalizedText("Texts", "DatabaseFiles") })
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    UpdateConnectionString(dialog.FileName);
+                }
+            }
+        }
+
+        private void UpdateConnectionString(string fileName)
+        {
+            var configurationMap = new ExeConfigurationFileMap { ExeConfigFilename = Path.ChangeExtension(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile, ".config") };
+            var configuration = ConfigurationManager.OpenMappedExeConfiguration(configurationMap, ConfigurationUserLevel.None);
+            var connectionString = configuration.ConnectionStrings.ConnectionStrings["ConnectionString"];
+
+            if (connectionString != null)
+            {
+                connectionString.ConnectionString = $"XpoProvider=SQLite;Data Source={GetRelativeFileName(fileName)};DateTimeKind=Utc";
+                configuration.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection("connectionStrings");
+            }
+
+            Application.LogOff();
         }
     }
 }
