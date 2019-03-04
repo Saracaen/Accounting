@@ -6,6 +6,7 @@ using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 using System;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Accounting.Module.BusinessObjects
 {
@@ -61,6 +62,40 @@ namespace Accounting.Module.BusinessObjects
         {
             get => GetPropertyValue<JournalEntryType>(nameof(Type));
             set => SetPropertyValue(nameof(Type), value);
+        }
+
+        public void AddLines(Account fromAccount, Account toAccount, decimal amount)
+        {
+            if (fromAccount == null)
+                throw new ArgumentNullException(nameof(fromAccount));
+            if (toAccount == null)
+                throw new ArgumentNullException(nameof(toAccount));
+
+            amount = Math.Round(amount, 2, MidpointRounding.AwayFromZero);
+            if (toAccount.Type == AccountType.Credit)
+            {
+                amount = -amount;
+            }
+
+            var fromAccountLine = Lines.FirstOrDefault(x => Equals(x.Account, fromAccount));
+            if (fromAccountLine != null)
+            {
+                fromAccountLine.Amount += amount;
+            }
+            else
+            {
+                Lines.Add(new JournalEntryLine(Session) { Account = fromAccount, Amount = amount });
+            }
+
+            var toAccountLine = Lines.FirstOrDefault(x => Equals(x.Account, toAccount));
+            if (toAccountLine != null)
+            {
+                toAccountLine.Amount += -amount;
+            }
+            else
+            {
+                Lines.Add(new JournalEntryLine(Session) { Account = toAccount, Amount = -amount });
+            }
         }
 
         public override void AfterConstruction()
