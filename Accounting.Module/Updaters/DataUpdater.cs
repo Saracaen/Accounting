@@ -129,7 +129,7 @@ namespace Accounting.Module.Updaters
 
             if (ObjectSpace.GetObjectsCount(typeof(Country), null) == 0)
             {
-                foreach (var defaultCountry in DefaultConfiguration.Instance.Countries)
+                foreach (var defaultCountry in DefaultConfiguration.Instance.Countries.Countries)
                 {
                     var country = ObjectSpace.CreateObject<Country>();
                     country.Code = defaultCountry.Code;
