@@ -23,10 +23,11 @@ namespace Accounting.Module.BusinessObjects
             Lines.ListChanged += Lines_ListChanged;
         }
 
-        [PersistentAlias("IsNull(Lines[Amount > 0].Sum(Amount), 0)")]
+        [ModelDefault("AllowEdit", "False")]
         public decimal Amount
         {
-            get => Convert.ToDecimal(EvaluateAlias(nameof(Amount)));
+            get => GetPropertyValue<decimal>(nameof(Amount));
+            set => SetPropertyValue(nameof(Amount), value);
         }
 
         [RuleRequiredField("JournalEntry_Date_RuleRequiredField", DefaultContexts.Save)]
@@ -114,6 +115,7 @@ namespace Accounting.Module.BusinessObjects
                 case ListChangedType.ItemChanged:
                 case ListChangedType.ItemDeleted:
                     OnChanged(nameof(Lines));
+                    Amount = Lines.Where(x => x.Amount > 0).Sum(x => x.Amount);
                     break;
             }
         }

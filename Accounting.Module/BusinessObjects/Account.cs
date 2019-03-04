@@ -26,6 +26,7 @@ namespace Accounting.Module.BusinessObjects
             JournalEntryLines.ListChanged += JournalEntryLines_ListChanged;
         }
 
+        [ModelDefault("AllowEdit", "False")]
         public decimal Balance
         {
             get => GetPropertyValue<decimal>(nameof(Balance));
@@ -61,7 +62,20 @@ namespace Accounting.Module.BusinessObjects
             set => SetPropertyValue(nameof(Type), value);
         }
 
-        public void UpdateBalance()
+        private void JournalEntryLines_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            switch (e.ListChangedType)
+            {
+                case ListChangedType.ItemAdded:
+                case ListChangedType.ItemChanged:
+                case ListChangedType.ItemDeleted:
+                    OnChanged(nameof(JournalEntryLines));
+                    UpdateBalance();
+                    break;
+            }
+        }
+
+        private void UpdateBalance()
         {
             switch (Type)
             {
@@ -75,19 +89,6 @@ namespace Accounting.Module.BusinessObjects
 
                 default:
                     throw new InvalidOperationException(CaptionHelper.GetLocalizedText(@"Exceptions\UserVisibleExceptions", "UnsupportedAccountType"));
-            }
-        }
-
-        private void JournalEntryLines_ListChanged(object sender, ListChangedEventArgs e)
-        {
-            switch (e.ListChangedType)
-            {
-                case ListChangedType.ItemAdded:
-                case ListChangedType.ItemChanged:
-                case ListChangedType.ItemDeleted:
-                    OnChanged(nameof(JournalEntryLines));
-                    UpdateBalance();
-                    break;
             }
         }
     }

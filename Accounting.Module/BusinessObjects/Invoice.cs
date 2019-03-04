@@ -25,7 +25,7 @@ namespace Accounting.Module.BusinessObjects
         public DateTime Date
         {
             get => GetPropertyValue<DateTime>(nameof(Date));
-            set => SetDate(value);
+            set => SetPropertyValue(nameof(Date), value);
         }
 
         [ModelDefault("AllowEdit", "False")]
@@ -35,11 +35,10 @@ namespace Accounting.Module.BusinessObjects
             set => SetPropertyValue(nameof(DueAmount), value);
         }
 
-        [ModelDefault("AllowEdit", "False")]
+        [PersistentAlias("Iif(IsNull(PaymentTerm), Date, AddDays(Date, PaymentTerm.Term))")]
         public DateTime DueDate
         {
-            get => GetPropertyValue<DateTime>(nameof(DueDate));
-            set => SetPropertyValue(nameof(DueDate), value);
+            get => Convert.ToDateTime(EvaluateAlias(nameof(DueDate)));
         }
 
         [ImmediatePostData]
@@ -81,12 +80,12 @@ namespace Accounting.Module.BusinessObjects
             set => SetPropertyValue(nameof(PaidDate), value);
         }
 
-        [ModelDefault("AllowClear", "False")]
         [ImmediatePostData]
+        [ModelDefault("AllowClear", "False")]
         public PaymentTerm PaymentTerm
         {
             get => GetPropertyValue<PaymentTerm>(nameof(PaymentTerm));
-            set => SetPaymentTerm(value);
+            set => SetPropertyValue(nameof(PaymentTerm), value);
         }
 
         public string Reference
@@ -103,11 +102,10 @@ namespace Accounting.Module.BusinessObjects
             set => SetSubTotal(value);
         }
 
-        [ModelDefault("AllowEdit", "False")]
+        [PersistentAlias("SubTotal + Vat")]
         public decimal Total
         {
-            get => GetPropertyValue<decimal>(nameof(Total));
-            set => SetTotal(value);
+            get => Convert.ToDecimal(EvaluateAlias(nameof(Total)));
         }
 
         [ImmediatePostData]
@@ -156,17 +154,6 @@ namespace Accounting.Module.BusinessObjects
             }
         }
 
-        private void SetDate(DateTime value)
-        {
-            if (SetPropertyValue(nameof(Date), value))
-            {
-                if (IsLoading || IsSaving)
-                    return;
-
-                UpdateDueDate();
-            }
-        }
-
         private void SetIsCorrected(bool value)
         {
             if (SetPropertyValue(nameof(IsCorrected), value))
@@ -189,31 +176,9 @@ namespace Accounting.Module.BusinessObjects
             }
         }
 
-        private void SetPaymentTerm(PaymentTerm value)
-        {
-            if (SetPropertyValue(nameof(PaymentTerm), value))
-            {
-                if (IsLoading || IsSaving)
-                    return;
-
-                UpdateDueDate();
-            }
-        }
-
         private void SetSubTotal(decimal value)
         {
             if (SetPropertyValue(nameof(SubTotal), value))
-            {
-                if (IsLoading || IsSaving)
-                    return;
-
-                UpdateTotal();
-            }
-        }
-
-        private void SetTotal(decimal value)
-        {
-            if (SetPropertyValue(nameof(Total), value))
             {
                 if (IsLoading || IsSaving)
                     return;
@@ -240,18 +205,13 @@ namespace Accounting.Module.BusinessObjects
                 if (IsLoading || IsSaving)
                     return;
 
-                UpdateTotal();
+                UpdateDueAmount();
             }
         }
 
         private void UpdateDueAmount()
         {
             DueAmount = Total - Math.Sign(Total) * JournalEntries.Where(x => x.Type == JournalEntryType.Payment).Sum(x => x.Amount);
-        }
-
-        private void UpdateDueDate()
-        {
-            DueDate = PaymentTerm != null ? Date.AddDays(PaymentTerm.Term) : Date;
         }
 
         private void UpdateIsCorrected()
@@ -268,11 +228,6 @@ namespace Accounting.Module.BusinessObjects
         {
             SubTotal = Math.Round(Lines.Sum(x => x.SubTotal), 2, MidpointRounding.AwayFromZero);
             Vat = Math.Round(Lines.Sum(x => x.Vat), 2, MidpointRounding.AwayFromZero);
-        }
-
-        private void UpdateTotal()
-        {
-            Total = SubTotal + Vat;
         }
     }
 }
