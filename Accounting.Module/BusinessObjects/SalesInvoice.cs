@@ -27,7 +27,7 @@ namespace Accounting.Module.BusinessObjects
         {
             if (SetPropertyValue(nameof(Customer), value))
             {
-                if (IsLoading || value == null)
+                if (IsLoading || IsSaving || value == null)
                     return;
 
                 IsVatIncluded = value.IsVatIncluded;

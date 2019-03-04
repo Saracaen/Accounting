@@ -160,7 +160,7 @@ namespace Accounting.Module.BusinessObjects
         {
             if (SetPropertyValue(nameof(Date), value))
             {
-                if (IsLoading)
+                if (IsLoading || IsSaving)
                     return;
 
                 UpdateDueDate();
@@ -171,7 +171,7 @@ namespace Accounting.Module.BusinessObjects
         {
             if (SetPropertyValue(nameof(IsCorrected), value))
             {
-                if (IsLoading || value)
+                if (IsLoading || IsSaving || value)
                     return;
 
                 UpdateSummary();
@@ -182,7 +182,7 @@ namespace Accounting.Module.BusinessObjects
         {
             if (SetPropertyValue(nameof(IsVatIncluded), value))
             {
-                if (IsLoading)
+                if (IsLoading || IsSaving)
                     return;
 
                 UpdateSummary();
@@ -193,7 +193,7 @@ namespace Accounting.Module.BusinessObjects
         {
             if (SetPropertyValue(nameof(PaymentTerm), value))
             {
-                if (IsLoading)
+                if (IsLoading || IsSaving)
                     return;
 
                 UpdateDueDate();
@@ -204,7 +204,7 @@ namespace Accounting.Module.BusinessObjects
         {
             if (SetPropertyValue(nameof(SubTotal), value))
             {
-                if (IsLoading)
+                if (IsLoading || IsSaving)
                     return;
 
                 UpdateTotal();
@@ -215,7 +215,7 @@ namespace Accounting.Module.BusinessObjects
         {
             if (SetPropertyValue(nameof(Total), value))
             {
-                if (IsLoading)
+                if (IsLoading || IsSaving)
                     return;
 
                 UpdateDueAmount();
@@ -226,7 +226,7 @@ namespace Accounting.Module.BusinessObjects
         {
             if (SetPropertyValue(nameof(Type), value))
             {
-                if (IsLoading)
+                if (IsLoading || IsSaving)
                     return;
 
                 UpdateSummary();
@@ -237,7 +237,7 @@ namespace Accounting.Module.BusinessObjects
         {
             if (SetPropertyValue(nameof(Vat), value))
             {
-                if (IsLoading)
+                if (IsLoading || IsSaving)
                     return;
 
                 UpdateTotal();

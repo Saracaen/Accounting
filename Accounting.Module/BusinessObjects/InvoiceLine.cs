@@ -139,7 +139,7 @@ namespace Accounting.Module.BusinessObjects
         {
             if (SetPropertyValue(nameof(Account), value))
             {
-                if (IsLoading)
+                if (IsLoading || IsSaving)
                     return;
 
                 if (value is ISupportDefaultVatRate supportDefaultVatRate)
@@ -153,7 +153,7 @@ namespace Accounting.Module.BusinessObjects
         {
             if (SetPropertyValue(nameof(Invoice), value))
             {
-                if (IsLoading || value == null)
+                if (IsLoading || IsSaving || value == null)
                     return;
 
                 if (value.Lines.Count > 0)
