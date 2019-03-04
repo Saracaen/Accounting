@@ -1,12 +1,13 @@
-﻿using DevExpress.Data.Filtering;
-using DevExpress.ExpressApp.ConditionalAppearance;
+﻿using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp.Model;
+using DevExpress.ExpressApp.Utils;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 using System;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Accounting.Module.BusinessObjects
 {
@@ -20,27 +21,15 @@ namespace Accounting.Module.BusinessObjects
     [VisibleInReports]
     public abstract class Account : BaseObject
     {
-        private decimal balance = decimal.MinValue;
-
         protected Account(Session session) : base(session)
         {
+            JournalEntryLines.ListChanged += JournalEntryLines_ListChanged;
         }
 
-        [PersistentAlias("IsNull(JournalEntryLines.Sum(Amount), 0)")]
         public decimal Balance
         {
-            get
-            {
-                if (this.balance == decimal.MinValue)
-                {
-                    var criteria = new BinaryOperator("Oid", Oid);
-                    var expression = CriteriaOperator.Parse("Iif(Type = 'Credit', -JournalEntryLines.Sum(Amount), JournalEntryLines.Sum(Amount))");
-
-                    this.balance = Convert.ToDecimal(Session.Evaluate<Account>(expression, criteria));
-                }
-
-                return this.balance;
-            }
+            get => GetPropertyValue<decimal>(nameof(Balance));
+            set => SetPropertyValue(nameof(Balance), value);
         }
 
         [ModelDefault("AllowEdit", "False")]
@@ -70,6 +59,36 @@ namespace Accounting.Module.BusinessObjects
         {
             get => GetPropertyValue<AccountType>(nameof(Type));
             set => SetPropertyValue(nameof(Type), value);
+        }
+
+        public void UpdateBalance()
+        {
+            switch (Type)
+            {
+                case AccountType.Credit:
+                    Balance = -JournalEntryLines.Sum(x => x.Amount);
+                    break;
+
+                case AccountType.Debit:
+                    Balance = JournalEntryLines.Sum(x => x.Amount);
+                    break;
+
+                default:
+                    throw new InvalidOperationException(CaptionHelper.GetLocalizedText(@"Exceptions\UserVisibleExceptions", "UnsupportedAccountType"));
+            }
+        }
+
+        private void JournalEntryLines_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            switch (e.ListChangedType)
+            {
+                case ListChangedType.ItemAdded:
+                case ListChangedType.ItemChanged:
+                case ListChangedType.ItemDeleted:
+                    OnChanged(nameof(JournalEntryLines));
+                    UpdateBalance();
+                    break;
+            }
         }
     }
 }
