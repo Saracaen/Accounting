@@ -132,7 +132,7 @@ namespace Accounting.Module.BusinessObjects
             base.AfterConstruction();
 
             Date = DateTime.Today;
-            PaymentTerm = Session.FindObject<PaymentTerm>(new BinaryOperator("Term", 30));
+            PaymentTerm = Session.FindObject<Company>(null).PaymentTerm;
         }
 
         protected override void OnChanged(string propertyName, object oldValue, object newValue)
