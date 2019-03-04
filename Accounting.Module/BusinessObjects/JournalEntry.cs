@@ -78,7 +78,6 @@ namespace Accounting.Module.BusinessObjects
                 case ListChangedType.ItemAdded:
                 case ListChangedType.ItemChanged:
                 case ListChangedType.ItemDeleted:
-                case ListChangedType.ItemMoved:
                     OnChanged(nameof(Lines));
                     break;
             }

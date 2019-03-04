@@ -20,20 +20,18 @@ namespace Accounting.Module.BusinessObjects
         public Supplier Supplier
         {
             get => GetPropertyValue<Supplier>(nameof(Supplier));
-            set => SetPropertyValue(nameof(Supplier), value);
+            set => SetSupplier(value);
         }
 
-        protected override void OnChanged(string propertyName, object oldValue, object newValue)
+        private void SetSupplier(Supplier value)
         {
-            base.OnChanged(propertyName, oldValue, newValue);
-
-            if (IsLoading)
-                return;
-
-            if (propertyName == nameof(Supplier) && Supplier != null)
+            if (SetPropertyValue(nameof(Supplier), value))
             {
-                IsVatIncluded = Supplier.IsVatIncluded;
-                PaymentTerm = Supplier.PaymentTerm;
+                if (IsLoading || value == null)
+                    return;
+
+                IsVatIncluded = value.IsVatIncluded;
+                PaymentTerm = value.PaymentTerm;
             }
         }
     }

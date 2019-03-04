@@ -24,7 +24,7 @@ namespace Accounting.Module.BusinessObjects
         public Account Account
         {
             get => GetPropertyValue<Account>(nameof(Account));
-            set => SetPropertyValue(nameof(Account), value);
+            set => SetAccount(value);
         }
 
         [Browsable(false)]
@@ -65,7 +65,7 @@ namespace Accounting.Module.BusinessObjects
         public Invoice Invoice
         {
             get => GetPropertyValue<Invoice>(nameof(Invoice));
-            set => SetPropertyValue(nameof(Invoice), value);
+            set => SetInvoice(value);
         }
 
         [ImmediatePostData]
@@ -135,24 +135,32 @@ namespace Accounting.Module.BusinessObjects
             }
         }
 
-        protected override void OnChanged(string propertyName, object oldValue, object newValue)
+        private void SetAccount(Account value)
         {
-            base.OnChanged(propertyName, oldValue, newValue);
-
-            if (IsLoading)
-                return;
-
-            if (propertyName == nameof(Account) && newValue is ISupportDefaultVatRate supportDefaultVatRate)
+            if (SetPropertyValue(nameof(Account), value))
             {
-                VatRate = supportDefaultVatRate.DefaultVatRate;
-            }
-            else if (propertyName == nameof(Invoice) && Invoice != null)
-            {
-                if (Invoice.Lines.Count > 0)
+                if (IsLoading)
+                    return;
+
+                if (value is ISupportDefaultVatRate supportDefaultVatRate)
                 {
-                    Account = Invoice.Lines[Invoice.Lines.Count - 1].Account;
+                    VatRate = supportDefaultVatRate.DefaultVatRate;
                 }
-                else if (Invoice is SalesInvoice)
+            }
+        }
+
+        private void SetInvoice(Invoice value)
+        {
+            if (SetPropertyValue(nameof(Invoice), value))
+            {
+                if (IsLoading || value == null)
+                    return;
+
+                if (value.Lines.Count > 0)
+                {
+                    Account = value.Lines[value.Lines.Count - 1].Account;
+                }
+                else if (value is SalesInvoice)
                 {
                     Account = Session.Query<IncomeAccount>().OrderBy(x => x.Name).FirstOrDefault();
                 }

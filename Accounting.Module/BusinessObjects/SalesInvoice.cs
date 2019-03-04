@@ -20,20 +20,18 @@ namespace Accounting.Module.BusinessObjects
         public Customer Customer
         {
             get => GetPropertyValue<Customer>(nameof(Customer));
-            set => SetPropertyValue(nameof(Customer), value);
+            set => SetCustomer(value);
         }
 
-        protected override void OnChanged(string propertyName, object oldValue, object newValue)
+        private void SetCustomer(Customer value)
         {
-            base.OnChanged(propertyName, oldValue, newValue);
-
-            if (IsLoading)
-                return;
-
-            if (propertyName == nameof(Customer) && Customer != null)
+            if (SetPropertyValue(nameof(Customer), value))
             {
-                IsVatIncluded = Customer.IsVatIncluded;
-                PaymentTerm = Customer.PaymentTerm;
+                if (IsLoading || value == null)
+                    return;
+
+                IsVatIncluded = value.IsVatIncluded;
+                PaymentTerm = value.PaymentTerm;
             }
         }
     }

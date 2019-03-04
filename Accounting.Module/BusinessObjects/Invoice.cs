@@ -1,5 +1,4 @@
-﻿using DevExpress.Data.Filtering;
-using DevExpress.ExpressApp.ConditionalAppearance;
+﻿using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
@@ -26,7 +25,7 @@ namespace Accounting.Module.BusinessObjects
         public DateTime Date
         {
             get => GetPropertyValue<DateTime>(nameof(Date));
-            set => SetPropertyValue(nameof(Date), value);
+            set => SetDate(value);
         }
 
         [ModelDefault("AllowEdit", "False")]
@@ -55,7 +54,7 @@ namespace Accounting.Module.BusinessObjects
         public bool IsCorrected
         {
             get => GetPropertyValue<bool>(nameof(IsCorrected));
-            set => SetPropertyValue(nameof(IsCorrected), value);
+            set => SetIsCorrected(value);
         }
 
         [ImmediatePostData]
@@ -65,7 +64,7 @@ namespace Accounting.Module.BusinessObjects
         public bool IsVatIncluded
         {
             get => GetPropertyValue<bool>(nameof(IsVatIncluded));
-            set => SetPropertyValue(nameof(IsVatIncluded), value);
+            set => SetIsVatIncluded(value);
         }
 
         [Aggregated]
@@ -87,7 +86,7 @@ namespace Accounting.Module.BusinessObjects
         public PaymentTerm PaymentTerm
         {
             get => GetPropertyValue<PaymentTerm>(nameof(PaymentTerm));
-            set => SetPropertyValue(nameof(PaymentTerm), value);
+            set => SetPaymentTerm(value);
         }
 
         public string Reference
@@ -101,21 +100,21 @@ namespace Accounting.Module.BusinessObjects
         public decimal SubTotal
         {
             get => GetPropertyValue<decimal>(nameof(SubTotal));
-            set => SetPropertyValue(nameof(SubTotal), value);
+            set => SetSubTotal(value);
         }
 
         [ModelDefault("AllowEdit", "False")]
         public decimal Total
         {
             get => GetPropertyValue<decimal>(nameof(Total));
-            set => SetPropertyValue(nameof(Total), value);
+            set => SetTotal(value);
         }
 
         [ImmediatePostData]
         public InvoiceType Type
         {
             get => GetPropertyValue<InvoiceType>(nameof(Type));
-            set => SetPropertyValue(nameof(Type), value);
+            set => SetType(value);
         }
 
         [ImmediatePostData]
@@ -124,7 +123,7 @@ namespace Accounting.Module.BusinessObjects
         public decimal Vat
         {
             get => GetPropertyValue<decimal>(nameof(Vat));
-            set => SetPropertyValue(nameof(Vat), value);
+            set => SetVat(value);
         }
 
         public override void AfterConstruction()
@@ -135,45 +134,12 @@ namespace Accounting.Module.BusinessObjects
             PaymentTerm = Session.FindObject<Company>(null).PaymentTerm;
         }
 
-        protected override void OnChanged(string propertyName, object oldValue, object newValue)
-        {
-            base.OnChanged(propertyName, oldValue, newValue);
-
-            if (IsLoading)
-                return;
-
-            switch (propertyName)
-            {
-                case nameof(Date):
-                case nameof(PaymentTerm):
-                    UpdateDueDate();
-                    break;
-
-                case nameof(IsCorrected):
-                    UpdateCorrection();
-                    break;
-
-                case nameof(IsVatIncluded):
-                case nameof(Type):
-                    UpdateSummary();
-                    break;
-
-                case nameof(SubTotal):
-                case nameof(Vat):
-                    UpdateTotal();
-                    break;
-
-                case nameof(Total):
-                    UpdateDueAmount();
-                    break;
-            }
-        }
-
         protected override void OnJournalEntriesListChanged()
         {
             base.OnJournalEntriesListChanged();
 
             UpdateDueAmount();
+            UpdateIsCorrected();
             UpdatePaidDate();
         }
 
@@ -184,22 +150,97 @@ namespace Accounting.Module.BusinessObjects
                 case ListChangedType.ItemAdded:
                 case ListChangedType.ItemChanged:
                 case ListChangedType.ItemDeleted:
-                case ListChangedType.ItemMoved:
                     OnChanged(nameof(Lines));
                     UpdateSummary();
                     break;
             }
         }
 
-        private void UpdateCorrection()
+        private void SetDate(DateTime value)
         {
-            if (IsCorrected)
+            if (SetPropertyValue(nameof(Date), value))
             {
+                if (IsLoading)
+                    return;
+
+                UpdateDueDate();
+            }
+        }
+
+        private void SetIsCorrected(bool value)
+        {
+            if (SetPropertyValue(nameof(IsCorrected), value))
+            {
+                if (IsLoading || value)
+                    return;
+
+                UpdateSummary();
+            }
+        }
+
+        private void SetIsVatIncluded(bool value)
+        {
+            if (SetPropertyValue(nameof(IsVatIncluded), value))
+            {
+                if (IsLoading)
+                    return;
+
+                UpdateSummary();
+            }
+        }
+
+        private void SetPaymentTerm(PaymentTerm value)
+        {
+            if (SetPropertyValue(nameof(PaymentTerm), value))
+            {
+                if (IsLoading)
+                    return;
+
+                UpdateDueDate();
+            }
+        }
+
+        private void SetSubTotal(decimal value)
+        {
+            if (SetPropertyValue(nameof(SubTotal), value))
+            {
+                if (IsLoading)
+                    return;
+
                 UpdateTotal();
             }
-            else
+        }
+
+        private void SetTotal(decimal value)
+        {
+            if (SetPropertyValue(nameof(Total), value))
             {
+                if (IsLoading)
+                    return;
+
+                UpdateDueAmount();
+            }
+        }
+
+        private void SetType(InvoiceType value)
+        {
+            if (SetPropertyValue(nameof(Type), value))
+            {
+                if (IsLoading)
+                    return;
+
                 UpdateSummary();
+            }
+        }
+
+        private void SetVat(decimal value)
+        {
+            if (SetPropertyValue(nameof(Vat), value))
+            {
+                if (IsLoading)
+                    return;
+
+                UpdateTotal();
             }
         }
 
@@ -213,6 +254,11 @@ namespace Accounting.Module.BusinessObjects
             DueDate = PaymentTerm != null ? Date.AddDays(PaymentTerm.Term) : Date;
         }
 
+        private void UpdateIsCorrected()
+        {
+            IsCorrected = JournalEntries.Any(x => x.Type == JournalEntryType.Correction);
+        }
+
         private void UpdatePaidDate()
         {
             PaidDate = JournalEntries.Where(x => x.Type == JournalEntryType.Payment).Select(x => x.Date).DefaultIfEmpty().Max();
@@ -222,8 +268,6 @@ namespace Accounting.Module.BusinessObjects
         {
             SubTotal = Math.Round(Lines.Sum(x => x.SubTotal), 2, MidpointRounding.AwayFromZero);
             Vat = Math.Round(Lines.Sum(x => x.Vat), 2, MidpointRounding.AwayFromZero);
-
-            UpdateTotal();
         }
 
         private void UpdateTotal()

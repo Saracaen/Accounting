@@ -121,8 +121,7 @@ namespace Accounting.Module.Controllers
         private void UnpostInvoiceAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
             ObjectSpace.Delete(ViewCurrentObject.JournalEntries);
-            ViewCurrentObject.IsCorrected = false;
-
+            
             if (View is ListView)
             {
                 ObjectSpace.CommitChanges();

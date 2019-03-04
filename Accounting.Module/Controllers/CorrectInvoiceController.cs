@@ -101,7 +101,6 @@ namespace Accounting.Module.Controllers
 
             if (journalEntry.Lines.Count > 1)
             {
-                ViewCurrentObject.IsCorrected = true;
                 ViewCurrentObject.SubTotal += parameters.Amount;
                 ViewCurrentObject.Vat += parameters.Vat;
             }
@@ -129,7 +128,6 @@ namespace Accounting.Module.Controllers
         private void RestoreInvoiceAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
             ObjectSpace.Delete(ViewCurrentObject.JournalEntries.Where(x => x.Type == JournalEntryType.Correction).ToList());
-            ViewCurrentObject.IsCorrected = false;
         }
     }
 }
