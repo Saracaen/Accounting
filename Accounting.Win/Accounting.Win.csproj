@@ -9,7 +9,7 @@
     <RootNamespace>Accounting.Win</RootNamespace>
     <AssemblyName>Accounting.Win</AssemblyName>
     <ApplicationIcon>Accounting.ico</ApplicationIcon>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <WarningLevel>4</WarningLevel>
     <NuGetPackageImportStamp>
