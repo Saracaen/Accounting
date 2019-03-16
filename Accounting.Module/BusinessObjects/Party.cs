@@ -8,6 +8,7 @@ using System.ComponentModel;
 namespace Accounting.Module.BusinessObjects
 {
     [DefaultProperty("Name")]
+    [ModelDefault("DefaultLookupEditorMode", "AllItems")]
     public abstract class Party : BaseObject
     {
         protected Party(Session session) : base(session)
