@@ -172,6 +172,9 @@ namespace Accounting.Module.BusinessObjects
                 if (IsLoading || IsSaving)
                     return;
 
+                Lines.SuspendChangedEvents();
+                Lines.ResumeChangedEvents();
+
                 UpdateSummary();
             }
         }
@@ -193,6 +196,9 @@ namespace Accounting.Module.BusinessObjects
             {
                 if (IsLoading || IsSaving)
                     return;
+
+                Lines.SuspendChangedEvents();
+                Lines.ResumeChangedEvents();
 
                 UpdateSummary();
             }
