@@ -39,7 +39,7 @@ namespace Accounting.Module.Controllers
 
         private void PostVatDeclaration(JournalEntry journalEntry, Account vatAccount, VatPaymentAccount vatPaymentAccount, CriteriaOperator criteria)
         {
-            vatAccount.JournalEntryLines.Criteria = criteria;
+            vatAccount.JournalEntryLines.Filter = criteria;
 
             var amount = vatAccount.JournalEntryLines.Sum(x => x.Amount);
             if (amount != 0)

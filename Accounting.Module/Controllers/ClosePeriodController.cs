@@ -30,7 +30,7 @@ namespace Accounting.Module.Controllers
 
         private void ClosePeriod(JournalEntry journalEntry, EquityAccount equityAccount, Account account, CriteriaOperator criteria)
         {
-            account.JournalEntryLines.Criteria = criteria;
+            account.JournalEntryLines.Filter = criteria;
 
             var amount = account.JournalEntryLines.Sum(x => x.Amount);
             if (amount != 0)
