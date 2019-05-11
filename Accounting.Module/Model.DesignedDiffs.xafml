@@ -12,10 +12,10 @@
         <ActionLink ActionId="UnpostDepreciation" Index="1" />
         <ActionLink ActionId="UnpostInvoice" Index="1" />
         <ActionLink ActionId="UnpostVatDeclaration" Index="1" />
-        <ActionLink ActionId="CorrectInvoice" Index="2" />
+        <ActionLink ActionId="PayInvoice" Index="2" />
         <ActionLink ActionId="PayVatDeclaration" Index="2" />
-        <ActionLink ActionId="RestoreInvoice" Index="3" />
-        <ActionLink ActionId="PayInvoice" Index="4" />
+        <ActionLink ActionId="CorrectInvoice" Index="3" />
+        <ActionLink ActionId="RestoreInvoice" Index="4" />
       </ActionContainer>
     </ActionToContainerMapping>
   </ActionDesign>
