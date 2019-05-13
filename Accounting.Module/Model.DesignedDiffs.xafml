@@ -14,8 +14,8 @@
         <ActionLink ActionId="UnpostVatDeclaration" Index="1" />
         <ActionLink ActionId="PayInvoice" Index="2" />
         <ActionLink ActionId="PayVatDeclaration" Index="2" />
-        <ActionLink ActionId="CorrectInvoice" Index="3" />
-        <ActionLink ActionId="RestoreInvoice" Index="4" />
+        <ActionLink ActionId="CorrectPurchaseInvoice" Index="3" />
+        <ActionLink ActionId="RestorePurchaseInvoice" Index="4" />
       </ActionContainer>
     </ActionToContainerMapping>
   </ActionDesign>
@@ -224,9 +224,9 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <DetailView Id="CorrectInvoiceParameters_DetailView" FreezeLayout="True">
+    <DetailView Id="CorrectPurchaseInvoiceParameters_DetailView" FreezeLayout="True">
       <Layout IsNewNode="True" Removed="True">
-        <LayoutGroup Id="CorrectInvoiceParameters" IsNewNode="True">
+        <LayoutGroup Id="CorrectPurchaseInvoiceParameters" IsNewNode="True">
           <LayoutItem Id="Description" Index="0" IsNewNode="True" />
           <LayoutItem Id="Account" Index="1" IsNewNode="True" />
           <LayoutItem Id="Amount" Index="2" IsNewNode="True" />

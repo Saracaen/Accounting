@@ -5,7 +5,7 @@
       <Action Id="Cancel" Caption="Annuleren" />
       <Action Id="ClosePeriod" Caption="Periode afsluiten" />
       <Action Id="CopyPredefinedReport" Caption="Kopieer ingebouwd rapport" />
-      <Action Id="CorrectInvoice" Caption="Corrigeren" ConfirmationMessage="U staat op het punt deze factuur handmatig te corrigeren. Wilt u doorgaan?" />
+      <Action Id="CorrectPurchaseInvoice" Caption="Corrigeren" ConfirmationMessage="U staat op het punt deze inkoopfactuur handmatig te corrigeren. Wilt u doorgaan?" />
       <Action Id="Delete" Caption="Verwijderen" ConfirmationMessage="U staat op het punt de geselecteerde records te verwijderen. Wilt u doorgaan?" />
       <Action Id="Delete Item" ConfirmationMessage="U staat op het punt de geselecteerde items te verwijderen. Wilt u doorgaan?" />
       <Action Id="Diagnostic Info" Caption="Diagnose" />
@@ -36,7 +36,7 @@
       <Action Id="Refresh" Caption="Verversen" />
       <Action Id="ReportViewerDialogControllerV2_Close" Caption="Sluiten" />
       <Action Id="ResetViewSettings" Caption="Herstel scherminstellingen" ConfirmationMessage="U staat op het punt alle instellingen voor het &quot;{0}&quot; scherm te herstellen. Wilt u doorgaan?" ToolTip="Herstelt alle instellingen voor het &quot;{0}&quot; scherm." />
-      <Action Id="RestoreInvoice" Caption="Herstellen" />
+      <Action Id="RestorePurchaseInvoice" Caption="Herstellen" />
       <Action Id="Save" Caption="Opslaan" />
       <Action Id="SaveAndClose" Caption="Opslaan en sluiten" />
       <Action Id="SaveAndNew" Caption="Opslaan en nieuw" />
@@ -192,7 +192,7 @@
         <Member Name="Description" Caption="Omschrijving" />
       </OwnMembers>
     </Class>
-    <Class Name="Accounting.Module.BusinessObjects.Parameters.CorrectInvoiceParameters" Caption="Factuur corrigeren">
+    <Class Name="Accounting.Module.BusinessObjects.Parameters.CorrectPurchaseInvoiceParameters" Caption="Inkoopfactuur corrigeren">
       <OwnMembers>
         <Member Name="Account" Caption="Grootboekrekening" />
         <Member Name="Amount" Caption="Bedrag" />

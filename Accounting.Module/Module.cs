@@ -56,7 +56,7 @@ namespace Accounting.Module
             return new[]
             {
                 typeof(ClosePeriodController),
-                typeof(CorrectInvoiceController),
+                typeof(CorrectPurchaseInvoiceController),
                 typeof(CustomizeAccountCreationController),
                 typeof(CustomizeWindowCaptionController),
                 typeof(FilterJournalEntriesByYearController),
@@ -85,7 +85,7 @@ namespace Accounting.Module
                 typeof(CashAccount),
                 typeof(ClosePeriodParameters),
                 typeof(Company),
-                typeof(CorrectInvoiceParameters),
+                typeof(CorrectPurchaseInvoiceParameters),
                 typeof(CreditCardAccount),
                 typeof(CustomerAccount),
                 typeof(Depreciation),

@@ -115,7 +115,7 @@
     <Compile Include="BusinessObjects\LiabilityAccount.cs" />
     <Compile Include="BusinessObjects\OutputVatAccount.cs" />
     <Compile Include="BusinessObjects\Parameters\ClosePeriodParameters.cs" />
-    <Compile Include="BusinessObjects\Parameters\CorrectInvoiceParameters.cs" />
+    <Compile Include="BusinessObjects\Parameters\CorrectPurchaseInvoiceParameters.cs" />
     <Compile Include="BusinessObjects\Parameters\NewDepreciationParameters.cs" />
     <Compile Include="BusinessObjects\Parameters\NewVatDeclarationParameters.cs" />
     <Compile Include="BusinessObjects\Parameters\PayInvoiceParameters.cs" />
@@ -147,7 +147,7 @@
     <Compile Include="Configuration\DefaultPaymentTerm.cs" />
     <Compile Include="Configuration\DefaultVatRate.cs" />
     <Compile Include="Controllers\ClosePeriodController.cs" />
-    <Compile Include="Controllers\CorrectInvoiceController.cs" />
+    <Compile Include="Controllers\CorrectPurchaseInvoiceController.cs" />
     <Compile Include="Controllers\CustomizeAccountCreationController.cs" />
     <Compile Include="Controllers\CustomizeWindowCaptionController.cs" />
     <Compile Include="Controllers\FilterByYearController.cs" />
