@@ -30,7 +30,7 @@ namespace Accounting.Module.Controllers
 
         private void ClosePeriod(JournalEntry journalEntry, EquityAccount equityAccount, Account account, CriteriaOperator criteria)
         {
-            account.JournalEntryLines.Filter = criteria;
+            account.JournalEntryLines.Criteria = criteria;
 
             var amount = account.JournalEntryLines.Sum(x => x.Amount);
             if (amount != 0)
@@ -41,16 +41,17 @@ namespace Accounting.Module.Controllers
 
         private void ClosePeriodAction_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e)
         {
-            var objectSpace = Application.CreateObjectSpace(typeof(ClosePeriodParameters));
+            var objectSpace = Application.CreateObjectSpace();
             var parameters = new ClosePeriodParameters();
-            var detailView = Application.CreateDetailView(objectSpace, parameters);
+            var detailView = Application.CreateDetailView(objectSpace, parameters, true);
+            var query = objectSpace.GetObjectsQuery<JournalEntry>().Where(x => x.Type == JournalEntryType.Closure);
 
             parameters.ClosureDate = new DateTime(DateTime.Today.Year - 1, 12, 31);
-            parameters.LastClosureJournalEntry = ObjectSpace.GetObjectsQuery<JournalEntry>().Where(x => x.Type == JournalEntryType.Closure).OrderByDescending(x => x.Date).FirstOrDefault();
+            parameters.LastClosureDate = query.OrderByDescending(x => x.Date).Select(x => x.Date).FirstOrDefault();
 
-            if (parameters.LastClosureJournalEntry != null && parameters.ClosureDate <= parameters.LastClosureJournalEntry.Date)
+            if (parameters.ClosureDate <= parameters.LastClosureDate.Date)
             {
-                parameters.ClosureDate = parameters.LastClosureJournalEntry.Date.AddYears(1);
+                parameters.ClosureDate = parameters.LastClosureDate.AddYears(1);
             }
 
             detailView.ViewEditMode = ViewEditMode.Edit;
@@ -62,34 +63,32 @@ namespace Accounting.Module.Controllers
             var parameters = (ClosePeriodParameters)e.PopupWindowViewCurrentObject;
             Validator.RuleSet.Validate(e.PopupWindowView.ObjectSpace, parameters, DefaultContexts.Save);
 
-            var journalEntry = ObjectSpace.CreateObject<JournalEntry>();
-            journalEntry.Date = parameters.ClosureDate.AddSeconds(86399);
-            journalEntry.Description = parameters.Description;
-            journalEntry.Type = JournalEntryType.Closure;
-
-            var criteria = CriteriaOperator.Parse("JournalEntry.Date <= ?", parameters.ClosureDate);
-            if (parameters.LastClosureJournalEntry != null)
+            using (var objectSpace = Application.CreateObjectSpace())
             {
-                criteria = CriteriaOperator.And(CriteriaOperator.Parse("JournalEntry.Date > ?", parameters.LastClosureJournalEntry.Date), criteria);
+                var journalEntry = objectSpace.CreateObject<JournalEntry>();
+                journalEntry.Date = parameters.ClosureDate.AddSeconds(86399);
+                journalEntry.Description = parameters.Description;
+                journalEntry.Type = JournalEntryType.Closure;
+
+                var criteria = CriteriaOperator.Parse("JournalEntry.Date <= ?", parameters.ClosureDate);
+                if (parameters.LastClosureDate != default)
+                {
+                    criteria = CriteriaOperator.And(CriteriaOperator.Parse("JournalEntry.Date > ?", parameters.LastClosureDate), criteria);
+                }
+
+                var equityAccount = objectSpace.FindObject<EquityAccount>(null);
+                var privateAccount = objectSpace.FindObject<PrivateAccount>(null);
+
+                foreach (var account in objectSpace.GetObjects<Account>(CriteriaOperator.Parse("Category = 'Expense' Or Category = 'Income'")))
+                {
+                    ClosePeriod(journalEntry, equityAccount, account, criteria);
+                }
+                ClosePeriod(journalEntry, equityAccount, privateAccount, criteria);
+
+                objectSpace.CommitChanges();
             }
 
-            var equityAccount = ObjectSpace.FindObject<EquityAccount>(null);
-            var privateAccount = ObjectSpace.FindObject<PrivateAccount>(null);
-
-            foreach (var expenseAccount in ObjectSpace.GetObjects<Account>(new BinaryOperator("Category", AccountCategory.Expense)))
-            {
-                ClosePeriod(journalEntry, equityAccount, expenseAccount, criteria);
-            }
-
-            foreach (var incomeAccount in ObjectSpace.GetObjects<Account>(new BinaryOperator("Category", AccountCategory.Income)))
-            {
-                ClosePeriod(journalEntry, equityAccount, incomeAccount, criteria);
-            }
-
-            ClosePeriod(journalEntry, equityAccount, privateAccount, criteria);
-
-            ObjectSpace.CommitChanges();
-            ObjectSpace.Refresh();
+            View.Refresh(true);
         }
     }
 }
