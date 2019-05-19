@@ -1,14 +1,14 @@
 ﻿using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.SystemModule;
-using DevExpress.ExpressApp.Utils;
-using DevExpress.ExpressApp.Win.Utils;
 using DevExpress.Persistent.Base;
 using DevExpress.XtraEditors;
 using System;
 using System.Configuration;
 using System.Diagnostics;
+using System.Globalization;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Accounting.Win
@@ -20,7 +20,7 @@ namespace Accounting.Win
         {
             AboutInfo.Instance.Version = $"Versie {FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion}";
             EditModelPermission.AlwaysGranted = Debugger.IsAttached;
-            ImageLoader.Instance.UseSvgImages = true;
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("nl-NL");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -32,8 +32,6 @@ namespace Accounting.Win
 
             using (var winApplication = new AccountingWindowsFormsApplication())
             {
-                winApplication.SplashScreen = new DXSplashScreen();
-
                 if (ConfigurationManager.ConnectionStrings["ConnectionString"] != null)
                 {
                     winApplication.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;

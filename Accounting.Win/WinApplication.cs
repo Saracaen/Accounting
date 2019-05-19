@@ -1,5 +1,7 @@
 ﻿using DevExpress.ExpressApp;
+using DevExpress.ExpressApp.Utils;
 using DevExpress.ExpressApp.Win;
+using DevExpress.ExpressApp.Win.Utils;
 using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.Base;
 using System.Configuration;
@@ -12,9 +14,9 @@ namespace Accounting.Win
     {
         static AccountingWindowsFormsApplication()
         {
+            ImageLoader.Instance.UseSvgImages = true;
             PasswordCryptographer.EnableRfc2898 = true;
             PasswordCryptographer.SupportLegacySha512 = false;
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("nl-NL");
         }
 
         public AccountingWindowsFormsApplication()
@@ -61,8 +63,10 @@ namespace Accounting.Win
 
         private void InitializeDefaults()
         {
+            ExecuteStartupLogicBeforeClosingLogonWindow = true;
             LinkNewObjectToParentImmediately = false;
             OptimizedControllersCreation = true;
+            SplashScreen = new DXSplashScreen();
             UseLightStyle = true;
         }
     }
