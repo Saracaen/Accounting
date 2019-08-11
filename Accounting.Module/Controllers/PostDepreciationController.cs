@@ -44,6 +44,9 @@ namespace Accounting.Module.Controllers
             var parameters = new PostDepreciationParameters();
             var detailView = Application.CreateDetailView(objectSpace, parameters);
 
+            parameters.AssetAccount = objectSpace.FindObject<AssetAccount>(null);
+            parameters.DepreciationExpenseAccount = objectSpace.FindObject<DepreciationExpenseAccount>(null);
+
             detailView.ViewEditMode = ViewEditMode.Edit;
             e.View = detailView;
         }
