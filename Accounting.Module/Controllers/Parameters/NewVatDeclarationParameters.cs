@@ -1,10 +1,11 @@
-﻿using DevExpress.ExpressApp.ConditionalAppearance;
+﻿using Accounting.Module.BusinessObjects;
+using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Model;
 using System.ComponentModel;
 
-namespace Accounting.Module.BusinessObjects.Parameters
+namespace Accounting.Module.Controllers.Parameters
 {
     [Appearance("Actions", AppearanceItemType.Action, "True", TargetItems = "Delete;New;Save;SaveAndClose;SaveAndNew", Visibility = ViewItemVisibility.Hide)]
     [DomainComponent]

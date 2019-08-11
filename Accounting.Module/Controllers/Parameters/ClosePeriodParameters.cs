@@ -4,7 +4,7 @@ using DevExpress.Persistent.Validation;
 using System;
 using System.ComponentModel;
 
-namespace Accounting.Module.BusinessObjects.Parameters
+namespace Accounting.Module.Controllers.Parameters
 {
     [DomainComponent]
     [ModelDefault("Caption", "Close Period")]

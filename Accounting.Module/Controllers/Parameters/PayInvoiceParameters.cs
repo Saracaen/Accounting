@@ -1,4 +1,5 @@
-﻿using DevExpress.Data.Filtering;
+﻿using Accounting.Module.BusinessObjects;
+using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model;
 using DevExpress.ExpressApp.Utils;
@@ -7,7 +8,7 @@ using DevExpress.Persistent.Validation;
 using System;
 using System.ComponentModel;
 
-namespace Accounting.Module.BusinessObjects.Parameters
+namespace Accounting.Module.Controllers.Parameters
 {
     [DomainComponent]
     [ModelDefault("Caption", "Pay Invoice")]

@@ -1,6 +1,6 @@
 ﻿using Accounting.Module.BusinessObjects;
-using Accounting.Module.BusinessObjects.Parameters;
 using Accounting.Module.Controllers;
+using Accounting.Module.Controllers.Parameters;
 using Accounting.Module.Model;
 using Accounting.Module.Reports;
 using Accounting.Module.Reports.Parameters;

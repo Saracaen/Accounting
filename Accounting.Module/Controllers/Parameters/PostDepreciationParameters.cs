@@ -1,8 +1,9 @@
-﻿using DevExpress.ExpressApp.DC;
+﻿using Accounting.Module.BusinessObjects;
+using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Validation;
 
-namespace Accounting.Module.BusinessObjects.Parameters
+namespace Accounting.Module.Controllers.Parameters
 {
     [DomainComponent]
     [ModelDefault("Caption", "Post Depreciation")]

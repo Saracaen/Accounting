@@ -1,5 +1,5 @@
 ﻿using Accounting.Module.BusinessObjects;
-using Accounting.Module.BusinessObjects.Parameters;
+using Accounting.Module.Controllers.Parameters;
 using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;

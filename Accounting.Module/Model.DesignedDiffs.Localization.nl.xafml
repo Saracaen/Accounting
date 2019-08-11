@@ -186,57 +186,6 @@
     </Class>
     <Class Name="Accounting.Module.BusinessObjects.LiabilityAccount" Caption="Passivarekening" />
     <Class Name="Accounting.Module.BusinessObjects.OutputVatAccount" Caption="Belastingsrekening" />
-    <Class Name="Accounting.Module.BusinessObjects.Parameters.ClosePeriodParameters" Caption="Periode afsluiten">
-      <OwnMembers>
-        <Member Name="ClosureDate" Caption="Afsluitingsdatum" />
-        <Member Name="Description" Caption="Omschrijving" />
-      </OwnMembers>
-    </Class>
-    <Class Name="Accounting.Module.BusinessObjects.Parameters.CorrectPurchaseInvoiceParameters" Caption="Inkoopfactuur corrigeren">
-      <OwnMembers>
-        <Member Name="Account" Caption="Grootboekrekening" />
-        <Member Name="Amount" Caption="Bedrag" />
-        <Member Name="Description" Caption="Omschrijving" />
-        <Member Name="Vat" Caption="BTW" />
-        <Member Name="VatRate" Caption="BTW-tarief" />
-      </OwnMembers>
-    </Class>
-    <Class Name="Accounting.Module.BusinessObjects.Parameters.NewDepreciationParameters" Caption="Nieuwe afschrijving">
-      <OwnMembers>
-        <Member Name="DepreciationTime" Caption="Afschrijftijd" />
-        <Member Name="Description" Caption="Omschrijving" />
-        <Member Name="ResidualValue" Caption="Restwaarde" />
-        <Member Name="StartDate" Caption="Startdatum" />
-        <Member Name="Value" Caption="Waarde" />
-      </OwnMembers>
-    </Class>
-    <Class Name="Accounting.Module.BusinessObjects.Parameters.NewVatDeclarationParameters" Caption="Nieuwe BTW-aangifte">
-      <OwnMembers>
-        <Member Name="Period" Caption="Tijdvak" />
-        <Member Name="Year" Caption="Jaar" />
-      </OwnMembers>
-    </Class>
-    <Class Name="Accounting.Module.BusinessObjects.Parameters.PayInvoiceParameters" Caption="Factuur betalen">
-      <OwnMembers>
-        <Member Name="Account" Caption="Grootboekrekening" />
-        <Member Name="Amount" Caption="Bedrag" />
-        <Member Name="Date" Caption="Datum" />
-      </OwnMembers>
-    </Class>
-    <Class Name="Accounting.Module.BusinessObjects.Parameters.PayVatDeclarationParameters" Caption="BTW-aangifte betalen">
-      <OwnMembers>
-        <Member Name="Account" Caption="Grootboekrekening" />
-        <Member Name="Amount" Caption="Bedrag" />
-        <Member Name="Date" Caption="Datum" />
-        <Member Name="Description" Caption="Omschrijving" />
-      </OwnMembers>
-    </Class>
-    <Class Name="Accounting.Module.BusinessObjects.Parameters.PostDepreciationParameters" Caption="Afschrijving boeken">
-      <OwnMembers>
-        <Member Name="AssetAccount" Caption="Activarekening" />
-        <Member Name="DepreciationExpenseAccount" Caption="Afschrijvingskostenrekening" />
-      </OwnMembers>
-    </Class>
     <Class Name="Accounting.Module.BusinessObjects.Party">
       <OwnMembers>
         <Member Name="AccountNumber" Caption="Rekeningnummer" />
@@ -310,6 +259,57 @@
       </OwnMembers>
     </Class>
     <Class Name="Accounting.Module.BusinessObjects.VatToPayAccount" Caption="Te betalen BTW-rekening" />
+    <Class Name="Accounting.Module.Controllers.Parameters.ClosePeriodParameters" Caption="Periode afsluiten">
+      <OwnMembers>
+        <Member Name="ClosureDate" Caption="Afsluitingsdatum" />
+        <Member Name="Description" Caption="Omschrijving" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.Controllers.Parameters.CorrectPurchaseInvoiceParameters" Caption="Inkoopfactuur corrigeren">
+      <OwnMembers>
+        <Member Name="Account" Caption="Grootboekrekening" />
+        <Member Name="Amount" Caption="Bedrag" />
+        <Member Name="Description" Caption="Omschrijving" />
+        <Member Name="Vat" Caption="BTW" />
+        <Member Name="VatRate" Caption="BTW-tarief" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.Controllers.Parameters.NewDepreciationParameters" Caption="Nieuwe afschrijving">
+      <OwnMembers>
+        <Member Name="DepreciationTime" Caption="Afschrijftijd" />
+        <Member Name="Description" Caption="Omschrijving" />
+        <Member Name="ResidualValue" Caption="Restwaarde" />
+        <Member Name="StartDate" Caption="Startdatum" />
+        <Member Name="Value" Caption="Waarde" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.Controllers.Parameters.NewVatDeclarationParameters" Caption="Nieuwe BTW-aangifte">
+      <OwnMembers>
+        <Member Name="Period" Caption="Tijdvak" />
+        <Member Name="Year" Caption="Jaar" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.Controllers.Parameters.PayInvoiceParameters" Caption="Factuur betalen">
+      <OwnMembers>
+        <Member Name="Account" Caption="Grootboekrekening" />
+        <Member Name="Amount" Caption="Bedrag" />
+        <Member Name="Date" Caption="Datum" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.Controllers.Parameters.PayVatDeclarationParameters" Caption="BTW-aangifte betalen">
+      <OwnMembers>
+        <Member Name="Account" Caption="Grootboekrekening" />
+        <Member Name="Amount" Caption="Bedrag" />
+        <Member Name="Date" Caption="Datum" />
+        <Member Name="Description" Caption="Omschrijving" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.Controllers.Parameters.PostDepreciationParameters" Caption="Afschrijving boeken">
+      <OwnMembers>
+        <Member Name="AssetAccount" Caption="Activarekening" />
+        <Member Name="DepreciationExpenseAccount" Caption="Afschrijvingskostenrekening" />
+      </OwnMembers>
+    </Class>
     <Class Name="Accounting.Module.Reports.Parameters.ProfitAndLossStatementParameters" Caption="Winst- en verliesrekening">
       <OwnMembers>
         <Member Name="EndDate" Caption="Einddatum" />
