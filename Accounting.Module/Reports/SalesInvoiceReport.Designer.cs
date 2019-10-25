@@ -1045,7 +1045,7 @@
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;
             this.Scripts.OnBeforePrint = "SalesInvoiceReport_BeforePrint";
             this.ScriptsSource = resources.GetString("$this.ScriptsSource");
-            this.Version = "19.1";
+            this.Version = "19.2";
             ((System.ComponentModel.ISupportInitialize)(this.table4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.table6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).EndInit();
