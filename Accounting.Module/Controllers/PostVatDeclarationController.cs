@@ -19,7 +19,7 @@ namespace Accounting.Module.Controllers
             PostVatDeclarationAction.Caption = "Post";
             PostVatDeclarationAction.Execute += PostVatDeclarationAction_Execute;
             PostVatDeclarationAction.ImageName = "Action_LinkUnlink_Link";
-            PostVatDeclarationAction.SelectionDependencyType = SelectionDependencyType.RequireSingleObject;
+            PostVatDeclarationAction.SelectionDependencyType = SelectionDependencyType.RequireMultipleObjects;
             PostVatDeclarationAction.TargetObjectsCriteria = "Not IsPosted";
 
             UnpostVatDeclarationAction = new SimpleAction(this, "UnpostVatDeclaration", PredefinedCategory.RecordEdit);
@@ -27,7 +27,7 @@ namespace Accounting.Module.Controllers
             UnpostVatDeclarationAction.ConfirmationMessage = "You are about to unpost the selected VAT declaration(s). Do you want to proceed?";
             UnpostVatDeclarationAction.Execute += UnpostVatDeclarationAction_Execute;
             UnpostVatDeclarationAction.ImageName = "Action_LinkUnlink_Unlink";
-            UnpostVatDeclarationAction.SelectionDependencyType = SelectionDependencyType.RequireSingleObject;
+            UnpostVatDeclarationAction.SelectionDependencyType = SelectionDependencyType.RequireMultipleObjects;
             UnpostVatDeclarationAction.TargetObjectsCriteria = "IsPosted";
 
             RegisterActions(PostVatDeclarationAction, UnpostVatDeclarationAction);
@@ -50,29 +50,32 @@ namespace Accounting.Module.Controllers
 
         private void PostVatDeclarationAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            var journalEntry = ObjectSpace.CreateObject<JournalEntry>();
-            journalEntry.Date = VatDeclarationHelper.GetLastDayOfPeriod(ViewCurrentObject.Year, ViewCurrentObject.Period);
-            journalEntry.Description = string.Format(CaptionHelper.GetLocalizedText("Texts", "PostVatDeclaration"), CaptionHelper.GetDisplayText(ViewCurrentObject.Period), ViewCurrentObject.Year);
-            journalEntry.Item = ViewCurrentObject;
-            journalEntry.Type = JournalEntryType.Posting;
-
-            var firstDayOfPeriod = VatDeclarationHelper.GetFirstDayOfPeriod(ViewCurrentObject.Year, ViewCurrentObject.Period);
-            var lastDayOfPeriod = VatDeclarationHelper.GetLastDayOfPeriod(ViewCurrentObject.Year, ViewCurrentObject.Period);
-            var criteria = CriteriaOperator.Parse("JournalEntry.Date >= ? And JournalEntry.Date <= ?", firstDayOfPeriod, lastDayOfPeriod);
-            var vatPaymentAccount = ObjectSpace.FindObject<VatPaymentAccount>(null);
-            var vatToPayAccount = ObjectSpace.FindObject<VatToPayAccount>(null);
-
-            foreach (var inputVatAccount in ObjectSpace.GetObjects<InputVatAccount>())
+            foreach (var vatDeclaration in ViewSelectedObjects)
             {
-                PostVatDeclaration(journalEntry, inputVatAccount, vatPaymentAccount, criteria);
-            }
+                var journalEntry = ObjectSpace.CreateObject<JournalEntry>();
+                journalEntry.Date = VatDeclarationHelper.GetLastDayOfPeriod(vatDeclaration.Year, vatDeclaration.Period);
+                journalEntry.Description = string.Format(CaptionHelper.GetLocalizedText("Texts", "PostVatDeclaration"), CaptionHelper.GetDisplayText(vatDeclaration.Period), vatDeclaration.Year);
+                journalEntry.Item = vatDeclaration;
+                journalEntry.Type = JournalEntryType.Posting;
 
-            foreach (var outputVatAccount in ObjectSpace.GetObjects<OutputVatAccount>())
-            {
-                PostVatDeclaration(journalEntry, outputVatAccount, vatPaymentAccount, criteria);
-            }
+                var firstDayOfPeriod = VatDeclarationHelper.GetFirstDayOfPeriod(vatDeclaration.Year, vatDeclaration.Period);
+                var lastDayOfPeriod = VatDeclarationHelper.GetLastDayOfPeriod(vatDeclaration.Year, vatDeclaration.Period);
+                var criteria = CriteriaOperator.Parse("JournalEntry.Date >= ? And JournalEntry.Date <= ?", firstDayOfPeriod, lastDayOfPeriod);
+                var vatPaymentAccount = ObjectSpace.FindObject<VatPaymentAccount>(null);
+                var vatToPayAccount = ObjectSpace.FindObject<VatToPayAccount>(null);
 
-            journalEntry.AddLines(vatPaymentAccount, vatToPayAccount, -ViewCurrentObject.Total);
+                foreach (var inputVatAccount in ObjectSpace.GetObjects<InputVatAccount>())
+                {
+                    PostVatDeclaration(journalEntry, inputVatAccount, vatPaymentAccount, criteria);
+                }
+
+                foreach (var outputVatAccount in ObjectSpace.GetObjects<OutputVatAccount>())
+                {
+                    PostVatDeclaration(journalEntry, outputVatAccount, vatPaymentAccount, criteria);
+                }
+
+                journalEntry.AddLines(vatPaymentAccount, vatToPayAccount, -vatDeclaration.Total);
+            }
 
             if (View is ListView)
             {
@@ -82,7 +85,10 @@ namespace Accounting.Module.Controllers
 
         private void UnpostVatDeclarationAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            ObjectSpace.Delete(ViewCurrentObject.JournalEntries);
+            foreach (var vatDeclaration in ViewSelectedObjects)
+            {
+                ObjectSpace.Delete(vatDeclaration.JournalEntries);
+            }
 
             if (View is ListView)
             {

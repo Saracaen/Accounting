@@ -20,7 +20,7 @@ namespace Accounting.Module.Controllers
             PostDepreciationAction.CustomizePopupWindowParams += PostDepreciationAction_CustomizePopupWindowParams;
             PostDepreciationAction.Execute += PostDepreciationAction_Execute;
             PostDepreciationAction.ImageName = "Action_LinkUnlink_Link";
-            PostDepreciationAction.SelectionDependencyType = SelectionDependencyType.RequireSingleObject;
+            PostDepreciationAction.SelectionDependencyType = SelectionDependencyType.RequireMultipleObjects;
             PostDepreciationAction.TargetObjectsCriteria = "Not IsPosted";
 
             UnpostDepreciationAction = new SimpleAction(this, "UnpostDepreciation", PredefinedCategory.RecordEdit);
@@ -28,7 +28,7 @@ namespace Accounting.Module.Controllers
             UnpostDepreciationAction.ConfirmationMessage = "You are about to unpost the selected depreciation(s). Do you want to proceed?";
             UnpostDepreciationAction.Execute += UnpostDepreciationAction_Execute;
             UnpostDepreciationAction.ImageName = "Action_LinkUnlink_Unlink";
-            UnpostDepreciationAction.SelectionDependencyType = SelectionDependencyType.RequireSingleObject;
+            UnpostDepreciationAction.SelectionDependencyType = SelectionDependencyType.RequireMultipleObjects;
             UnpostDepreciationAction.TargetObjectsCriteria = "IsPosted";
 
             RegisterActions(PostDepreciationAction, UnpostDepreciationAction);
@@ -56,18 +56,21 @@ namespace Accounting.Module.Controllers
             var parameters = (PostDepreciationParameters)e.PopupWindowViewCurrentObject;
             Validator.RuleSet.Validate(e.PopupWindowView.ObjectSpace, parameters, DefaultContexts.Save);
 
-            for (var i = 0; i < ViewCurrentObject.Lines.Count; i++)
+            foreach (var depreciation in ViewSelectedObjects)
             {
-                var journalEntry = ObjectSpace.CreateObject<JournalEntry>();
-                journalEntry.Date = ViewCurrentObject.Lines[i].Date;
-                journalEntry.Description = string.Format(CaptionHelper.GetLocalizedText("Texts", "PostDepreciation"), i + 1, ViewCurrentObject.Description);
-                journalEntry.Item = ViewCurrentObject;
-                journalEntry.Type = JournalEntryType.Depreciation;
+                for (var i = 0; i < depreciation.Lines.Count; i++)
+                {
+                    var journalEntry = ObjectSpace.CreateObject<JournalEntry>();
+                    journalEntry.Date = depreciation.Lines[i].Date;
+                    journalEntry.Description = string.Format(CaptionHelper.GetLocalizedText("Texts", "PostDepreciation"), i + 1, depreciation.Description);
+                    journalEntry.Item = depreciation;
+                    journalEntry.Type = JournalEntryType.Depreciation;
 
-                var assetAccount = ObjectSpace.GetObject(parameters.AssetAccount);
-                var depreciationExpenseAccount = ObjectSpace.GetObject(parameters.DepreciationExpenseAccount);
+                    var assetAccount = ObjectSpace.GetObject(parameters.AssetAccount);
+                    var depreciationExpenseAccount = ObjectSpace.GetObject(parameters.DepreciationExpenseAccount);
 
-                journalEntry.AddLines(assetAccount, depreciationExpenseAccount, -ViewCurrentObject.Lines[i].Amount);
+                    journalEntry.AddLines(assetAccount, depreciationExpenseAccount, -depreciation.Lines[i].Amount);
+                }
             }
 
             if (View is ListView)
@@ -78,7 +81,10 @@ namespace Accounting.Module.Controllers
 
         private void UnpostDepreciationAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            ObjectSpace.Delete(ViewCurrentObject.JournalEntries);
+            foreach (var depreciation in ViewSelectedObjects)
+            {
+                ObjectSpace.Delete(depreciation.JournalEntries);
+            }
 
             if (View is ListView)
             {

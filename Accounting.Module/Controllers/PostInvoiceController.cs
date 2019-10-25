@@ -18,7 +18,7 @@ namespace Accounting.Module.Controllers
             PostInvoiceAction.Caption = "Post";
             PostInvoiceAction.Execute += PostInvoiceAction_Execute;
             PostInvoiceAction.ImageName = "Action_LinkUnlink_Link";
-            PostInvoiceAction.SelectionDependencyType = SelectionDependencyType.RequireSingleObject;
+            PostInvoiceAction.SelectionDependencyType = SelectionDependencyType.RequireMultipleObjects;
             PostInvoiceAction.TargetObjectsCriteria = "Not IsPosted And Not IsNullOrEmpty(Trim(Identifier))";
 
             UnpostInvoiceAction = new SimpleAction(this, "UnpostInvoice", PredefinedCategory.RecordEdit);
@@ -26,7 +26,7 @@ namespace Accounting.Module.Controllers
             UnpostInvoiceAction.ConfirmationMessage = "You are about to unpost the selected invoice(s). Do you want to proceed?";
             UnpostInvoiceAction.Execute += UnpostInvoiceAction_Execute;
             UnpostInvoiceAction.ImageName = "Action_LinkUnlink_Unlink";
-            UnpostInvoiceAction.SelectionDependencyType = SelectionDependencyType.RequireSingleObject;
+            UnpostInvoiceAction.SelectionDependencyType = SelectionDependencyType.RequireMultipleObjects;
             UnpostInvoiceAction.TargetObjectsCriteria = "IsPosted";
 
             RegisterActions(PostInvoiceAction, UnpostInvoiceAction);
@@ -36,24 +36,24 @@ namespace Accounting.Module.Controllers
 
         public SimpleAction UnpostInvoiceAction { get; set; }
 
-        private string GetJournalEntryDescription()
+        private string GetJournalEntryDescription(Invoice invoice)
         {
-            switch (ViewCurrentObject.Type)
+            switch (invoice.Type)
             {
                 case InvoiceType.CreditNote:
-                    return string.Format(CaptionHelper.GetLocalizedText("Texts", "PostCreditNote"), ViewCurrentObject.Identifier);
+                    return string.Format(CaptionHelper.GetLocalizedText("Texts", "PostCreditNote"), invoice.Identifier);
 
                 case InvoiceType.Invoice:
-                    return string.Format(CaptionHelper.GetLocalizedText("Texts", $"Post{ViewCurrentObject.GetType().Name}"), ViewCurrentObject.Identifier);
+                    return string.Format(CaptionHelper.GetLocalizedText("Texts", $"Post{invoice.GetType().Name}"), invoice.Identifier);
 
                 default:
                     throw new InvalidOperationException(CaptionHelper.GetLocalizedText(@"Exceptions\UserVisibleExceptions", "UnsupportedInvoiceType"));
             }
         }
 
-        private void PostInvoice(JournalEntry journalEntry, Account account)
+        private void PostInvoice(Invoice invoice, JournalEntry journalEntry, Account account)
         {
-            foreach (var invoiceLineGroup in ViewCurrentObject.Lines.Where(x => x.Account != null).GroupBy(x => x.Account))
+            foreach (var invoiceLineGroup in invoice.Lines.Where(x => x.Account != null).GroupBy(x => x.Account))
             {
                 if (invoiceLineGroup.Key is ExpenseAccount expenseAccount && expenseAccount.PercentageDeductible < 100)
                 {
@@ -69,12 +69,12 @@ namespace Accounting.Module.Controllers
             }
 
             var subTotal = journalEntry.Lines.Where(x => !Equals(x.Account, account)).Sum(x => x.Amount);
-            if (Math.Sign(ViewCurrentObject.SubTotal) * Math.Abs(subTotal) != ViewCurrentObject.SubTotal)
+            if (Math.Sign(invoice.SubTotal) * Math.Abs(subTotal) != invoice.SubTotal)
             {
-                journalEntry.AddLines(ObjectSpace.FindObject<RoundingDifferencesAccount>(null), account, ViewCurrentObject.SubTotal - subTotal);
+                journalEntry.AddLines(ObjectSpace.FindObject<RoundingDifferencesAccount>(null), account, invoice.SubTotal - subTotal);
             }
 
-            foreach (var invoiceLineGroup in ViewCurrentObject.Lines.Where(x => x.VatRate != null).GroupBy(x => x.VatRate))
+            foreach (var invoiceLineGroup in invoice.Lines.Where(x => x.VatRate != null).GroupBy(x => x.VatRate))
             {
                 var vatRate = (decimal)invoiceLineGroup.Key.Rate / 100;
 
@@ -92,24 +92,27 @@ namespace Accounting.Module.Controllers
 
         private void PostInvoiceAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            var journalEntry = ObjectSpace.CreateObject<JournalEntry>();
-            journalEntry.Date = ViewCurrentObject.Date;
-            journalEntry.Description = GetJournalEntryDescription();
-            journalEntry.Item = ViewCurrentObject;
-            journalEntry.Type = JournalEntryType.Posting;
-
-            switch (ViewCurrentObject)
+            foreach (var invoice in ViewSelectedObjects)
             {
-                case PurchaseInvoice _:
-                    PostInvoice(journalEntry, ObjectSpace.FindObject<SupplierAccount>(null));
-                    break;
+                var journalEntry = ObjectSpace.CreateObject<JournalEntry>();
+                journalEntry.Date = invoice.Date;
+                journalEntry.Description = GetJournalEntryDescription(invoice);
+                journalEntry.Item = invoice;
+                journalEntry.Type = JournalEntryType.Posting;
 
-                case SalesInvoice _:
-                    PostInvoice(journalEntry, ObjectSpace.FindObject<CustomerAccount>(null));
-                    break;
+                switch (invoice)
+                {
+                    case PurchaseInvoice _:
+                        PostInvoice(invoice, journalEntry, ObjectSpace.FindObject<SupplierAccount>(null));
+                        break;
 
-                default:
-                    throw new InvalidOperationException(CaptionHelper.GetLocalizedText(@"Exceptions\UserVisibleExceptions", "UnsupportedInvoiceClass"));
+                    case SalesInvoice _:
+                        PostInvoice(invoice, journalEntry, ObjectSpace.FindObject<CustomerAccount>(null));
+                        break;
+
+                    default:
+                        throw new InvalidOperationException(CaptionHelper.GetLocalizedText(@"Exceptions\UserVisibleExceptions", "UnsupportedInvoiceClass"));
+                }
             }
 
             if (View is ListView)
@@ -120,7 +123,10 @@ namespace Accounting.Module.Controllers
 
         private void UnpostInvoiceAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            ObjectSpace.Delete(ViewCurrentObject.JournalEntries);
+            foreach (var invoice in ViewSelectedObjects)
+            {
+                ObjectSpace.Delete(invoice.JournalEntries);
+            }
 
             if (View is ListView)
             {
