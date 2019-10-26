@@ -47,13 +47,12 @@ namespace Accounting.Module.Controllers
         private void PayInvoiceAction_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e)
         {
             var objectSpace = Application.CreateObjectSpace();
-            var parameters = new PayInvoiceParameters();
+            var parameters = new PayInvoiceParameters(ViewCurrentObject);
             var detailView = Application.CreateDetailView(objectSpace, parameters);
 
             parameters.Account = objectSpace.FindObject<BankAccount>(null);
             parameters.Amount = ViewCurrentObject.DueAmount;
             parameters.Description = GetJournalEntryDescription();
-            parameters.Invoice = ViewCurrentObject;
 
             detailView.ViewEditMode = ViewEditMode.Edit;
             e.View = detailView;
