@@ -8,11 +8,17 @@ namespace Accounting.Module.Utils
     {
         public static DateTime GetDateTimeValue(object currentObject, object value, string valueExpression)
         {
+            if (value == null)
+                throw new ArgumentNullException(nameof(value));
+
             return Convert.ToDateTime(GetValue(currentObject, value, valueExpression));
         }
 
         public static decimal GetDecimalValue(object currentObject, object value, string valueExpression)
         {
+            if (value == null)
+                throw new ArgumentNullException(nameof(value));
+
             return Convert.ToDecimal(GetValue(currentObject, value, valueExpression));
         }
 
