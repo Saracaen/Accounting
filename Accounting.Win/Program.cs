@@ -25,9 +25,6 @@ namespace Accounting.Win
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            WindowsFormsSettings.ScrollUIMode = ScrollUIMode.Fluent;
-            WindowsFormsSettings.ForceDirectXPaint();
-
             Tracing.Initialize();
 
             using (var winApplication = new AccountingWindowsFormsApplication())
