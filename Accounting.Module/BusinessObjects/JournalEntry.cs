@@ -1,4 +1,5 @@
 ﻿using DevExpress.ExpressApp.ConditionalAppearance;
+using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
@@ -10,7 +11,9 @@ using System.Linq;
 
 namespace Accounting.Module.BusinessObjects
 {
+    [Appearance("Delete", AppearanceItemType.Action, "Type <> 'Closure' And Type <> 'Entry'", TargetItems = "Delete", Enabled = false)]
     [Appearance("Enabled", "Type <> 'Entry'", TargetItems = "*", Enabled = false)]
+    [Appearance("New", AppearanceItemType.Action, "Type <> 'Closure' And Type <> 'Entry'", TargetItems = "New;SaveAndNew", Visibility = ViewItemVisibility.Hide)]
     [DefaultProperty("Description")]
     [ImageName("BO_Note")]
     [RuleCriteria("JournalEntry_Lines_Count_RuleCriteria", DefaultContexts.Save, "Lines.Count() > 1", "A journal entry must have at least two lines.")]
