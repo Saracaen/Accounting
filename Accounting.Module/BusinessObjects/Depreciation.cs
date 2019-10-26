@@ -10,6 +10,7 @@ namespace Accounting.Module.BusinessObjects
     [DefaultProperty("Description")]
     [ImageName("BO_Transition")]
     [RuleCriteria("Depreciation_Lines_RuleCriteria", DefaultContexts.Save, "Lines.Sum(Amount) = Value - ResidualValue", "The sum of the amount must be equal to the depreciable value.")]
+    [RuleCriteria("Depreciation_IsPosted_RuleCriteria", DefaultContexts.Delete, "Not IsPosted", "A depreciation must be unposted before it can be deleted.")]
     [VisibleInReports]
     public class Depreciation : JournalEntryItem
     {

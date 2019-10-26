@@ -12,7 +12,7 @@ namespace Accounting.Module.BusinessObjects
     [ImageName("BO_Audit_ChangeHistory")]
     [ModelDefault("Caption", "VAT Declaration")]
     [ModelDefault("ObjectCaptionFormat", "{0:Year} - {0:Period}")]
-    [RuleCriteria("VatDeclaration_JournalEntries_RuleCriteria", DefaultContexts.Delete, "Not IsPosted", "A VAT declaration must be unposted before it can be deleted.")]
+    [RuleCriteria("VatDeclaration_IsPosted_RuleCriteria", DefaultContexts.Delete, "Not IsPosted", "A VAT declaration must be unposted before it can be deleted.")]
     [VisibleInReports]
     public class VatDeclaration : JournalEntryItem
     {

@@ -629,8 +629,9 @@
       <RuleCriteria Id="Account_JournalEntryLines_RuleCriteria" CustomMessageTemplate="Grootboekrekeningen die deel uitmaken van boekingen kunnen niet worden verwijderd. Verwijder eerst de boeking, en verwijder dan pas de grootboekrekening." />
       <RuleCriteria Id="Account_VatRate_RuleCriteria" CustomMessageTemplate="Grootboekrekeningen die gebruikt worden in BTW-tarieven kunnen niet worden verwijderd. Wijzig eerst de BTW-tarieven, en verwijder dan pas de grootboekrekening." />
       <RuleCriteria Id="Customer_Invoices_RuleCriteria" CustomMessageTemplate="Klanten met facturen kunnen niet worden verwijderd. Verwijder eerst de facturen, en verwijder dan pas de klant." />
+      <RuleCriteria Id="Depreciation_IsPosted_RuleCriteria" CustomMessageTemplate="Een ingeboekte afschrijving kan niet worden verwijderd. Neem de boeking terug om de afschrijving te kunnen verwijderen." />
       <RuleCriteria Id="Depreciation_Lines_RuleCriteria" CustomMessageTemplate="De som van de bedragen moet gelijk zijn aan het af te schrijven bedrag." />
-      <RuleCriteria Id="Invoice_JournalEntries_RuleCriteria" CustomMessageTemplate="Een ingeboekte factuur kan niet worden verwijderd. Neem de boeking terug om de factuur te kunnen verwijderen." />
+      <RuleCriteria Id="Invoice_IsPosted_RuleCriteria" CustomMessageTemplate="Een ingeboekte factuur kan niet worden verwijderd. Neem de boeking terug om de factuur te kunnen verwijderen." />
       <RuleCriteria Id="Invoice_Lines_RuleCriteria" CustomMessageTemplate="Een factuur moet ten minste één geldige regel bevatten." />
       <RuleCriteria Id="JournalEntry_Lines_Count_RuleCriteria" CustomMessageTemplate="Een boeking moet ten minste twee regels bevatten." />
       <RuleCriteria Id="JournalEntry_Lines_Sum_RuleCriteria" CustomMessageTemplate="De som van alle boekingsregels moet nul zijn." />
@@ -638,7 +639,7 @@
       <RuleCriteria Id="PaymentTerm_Party_RuleCriteria" CustomMessageTemplate="Betalingstermijnen die gebruikt worden door partijen kunnen niet worden verwijderd. Wijzig eerst de partijen, en verwijder dan pas de betalingstermijn." />
       <RuleCriteria Id="ProfitAndLossStatementParameters_StartDateEndDate_RuleCriteria" CustomMessageTemplate="De einddatum moet groter dan of gelijk aan de startdatum zijn." />
       <RuleCriteria Id="Supplier_Invoices_RuleCriteria" CustomMessageTemplate="Leveranciers met facturen kunnen niet worden verwijderd. Verwijder eerst de facturen, en verwijder dan pas de leverancier." />
-      <RuleCriteria Id="VatDeclaration_JournalEntries_RuleCriteria" CustomMessageTemplate="Een ingeboekte BTW-aangifte kan niet worden verwijderd. Neem de boeking terug om de BTW-aangifte te kunnen verwijderen." />
+      <RuleCriteria Id="VatDeclaration_IsPosted_RuleCriteria" CustomMessageTemplate="Een ingeboekte BTW-aangifte kan niet worden verwijderd. Neem de boeking terug om de BTW-aangifte te kunnen verwijderen." />
       <RuleCriteria Id="VatRate_ExpenseAccount_RuleCriteria" CustomMessageTemplate="BTW-tarieven die gebruikt worden in kostenrekeningen kunnen niet worden verwijderd. Wijzig eerst de kostenrekeningen, en verwijder dan pas het BTW-tarief." />
       <RuleCriteria Id="VatRate_IncomeAccount_RuleCriteria" CustomMessageTemplate="BTW-tarieven die gebruikt worden in opbrengstenrekeningen kunnen niet worden verwijderd. Wijzig eerst de opbrengstenrekeningen, en verwijder dan pas het BTW-tarief." />
       <RuleCriteria Id="VatRate_InvoiceLine_RuleCriteria" CustomMessageTemplate="BTW-tarieven die gebruikt worden in factuurregels kunnen niet worden verwijderd. Wijzig eerst de factuurregels, en verwijder dan pas het BTW-tarief." />
