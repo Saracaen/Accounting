@@ -35,7 +35,7 @@ namespace Accounting.Module.Controllers.Parameters
                 switch (Invoice)
                 {
                     case PurchaseInvoice _:
-                        return CriteriaOperator.Parse("IsExactType(This, ?) Or IsExactType(This, ?) Or IsExactType(This, ?)", typeof(BankAccount).FullName, typeof(CashAccount).FullName, typeof(CreditCardAccount).FullName);
+                        return CriteriaOperator.Parse("IsExactType(This, ?) Or IsExactType(This, ?) Or IsExactType(This, ?) Or IsExactType(This, ?)", typeof(BankAccount).FullName, typeof(CashAccount).FullName, typeof(CreditCardAccount).FullName, typeof(PrivateAccount).FullName);
 
                     case SalesInvoice _:
                         return CriteriaOperator.Parse("IsExactType(This, ?) Or IsExactType(This, ?)", typeof(BankAccount).FullName, typeof(CashAccount).FullName);
