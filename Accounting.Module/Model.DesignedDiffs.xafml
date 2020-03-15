@@ -772,6 +772,7 @@
               <LayoutItem Id="Date" Index="1" IsNewNode="True" />
               <LayoutItem Id="Customer" Index="2" IsNewNode="True" />
               <LayoutItem Id="Reference" Index="3" IsNewNode="True" />
+              <LayoutItem Id="Order" Index="4" IsNewNode="True" />
             </LayoutGroup>
             <LayoutGroup Id="SalesInvoice_col2" IsNewNode="True">
               <LayoutItem Id="PaymentTerm" Index="0" IsNewNode="True" />

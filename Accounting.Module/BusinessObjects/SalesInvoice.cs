@@ -23,6 +23,12 @@ namespace Accounting.Module.BusinessObjects
             set => SetCustomer(value);
         }
 
+        public string Order
+        {
+            get => GetPropertyValue<string>(nameof(Order));
+            set => SetPropertyValue(nameof(Order), value);
+        }
+
         private void SetCustomer(Customer value)
         {
             if (SetPropertyValue(nameof(Customer), value))
