@@ -26,7 +26,8 @@
       <Action Id="NewDepreciation" Caption="Nieuw" />
       <Action Id="NewVatDeclaration" Caption="Nieuw" />
       <Action Id="NextObject" Caption="Volgend record" />
-      <Action Id="PayInvoice" Caption="Betalen" />
+      <Action Id="PayPurchaseInvoice" Caption="Betalen" />
+      <Action Id="PaySalesInvoice" Caption="Betalen" />
       <Action Id="PayVatDeclaration" Caption="Betalen" />
       <Action Id="PostDepreciation" Caption="Boeken" />
       <Action Id="PostInvoice" Caption="Boeken" />
@@ -289,7 +290,14 @@
         <Member Name="Year" Caption="Jaar" />
       </OwnMembers>
     </Class>
-    <Class Name="Accounting.Module.Controllers.Parameters.PayInvoiceParameters" Caption="Factuur betalen">
+    <Class Name="Accounting.Module.Controllers.Parameters.PayPurchaseInvoiceParameters" Caption="Inkoopfactuur betalen">
+      <OwnMembers>
+        <Member Name="Account" Caption="Grootboekrekening" />
+        <Member Name="Amount" Caption="Bedrag" />
+        <Member Name="Date" Caption="Datum" />
+      </OwnMembers>
+    </Class>
+    <Class Name="Accounting.Module.Controllers.Parameters.PaySalesInvoiceParameters" Caption="Verkoopfactuur betalen">
       <OwnMembers>
         <Member Name="Account" Caption="Grootboekrekening" />
         <Member Name="Amount" Caption="Bedrag" />

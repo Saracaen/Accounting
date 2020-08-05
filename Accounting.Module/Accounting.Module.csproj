@@ -118,7 +118,8 @@
     <Compile Include="Controllers\Parameters\CorrectPurchaseInvoiceParameters.cs" />
     <Compile Include="Controllers\Parameters\NewDepreciationParameters.cs" />
     <Compile Include="Controllers\Parameters\NewVatDeclarationParameters.cs" />
-    <Compile Include="Controllers\Parameters\PayInvoiceParameters.cs" />
+    <Compile Include="Controllers\Parameters\PayPurchaseInvoiceParameters.cs" />
+    <Compile Include="Controllers\Parameters\PaySalesInvoiceParameters.cs" />
     <Compile Include="Controllers\Parameters\PayVatDeclarationParameters.cs" />
     <Compile Include="Controllers\Parameters\PostDepreciationParameters.cs" />
     <Compile Include="BusinessObjects\Party.cs" />
@@ -157,7 +158,8 @@
     <Compile Include="Controllers\GenerateIdentifierController.cs" />
     <Compile Include="Controllers\NewDepreciationController.cs" />
     <Compile Include="Controllers\NewVatDeclarationController.cs" />
-    <Compile Include="Controllers\PayInvoiceController.cs" />
+    <Compile Include="Controllers\PayPurchaseInvoiceController.cs" />
+    <Compile Include="Controllers\PaySalesInvoiceController.cs" />
     <Compile Include="Controllers\PayVatDeclarationController.cs" />
     <Compile Include="Controllers\PostDepreciationController.cs" />
     <Compile Include="Controllers\PostInvoiceController.cs" />

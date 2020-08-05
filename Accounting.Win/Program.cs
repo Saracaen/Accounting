@@ -2,7 +2,6 @@
 using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.SystemModule;
 using DevExpress.Persistent.Base;
-using DevExpress.XtraEditors;
 using System;
 using System.Configuration;
 using System.Diagnostics;

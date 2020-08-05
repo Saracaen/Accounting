@@ -12,7 +12,8 @@
         <ActionLink ActionId="UnpostDepreciation" Index="1" />
         <ActionLink ActionId="UnpostInvoice" Index="1" />
         <ActionLink ActionId="UnpostVatDeclaration" Index="1" />
-        <ActionLink ActionId="PayInvoice" Index="2" />
+        <ActionLink ActionId="PayPurchaseInvoice" Index="2" />
+        <ActionLink ActionId="PaySalesInvoice" Index="2" />
         <ActionLink ActionId="PayVatDeclaration" Index="2" />
         <ActionLink ActionId="CorrectPurchaseInvoice" Index="3" />
         <ActionLink ActionId="RestorePurchaseInvoice" Index="4" />
@@ -626,16 +627,6 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <DetailView Id="PayInvoiceParameters_DetailView" FreezeLayout="True">
-      <Layout IsNewNode="True" Removed="True">
-        <LayoutGroup Id="PayInvoiceParameters" IsNewNode="True">
-          <LayoutItem Id="Date" Index="0" IsNewNode="True" />
-          <LayoutItem Id="Description" Index="1" IsNewNode="True" />
-          <LayoutItem Id="Account" Index="2" IsNewNode="True" />
-          <LayoutItem Id="Amount" Index="3" IsNewNode="True" />
-        </LayoutGroup>
-      </Layout>
-    </DetailView>
     <DetailView Id="PaymentTerm_DetailView" FreezeLayout="True">
       <Layout IsNewNode="True" Removed="True">
         <LayoutGroup Id="PaymentTerm" Direction="Horizontal" IsNewNode="True">
@@ -659,6 +650,26 @@
         <ColumnInfo Id="Name" SortIndex="-1" SortOrder="None" Index="0" />
       </Columns>
     </ListView>
+    <DetailView Id="PayPurchaseInvoiceParameters_DetailView" FreezeLayout="True">
+      <Layout IsNewNode="True" Removed="True">
+        <LayoutGroup Id="PayPurchaseInvoiceParameters" IsNewNode="True">
+          <LayoutItem Id="Date" Index="0" IsNewNode="True" />
+          <LayoutItem Id="Description" Index="1" IsNewNode="True" />
+          <LayoutItem Id="Account" Index="2" IsNewNode="True" />
+          <LayoutItem Id="Amount" Index="3" IsNewNode="True" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="PaySalesInvoiceParameters_DetailView" FreezeLayout="True">
+      <Layout IsNewNode="True" Removed="True">
+        <LayoutGroup Id="PaySalesInvoiceParameters" IsNewNode="True">
+          <LayoutItem Id="Date" Index="0" IsNewNode="True" />
+          <LayoutItem Id="Description" Index="1" IsNewNode="True" />
+          <LayoutItem Id="Account" Index="2" IsNewNode="True" />
+          <LayoutItem Id="Amount" Index="3" IsNewNode="True" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <DetailView Id="PayVatDeclarationParameters_DetailView" FreezeLayout="True">
       <Layout IsNewNode="True" Removed="True">
         <LayoutGroup Id="PayVatDeclarationParameters" IsNewNode="True">
