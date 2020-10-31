@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application VersionFormat="Versie {0}.{1}.{2}" ProtectedContentText="Beschermde inhoud" AboutInfoString="{0:ProductName}&lt;br&gt;{0:Version}&lt;br&gt;{0:Copyright}&lt;br&gt;{0:Description}">
+<Application VersionFormat="Versie {0}.{1}.{2}" AboutInfoString="{0:ProductName}&lt;br&gt;{0:Version}&lt;br&gt;{0:Copyright}&lt;br&gt;{0:Description}">
   <ActionDesign>
     <Actions>
       <Action Id="Cancel" Caption="Annuleren" />
