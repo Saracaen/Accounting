@@ -42,7 +42,7 @@ namespace Accounting.Module.Reports.Parameters
 
         protected override IObjectSpace CreateObjectSpace()
         {
-            return objectSpaceCreator.CreateObjectSpace(typeof(JournalEntryLine));
+            return this.objectSpaceCreator.CreateObjectSpace(typeof(JournalEntryLine));
         }
     }
 }
