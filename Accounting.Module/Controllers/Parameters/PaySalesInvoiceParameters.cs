@@ -31,7 +31,7 @@ namespace Accounting.Module.Controllers.Parameters
         public decimal Amount { get; set; }
 
         [RuleRequiredField("PaySalesInvoiceParameters_Date_RuleRequiredField", DefaultContexts.Save)]
-        public DateTime Date { get; set; } = DateTime.Today;
+        public DateTime Date { get; set; } = DateTime.UtcNow.Date;
 
         [Appearance("Description", "Invoice Is Null", Visibility = ViewItemVisibility.Hide)]
         [RuleRequiredField("PaySalesInvoiceParameters_Description_RuleRequiredField", DefaultContexts.Save, TargetCriteria = "Invoice Is Not Null")]

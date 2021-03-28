@@ -106,7 +106,7 @@ namespace Accounting.Module.BusinessObjects
         {
             base.AfterConstruction();
 
-            Date = DateTime.Today;
+            Date = DateTime.UtcNow.Date;
             Type = JournalEntryType.Entry;
         }
 

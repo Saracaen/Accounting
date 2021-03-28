@@ -23,7 +23,7 @@ namespace Accounting.Module.Controllers.Parameters
         public decimal ResidualValue { get; set; }
 
         [RuleRequiredField("NewDepreciationParameters_StartDate_RuleRequiredField", DefaultContexts.Save)]
-        public DateTime StartDate { get; set; } = DateTime.Today;
+        public DateTime StartDate { get; set; } = DateTime.UtcNow.Date;
 
         public DepreciationType Type { get; set; }
 

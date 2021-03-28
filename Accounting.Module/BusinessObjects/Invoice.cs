@@ -128,7 +128,7 @@ namespace Accounting.Module.BusinessObjects
         {
             base.AfterConstruction();
 
-            Date = DateTime.Today;
+            Date = DateTime.UtcNow.Date;
             PaymentTerm = Session.FindObject<Company>(null).PaymentTerm;
         }
 

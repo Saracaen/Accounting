@@ -17,7 +17,7 @@ namespace Accounting.Module.Controllers.Parameters
         public decimal Amount { get; set; }
 
         [RuleRequiredField("PayVatDeclarationParameters_Date_RuleRequiredField", DefaultContexts.Save)]
-        public DateTime Date { get; set; } = DateTime.Today;
+        public DateTime Date { get; set; } = DateTime.UtcNow.Date;
 
         [RuleRequiredField("PayVatDeclarationParameters_Description_RuleRequiredField", DefaultContexts.Save)]
         public string Description { get; set; }
